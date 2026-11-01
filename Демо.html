@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2310395c'/%3E%3Cpath d='M4 11V5l4 4 4-4v6' stroke='%235cc9a8' stroke-width='1.8' fill='none'/%3E%3C/svg%3E">
+<title>Рынок клеёв-расплавов для матрасов — аналитический дашборд</title>
+<style>
+:root{
+  --bg:#eef2f7;--card:#fff;--ink:#16202b;--muted:#5f6f82;--line:#dce4ee;
+  --navy:#10395c;--navy-2:#0a2742;--accent:#1a6f9e;--accent-2:#2b93c4;
+  --teal:#15836f;--gold:#c08a2e;--red:#b94a4a;--green:#2c8a5a;
+  --soft:#f6f9fc;--soft-2:#eaf1f8;--shadow:0 2px 12px rgba(16,57,92,.07);
+  --bar:rgba(43,147,196,.20);--radius:12px;
+}
+html[data-theme=dark]{
+  --bg:#0b1118;--card:#131b24;--ink:#e7edf4;--muted:#9aa9bb;--line:#253241;
+  --navy:#6fb3dc;--navy-2:#0a2742;--accent:#5aa9d6;--accent-2:#7cc4ea;
+  --teal:#4fc3a1;--gold:#e0a94a;--red:#f07b7b;--green:#5cc98d;
+  --soft:#17212c;--soft-2:#1b2836;--shadow:0 2px 12px rgba(0,0,0,.35);
+  --bar:rgba(90,169,214,.22);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Segoe UI",Calibri,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-weight:700}
+a{color:var(--accent)}
+button{font:inherit}
+
+/* ---------- шапка ---------- */
+.hero{background:radial-gradient(1100px 380px at 82% -30%,rgba(43,147,196,.38),transparent 62%),linear-gradient(135deg,#0a2742,#10395c 58%,#14506f);color:#fff;padding:24px 0 22px}
+.hero-in{max-width:1320px;margin:0 auto;padding:0 24px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center}
+.brand-mark{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#2b93c4,#15836f);display:grid;place-items:center;font-weight:800;font-size:21px;color:#fff;box-shadow:0 5px 16px rgba(0,0,0,.28)}
+.brand-name{font-weight:700;letter-spacing:.14em;font-size:12.5px}
+.brand-sub{font-size:11px;color:rgba(255,255,255,.62);letter-spacing:.02em}
+.hero-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.demo-badge{background:rgba(192,138,46,.16);border:1px solid rgba(224,169,74,.55);color:#f0c987;padding:4px 10px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.09em}
+.hero h1{font-size:31px;line-height:1.18;margin:18px 0 8px;letter-spacing:-.012em}
+.hero-sub{max-width:930px;color:rgba(255,255,255,.78);font-size:14.5px;margin:0}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:rgba(255,255,255,.6)}
+.hero-meta b{color:#fff;font-weight:600}
+
+/* ---------- вкладки ---------- */
+.tabs{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(16,57,92,.04)}
+.tabs-in{max-width:1320px;margin:0 auto;padding:8px 24px;display:flex;gap:4px;overflow-x:auto}
+.tabs a{white-space:nowrap;padding:7px 13px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+.tabs a:hover{background:var(--soft-2);color:var(--accent)}
+.tabs a.active{background:var(--navy);color:#fff}
+html[data-theme=dark] .tabs a.active{background:var(--accent);color:#0b1118}
+
+/* ---------- каркас ---------- */
+main{max-width:1320px;margin:0 auto;padding:8px 24px 48px}
+.section{padding-top:20px;scroll-margin-top:64px}
+.section-head{margin:8px 0 16px}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+h2{font-size:25px;margin:4px 0 6px;color:var(--ink);letter-spacing:-.012em}
+.lead{color:var(--muted);margin:0;max-width:1020px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden}
+.panel h3{font-size:15px;margin-bottom:10px}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.ph h3{margin:0}
+.panel.accent{border-color:var(--accent);background:linear-gradient(180deg,var(--soft),var(--card))}
+.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+.grid2.even{grid-template-columns:1fr 1fr}
+.grid2 .panel{margin-bottom:16px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 15px}
+.card h4{margin:0 0 6px;font-size:13px;color:var(--accent)}
+.card p{margin:0;font-size:12.5px;color:var(--muted)}
+.card .big{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:2px}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:10px;padding:13px 15px;box-shadow:var(--shadow)}
+.kpi.teal{border-top-color:var(--teal)}
+.kpi.gold{border-top-color:var(--gold)}
+.kpi.red{border-top-color:var(--red)}
+.kpi .v{font-size:25px;font-weight:750;color:var(--ink);line-height:1.15;letter-spacing:-.02em}
+.kpi .l{color:var(--muted);font-size:12px;margin-top:3px;font-weight:600}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px}
+.delta{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:999px;margin-top:6px}
+.delta.down{background:rgba(185,74,74,.12);color:var(--red)}
+.delta.up{background:rgba(44,138,90,.12);color:var(--green)}
+.delta.flat{background:var(--soft-2);color:var(--muted)}
+
+/* ---------- выноски ---------- */
+.callout{border-radius:10px;padding:13px 16px;margin:0 0 16px;font-size:13px;border-left:4px solid var(--accent);background:var(--soft)}
+.callout b{color:var(--ink)}
+.callout.warn{border-left-color:var(--gold);background:rgba(192,138,46,.09)}
+.callout.danger{border-left-color:var(--red);background:rgba(185,74,74,.08)}
+.callout .tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-right:8px;color:var(--gold)}
+.callout.danger .tag{color:var(--red)}
+.note{font-size:12px;color:var(--muted);margin:8px 0 0}
+.hint{font-size:11.5px;color:var(--muted);font-weight:500}
+
+/* ---------- графики ---------- */
+.chart svg{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-size:11px}
+.chart .lg{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-right:14px}
+.chart .lg i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.chart .legend{margin-top:6px;display:flex;flex-wrap:wrap}
+.donut{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.donut-svg{position:relative;width:180px;height:180px;flex:0 0 180px}
+.donut-svg svg{width:180px;height:180px}
+.donut-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.donut-c b{font-size:19px;color:var(--ink)}
+.donut-c span{font-size:10.5px;color:var(--muted)}
+.legend-col{display:flex;flex-direction:column;gap:6px;font-size:12.5px;min-width:200px}
+.lg-row{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center}
+.lg-row i{width:10px;height:10px;border-radius:2px}
+.lg-row b{color:var(--ink)}
+.hb{display:grid;grid-template-columns:minmax(120px,38%) 1fr auto;gap:8px;align-items:center;margin-bottom:6px;font-size:12.5px}
+.hb .lb{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .tr{background:var(--soft-2);border-radius:4px;height:16px;overflow:hidden}
+.hb .fl{height:100%;background:var(--accent-2);border-radius:4px}
+.hb .vl{white-space:nowrap;color:var(--muted)}
+
+/* ---------- таблицы ---------- */
+.tbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.tbar .cnt{margin-left:auto;color:var(--muted);font-size:12px}
+.tw{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:8px}
+table.t{border-collapse:collapse;width:100%;font-size:12.5px}
+table.t th,table.t td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t thead th{background:var(--navy);color:#fff;text-align:left;position:sticky;top:0;z-index:2;white-space:nowrap;cursor:pointer;user-select:none;font-weight:600;height:34px;vertical-align:middle}
+html[data-theme=dark] table.t thead th{background:#223045;color:var(--ink)}
+table.t thead tr.fr th{top:34px;background:var(--soft);cursor:default;padding:3px 4px;z-index:2}
+table.t thead tr.fr input,table.t thead tr.fr select{width:100%;min-width:72px;font-size:11.5px;padding:3px 5px;max-width:none}
+table.t th .ar{opacity:.45;margin-left:4px;font-size:9px}
+table.t th.sorted .ar{opacity:1}
+table.t tbody tr:nth-child(even){background:var(--soft)}
+table.t tbody tr:hover{background:var(--bar)}
+table.t td.n,table.t th.n{text-align:right;white-space:nowrap}
+table.t td.pc{text-align:right;white-space:nowrap}
+table.t td.l{min-width:190px;max-width:430px}
+table.t tfoot td{font-weight:700;background:var(--soft);border-top:2px solid var(--line)}
+.pager{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:12.5px}
+.pager button{padding:3px 10px}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+select,input[type=text]{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 7px;font:inherit;max-width:260px}
+select:focus,input:focus{outline:2px solid var(--accent-2);outline-offset:-1px}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:6px 12px;cursor:pointer}
+.btn:hover{opacity:.9}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.light{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn.light:hover{background:rgba(255,255,255,.16)}
+html[data-theme=dark] .btn{background:var(--accent);color:#0b1118}
+html[data-theme=dark] .btn.ghost{background:transparent;color:var(--accent)}
+html[data-theme=dark] .btn.light{background:rgba(255,255,255,.1);color:#fff}
+
+/* ---------- статические таблицы ---------- */
+table.m{border-collapse:collapse;width:100%;font-size:12.5px}
+table.m th,table.m td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+table.m th{background:var(--soft);color:var(--ink);font-weight:600;font-size:11.5px;letter-spacing:.02em}
+table.m td.n{text-align:right;white-space:nowrap}
+table.m tr:last-child td{border-bottom:0}
+
+/* ---------- матрица ---------- */
+table.mx{border-collapse:separate;border-spacing:4px;width:100%;font-size:13px}
+table.mx th{font-size:11.5px;color:var(--muted);font-weight:600;padding:4px;text-align:center}
+table.mx th.rowh{text-align:left;white-space:nowrap}
+table.mx td{text-align:center;padding:11px 6px;border-radius:6px;font-weight:650;color:var(--ink)}
+table.mx td.base{outline:2px solid var(--teal);outline-offset:-2px}
+table.mx .mx-note{font-size:11px;color:var(--muted);font-weight:400;display:block;margin-top:2px}
+
+/* ---------- структура выпуска ---------- */
+.split-row{display:grid;grid-template-columns:64px 1fr 132px;gap:10px;align-items:center;margin:9px 0;font-size:12.5px}
+.split{display:flex;height:20px;border-radius:6px;overflow:hidden;background:var(--soft-2)}
+.split i{display:block;height:100%}
+.split .s1{background:var(--accent-2)}
+.split .s2{background:var(--teal)}
+.split-val{text-align:right;color:var(--muted);font-size:11.5px;line-height:1.3}
+.split-val b{color:var(--ink)}
+
+/* ---------- списки ---------- */
+ul.facts,ol.facts{margin:0;padding:0;list-style:none}
+ul.facts li{position:relative;padding-left:18px;margin-bottom:11px;font-size:13px}
+ul.facts li:last-child{margin-bottom:0}
+ul.facts li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--accent-2)}
+ol.facts{counter-reset:q;padding-left:0}
+ol.facts li{position:relative;padding-left:28px;margin-bottom:11px;font-size:13px;counter-increment:q}
+ol.facts li::before{content:counter(q);position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--soft-2);color:var(--accent);font-size:11px;font-weight:700;display:grid;place-items:center}
+.facts b{color:var(--ink)}
+
+/* ---------- сценарии ---------- */
+.scenario-panel{background:linear-gradient(180deg,var(--soft),var(--card))}
+.scenario-bar{display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.scenario-bar label{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--muted)}
+.seg{display:inline-flex;background:var(--soft-2);border:1px solid var(--line);border-radius:9px;padding:3px;gap:3px}
+.seg button{border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:7px;cursor:pointer;font-size:12.5px;font-weight:600}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(16,57,92,.12)}
+.seg button.on[data-s=low]{color:var(--red)}
+.seg button.on[data-s=base]{color:var(--teal)}
+.seg button.on[data-s=high]{color:var(--gold)}
+html[data-theme=dark] .seg button.on{background:#243244;box-shadow:none}
+
+/* ---------- прочее ---------- */
+footer{max-width:1320px;margin:0 auto;padding:8px 24px 34px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--soft-2);color:var(--muted)}
+.pill.fact{background:rgba(44,138,90,.12);color:var(--green)}
+.pill.calc{background:rgba(43,147,196,.14);color:var(--accent)}
+.pill.est{background:rgba(192,138,46,.15);color:var(--gold)}
+.pill.scen{background:rgba(185,74,74,.12);color:var(--red)}
+
+@media(max-width:1050px){
+  .grid2,.grid2.even{grid-template-columns:1fr}
+  .cards4{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:26px}
+}
+@media(max-width:760px){
+  .cards3{grid-template-columns:1fr}
+  .cards4{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .split-row{grid-template-columns:56px 1fr;gap:6px}
+  .split-val{grid-column:2;text-align:left}
+  .chart{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .chart svg{min-width:640px}
+  main{padding:6px 14px 34px}
+  .hero-in,.tabs-in,footer{padding-left:14px;padding-right:14px}
+}
+@media print{
+  body{background:#fff;color:#111;font-size:10.5pt}
+  .tabs,.hero-actions,.tbar,.pager,.btn{display:none!important}
+  .hero{background:#0a2742!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 0}
+  .panel,.kpi,.card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .section{page-break-before:auto}
+  .tw{max-height:none;overflow:visible}
+  .chart{overflow:visible}
+  .chart svg{min-width:0}
+  table.t thead th{position:static}
+  table.t thead tr.fr{display:none}
+}
+
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <div class="hero-top">
+      <div class="brand">
+        <span class="brand-mark">K</span>
+        <div>
+          <div class="brand-name">KLEY MARKET</div>
+          <div class="brand-sub">аналитика рынка клеёв-расплавов</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <span class="demo-badge">ДЕМО-ВЕРСИЯ</span>
+        <button class="btn light" id="printBtn" type="button">Печать / PDF</button>
+        <button class="btn light" id="themeBtn" type="button">Тёмная тема</button>
+      </div>
+    </div>
+    <h1>Рынок клеёв-расплавов для производства матрасов</h1>
+    <p class="hero-sub">Срез «матрасы × клей-расплав ЭВА»: выпуск, расход клея, сценарии потребления, импорт по HS 3506, поставщики и производители. Фактические данные 2017–2025, сценарии 2026–2028.</p>
+    <div class="hero-meta">
+      <span>Обновлено: <b id="built"></b></span>
+      <span>Периметр: <b>РФ · матрасы без основ</b></span>
+      <span>Статус сегмента ЭВА: <b>сценарная оценка</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="nav">
+  <div class="tabs-in">
+    <a href="#overview" class="active">Обзор</a>
+    <a href="#production">Производство матрасов</a>
+    <a href="#eva">Потребление ЭВА</a>
+    <a href="#import">Импорт HS 3506</a>
+    <a href="#players">Поставщики и производители</a>
+    <a href="#passport">Паспорт данных</a>
+    <a href="#conclusions">Выводы</a>
+  </div>
+</nav>
+
+<main>
+  <!-- ================= ОБЗОР ================= -->
+  <section class="section" id="overview">
+    <div class="section-head">
+      <div class="eyebrow">01 · Обзор</div>
+      <h2>Главное в одном экране</h2>
+      <p class="lead">Демонстрационный срез показывает, как связаны выпуск матрасов, расход клея и потребность в ЭВА. Все значения по сегменту ЭВА — расчётные: доли клеёв-расплавов и ЭВА в открытой статистике не публикуются.</p>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Важно</span>
+      <b>Сценарная оценка, а не фактический объём рынка.</b> Диапазон отражает неопределённость двух параметров — доли клеёв-расплавов и доли ЭВА внутри расплавов. Он не является доверительным интервалом и не заменяет статистику продаж.
+    </div>
+    <div class="kpis" id="kpisOverview"></div>
+    <div class="grid2">
+      <div class="panel">
+        <div class="ph"><h3>Выпуск матрасов: факт и сценарии</h3><span class="hint">млн шт</span></div>
+        <div id="chProduction"></div>
+      </div>
+      <div class="panel">
+        <h3>Импорт HS 3506, 2024</h3>
+        <div id="chImportDonut"></div>
+      </div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Что важно знать</h3>
+        <ul class="facts" id="facts"></ul>
+      </div>
+      <div class="panel">
+        <h3>Структура выпуска матрасов</h3>
+        <p class="note" style="margin-top:0">Расчётно, по опубликованным значениям беспружинных матрасов.</p>
+        <div id="structure"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПРОИЗВОДСТВО ================= -->
+  <section class="section" id="production">
+    <div class="section-head">
+      <div class="eyebrow">02 · Производство матрасов</div>
+      <h2>База спроса: сколько матрасов производится в РФ</h2>
+      <p class="lead">Основной ряд — матрасы без матрасных основ. Для каждого года выбрано одно значение; альтернативные публикации использованы для сверки, а не для усреднения.</p>
+    </div>
+    <div class="kpis" id="kpisProduction"></div>
+    <div class="panel">
+      <div class="ph"><h3>Динамика выпуска, млн шт</h3><span class="hint">2017–2025</span></div>
+      <div id="chProdBig"></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h3>Ряд выпуска и сценарии 2026–2028</h3><span class="hint">фильтры, поиск и экспорт</span></div>
+      <div id="tblProduction"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Пружинные и беспружинные матрасы</h3>
+        <div id="structure2"></div>
+        <p class="note">Спад 2025 года сконцентрирован в пружинном сегменте. Пружинные блоки имеют отдельный клеевой контур — это ограничение постоянной средней нормы на матрас.</p>
+      </div>
+      <div class="panel">
+        <h3>Средняя цена производителей</h3>
+        <div id="tblPrices"></div>
+        <p class="note">Цены приведены как отраслевой контекст. Они не используются для пересчёта выручки компаний в штуки или тонны.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПОТРЕБЛЕНИЕ ЭВА ================= -->
+  <section class="section" id="eva">
+    <div class="section-head">
+      <div class="eyebrow">03 · Потребление ЭВА</div>
+      <h2>Сценарии спроса на клей-расплав ЭВА</h2>
+      <p class="lead">Расчёт связывает выпуск матрасов с расходом клея. Переключайте сценарий и год, чтобы увидеть, как меняется оценка. Это инструмент для обсуждения допущений, а не статистика закупок.</p>
+    </div>
+    <div class="panel scenario-panel">
+      <div class="scenario-bar">
+        <div>
+          <div class="hint" style="margin-bottom:5px">Сценарий</div>
+          <div class="seg" id="scenarioSeg">
+            <button type="button" data-s="low">Низкий</button>
+            <button type="button" data-s="base" class="on">Базовый</button>
+            <button type="button" data-s="high">Высокий</button>
+          </div>
+        </div>
+        <label>Год
+          <select id="evaYear"></select>
+        </label>
+      </div>
+      <div class="kpis" id="kpisEva"></div>
+      <p class="note" id="evaNote"></p>
+    </div>
+    <div class="panel">
+      <div class="ph"><h3>Потребление ЭВА: история и сценарии</h3><span class="hint">тыс. т</span></div>
+      <div id="chEva"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Сценарные допущения</h3>
+        <div id="tblAssumptions"></div>
+        <p class="note">Норма расхода — отраслевой ориентир. Две продуктовые доли — сценарные допущения: открытой статистики по ним нет.</p>
+      </div>
+      <div class="panel">
+        <h3>География выпуска, 2024</h3>
+        <div id="geography"></div>
+        <p class="note">Распределение по федеральным округам — по доле выпуска. Потребление ЭВА по регионам не измерялось.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Чувствительность 2024: доля расплавов × доля ЭВА</h3>
+      <p class="lead" style="margin-bottom:12px">При фиксированной норме 1 кг на матрас. Показывает, насколько результат зависит от структуры клеёв, а не от выпуска.</p>
+      <div id="matrix"></div>
+      <p class="note">Базовый набор — 50% расплавов и 60% ЭВА внутри расплавов: 4,22 тыс. т. Крайние значения матрицы — 1,69 и 7,88 тыс. т.</p>
+    </div>
+  </section>
+
+  <!-- ================= ИМПОРТ ================= -->
+  <section class="section" id="import">
+    <div class="section-head">
+      <div class="eyebrow">04 · Импорт HS 3506</div>
+      <h2>Внешнеторговый контекст по клеям</h2>
+      <p class="lead">HS 3506 — широкая товарная позиция «клеи на основе каучуков и полимеров». Она шире клеёв-расплавов и используется как контекст, а не как драйвер матрасной модели.</p>
+    </div>
+    <div class="kpis" id="kpisImport"></div>
+    <div class="grid2 even">
+      <div class="panel">
+        <div class="ph"><h3>Импорт, тыс. т</h3><span class="hint">2017–2025</span></div>
+        <div id="chImport"></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h3>Средняя цена, $/кг</h3><span class="hint">по сопоставимым строкам</span></div>
+        <div id="chPrice"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h3>Страны-поставщики, 2024</h3><span class="hint">25 стран с весом</span></div>
+      <div id="tblTop"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Импорт РФ по HS 3506: оценка ООН</h3>
+        <div id="tblRu"></div>
+        <p class="note">РФ не подаёт детальную отчётность после 2021 года. Значения 2017–2021 — восстановленная оценка, а не декларация.</p>
+      </div>
+      <div class="panel">
+        <h3>Как читать таможенные данные</h3>
+        <ul class="facts" id="importNotes"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПОСТАВЩИКИ ================= -->
+  <section class="section" id="players">
+    <div class="section-head">
+      <div class="eyebrow">05 · Поставщики и производители</div>
+      <h2>Кто формирует предложение и спрос</h2>
+      <p class="lead">Перечень производителей клеёв и матрасов. Оценка потребления в тоннах по отдельным компаниям не выполняется: нет сопоставимых данных по выпуску и закупкам.</p>
+    </div>
+    <div class="cards3" id="supplierCards"></div>
+    <div class="panel" style="margin-top:16px">
+      <h3>Производители и поставщики клеёв для матрасов</h3>
+      <div id="tblSuppliers"></div>
+      <p class="note">Перечень качественный. Наличие продукта в линейке не означает долю рынка.</p>
+    </div>
+    <div class="panel">
+      <h3>Производители матрасов</h3>
+      <div id="tblPlayers"></div>
+      <p class="note">Выручка приведена как контекст масштаба компании. Она не пересчитывается в штуки или тонны клея: разные годы, периметры юрлиц и товарный микс.</p>
+    </div>
+  </section>
+
+  <!-- ================= ПАСПОРТ ================= -->
+  <section class="section" id="passport">
+    <div class="section-head">
+      <div class="eyebrow">06 · Паспорт данных</div>
+      <h2>Источники, статусы и ограничения</h2>
+      <p class="lead">Паспорт фиксирует, что в дашборде является фактом, что расчётом, а что сценарием. Это часть продукта: заказчик видит границы применимости каждой цифры.</p>
+    </div>
+    <div class="cards4" id="statusLegend"></div>
+    <div class="panel" style="margin-top:16px">
+      <h3>Источники и периоды</h3>
+      <div id="tblSources"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Ограничения</h3>
+        <ul class="facts" id="limits"></ul>
+      </div>
+      <div class="panel">
+        <h3>Что уточняем у заказчика</h3>
+        <ol class="facts" id="questions"></ol>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Глоссарий</h3>
+      <div id="glossary"></div>
+    </div>
+  </section>
+
+  <!-- ================= ВЫВОДЫ ================= -->
+  <section class="section" id="conclusions">
+    <div class="section-head">
+      <div class="eyebrow">07 · Выводы</div>
+      <h2>Что следует из данных</h2>
+      <p class="lead">Выводы разделены на то, что подтверждается данными, и то, что требует подтверждения заказчика.</p>
+    </div>
+    <div class="panel">
+      <h3>Ключевые выводы</h3>
+      <ul class="facts" id="conclusionsList"></ul>
+    </div>
+    <div class="panel">
+      <h3>Рекомендации для производителя клеёв</h3>
+      <ol class="facts" id="recommendations"></ol>
+    </div>
+    <div class="panel accent">
+      <h3>Что даст полное исследование</h3>
+      <div class="cards3" id="fullResearch"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Демонстрационная версия.</b> Данные 2017–2025, сценарии 2026–2028. Подготовлено по открытым источникам: производственная статистика, отраслевые публикации, таможенная статистика ООН. Результаты по сегменту ЭВА являются сценарной оценкой и не должны интерпретироваться как прямая статистическая отчётность.
+</footer>
+
+<script id="payload" type="application/json">{"meta":{"built":"01.11.2026","primary":2024,"years":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028],"history":[2017,2018,2019,2020,2021,2022,2023,2024,2025],"forecast":[2026,2027,2028]},"production":[{"year":2017,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":3.3149,"yoy":null,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2018,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":4.2,"yoy":26.7,"status":"факт","basis":"Alto Consulting Group","source":"Alto Consulting Group"},{"year":2019,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":5.76,"yoy":37.1,"status":"расчёт","basis":"Расчётная оценка по данным BusinesStat","source":"BusinesStat"},{"year":2020,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.78,"yoy":52.4,"status":"расчёт","basis":"Alto Consulting Group; сверка с BusinesStat","source":"Alto Consulting Group"},{"year":2021,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.745,"yoy":33.8,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2022,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.9,"yoy":1.3,"status":"факт","basis":"BusinesStat","source":"BusinesStat"},{"year":2023,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.914,"yoy":25.3,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2024,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.079,"yoy":-5.6,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2025,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.0,"yoy":-43.2,"status":"оценка","basis":"BusinesStat; сверка с АМДПР","source":"BusinesStat / АМДПР"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.6,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.4,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.22,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.82,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":6.859,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":9.261,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"}],"demand":[{"year":2017,"period":"history","case":"low","prod":3.3149,"all":1425.4,"hotmelt":427.6,"eva":171.0},{"year":2017,"period":"history","case":"base","prod":3.3149,"all":3314.9,"hotmelt":1657.5,"eva":994.5},{"year":2017,"period":"history","case":"high","prod":3.3149,"all":4773.5,"hotmelt":3341.4,"eva":2673.1},{"year":2018,"period":"history","case":"low","prod":4.2,"all":1806.0,"hotmelt":541.8,"eva":216.7},{"year":2018,"period":"history","case":"base","prod":4.2,"all":4200.0,"hotmelt":2100.0,"eva":1260.0},{"year":2018,"period":"history","case":"high","prod":4.2,"all":6048.0,"hotmelt":4233.6,"eva":3386.9},{"year":2019,"period":"history","case":"low","prod":5.76,"all":2476.8,"hotmelt":743.0,"eva":297.2},{"year":2019,"period":"history","case":"base","prod":5.76,"all":5760.0,"hotmelt":2880.0,"eva":1728.0},{"year":2019,"period":"history","case":"high","prod":5.76,"all":8294.4,"hotmelt":5806.1,"eva":4644.9},{"year":2020,"period":"history","case":"low","prod":8.78,"all":3775.4,"hotmelt":1132.6,"eva":453.0},{"year":2020,"period":"history","case":"base","prod":8.78,"all":8780.0,"hotmelt":4390.0,"eva":2634.0},{"year":2020,"period":"history","case":"high","prod":8.78,"all":12643.2,"hotmelt":8850.2,"eva":7080.2},{"year":2021,"period":"history","case":"low","prod":11.745,"all":5050.4,"hotmelt":1515.1,"eva":606.0},{"year":2021,"period":"history","case":"base","prod":11.745,"all":11745.0,"hotmelt":5872.5,"eva":3523.5},{"year":2021,"period":"history","case":"high","prod":11.745,"all":16912.8,"hotmelt":11839.0,"eva":9471.2},{"year":2022,"period":"history","case":"low","prod":11.9,"all":5117.0,"hotmelt":1535.1,"eva":614.0},{"year":2022,"period":"history","case":"base","prod":11.9,"all":11900.0,"hotmelt":5950.0,"eva":3570.0},{"year":2022,"period":"history","case":"high","prod":11.9,"all":17136.0,"hotmelt":11995.2,"eva":9596.2},{"year":2023,"period":"history","case":"low","prod":14.914,"all":6413.0,"hotmelt":1923.9,"eva":769.6},{"year":2023,"period":"history","case":"base","prod":14.914,"all":14914.0,"hotmelt":7457.0,"eva":4474.2},{"year":2023,"period":"history","case":"high","prod":14.914,"all":21476.2,"hotmelt":15033.3,"eva":12026.6},{"year":2024,"period":"history","case":"low","prod":14.079,"all":6054.0,"hotmelt":1816.2,"eva":726.5},{"year":2024,"period":"history","case":"base","prod":14.079,"all":14079.0,"hotmelt":7039.5,"eva":4223.7},{"year":2024,"period":"history","case":"high","prod":14.079,"all":20273.8,"hotmelt":14191.6,"eva":11353.3},{"year":2025,"period":"history","case":"low","prod":8.0,"all":3440.0,"hotmelt":1032.0,"eva":412.8},{"year":2025,"period":"history","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2025,"period":"history","case":"high","prod":8.0,"all":11520.0,"hotmelt":8064.0,"eva":6451.2},{"year":2026,"period":"forecast","case":"low","prod":7.6,"all":3268.0,"hotmelt":980.4,"eva":392.2},{"year":2026,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2026,"period":"forecast","case":"high","prod":8.4,"all":12096.0,"hotmelt":8467.2,"eva":6773.8},{"year":2027,"period":"forecast","case":"low","prod":7.22,"all":3104.6,"hotmelt":931.4,"eva":372.6},{"year":2027,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2027,"period":"forecast","case":"high","prod":8.82,"all":12700.8,"hotmelt":8890.6,"eva":7112.4},{"year":2028,"period":"forecast","case":"low","prod":6.859,"all":2949.4,"hotmelt":884.8,"eva":353.9},{"year":2028,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2028,"period":"forecast","case":"high","prod":9.261,"all":13335.8,"hotmelt":9335.1,"eva":7468.1}],"assumptions":[{"param":"Средний расход всех клеёв на матрас","low":0.43,"base":1.0,"high":1.44,"unit":"кг/шт","status":"вилка по открытым ориентирам","note":"Не является нормой именно ЭВА; требует подтверждения заказчика"},{"param":"Доля клеёв-расплавов в потреблении всех клеёв","low":30.0,"base":50.0,"high":70.0,"unit":"%","status":"сценарное допущение","note":"Открытая статистика отсутствует; это НЕ оценка рыночной доли"},{"param":"Доля ЭВА внутри клеёв-расплавов","low":40.0,"base":60.0,"high":80.0,"unit":"%","status":"сценарное допущение","note":"Конкурирующие PO/APAO и другие химии; открытая статистика отсутствует"},{"param":"Темп изменения выпуска в 2026–2028","low":-5.0,"base":0.0,"high":5.0,"unit":"% в год","status":"сценарное допущение","note":"Траектории от 8,0 млн шт в 2025; вероятности не присваиваются"}],"sensitivity":[{"hotmelt":30.0,"eva_share":40.0,"eva_t":1689.5},{"hotmelt":30.0,"eva_share":60.0,"eva_t":2534.2},{"hotmelt":30.0,"eva_share":80.0,"eva_t":3379.0},{"hotmelt":50.0,"eva_share":40.0,"eva_t":2815.8},{"hotmelt":50.0,"eva_share":60.0,"eva_t":4223.7},{"hotmelt":50.0,"eva_share":80.0,"eva_t":5631.6},{"hotmelt":70.0,"eva_share":40.0,"eva_t":3942.1},{"hotmelt":70.0,"eva_share":60.0,"eva_t":5913.2},{"hotmelt":70.0,"eva_share":80.0,"eva_t":7884.2}],"geography":[{"region":"Центральный федеральный округ","share":74.4,"prod":10.475,"all":10474.8,"eva":3142.4},{"region":"Остальные регионы","share":25.6,"prod":3.604,"all":3604.2,"eva":1081.3}],"importsYear":[{"year":2017,"weight_t":47273.346,"value_usd":226848234.0,"price":2.71,"countries":27,"no_weight":1},{"year":2018,"weight_t":64938.355,"value_usd":250777092.0,"price":3.215,"countries":27,"no_weight":1},{"year":2019,"weight_t":74352.419,"value_usd":237644321.0,"price":3.109,"countries":27,"no_weight":1},{"year":2020,"weight_t":80180.666,"value_usd":246412525.0,"price":3.073,"countries":28,"no_weight":0},{"year":2021,"weight_t":88228.266,"value_usd":300533431.0,"price":3.406,"countries":28,"no_weight":0},{"year":2022,"weight_t":100095.938,"value_usd":360179156.0,"price":3.598,"countries":27,"no_weight":0},{"year":2023,"weight_t":103138.669,"value_usd":372966251.0,"price":3.616,"countries":27,"no_weight":0},{"year":2024,"weight_t":111247.337,"value_usd":363911938.0,"price":3.271,"countries":25,"no_weight":0},{"year":2025,"weight_t":106552.152,"value_usd":337969727.0,"price":3.172,"countries":24,"no_weight":0}],"importsTop":[{"rank":1,"country":"Китай","weight_t":54037.97,"value_usd":137437891.0,"price":2.543,"share":48.6},{"rank":2,"country":"Германия","weight_t":20701.821,"value_usd":87509572.0,"price":4.227,"share":18.6},{"rank":3,"country":"Турция","weight_t":16787.896,"value_usd":51918942.0,"price":3.093,"share":15.1},{"rank":4,"country":"Италия","weight_t":4766.677,"value_usd":16958162.0,"price":3.558,"share":4.3},{"rank":5,"country":"Польша","weight_t":2517.261,"value_usd":10946937.0,"price":4.349,"share":2.3},{"rank":6,"country":"Казахстан","weight_t":2421.29,"value_usd":18019882.0,"price":7.442,"share":2.2},{"rank":7,"country":"Словения","weight_t":1342.384,"value_usd":4212816.0,"price":3.138,"share":1.2},{"rank":8,"country":"Малайзия","weight_t":1319.792,"value_usd":3305410.0,"price":2.504,"share":1.2},{"rank":9,"country":"Индия","weight_t":1293.283,"value_usd":4188791.0,"price":3.239,"share":1.2},{"rank":10,"country":"Корея","weight_t":1028.748,"value_usd":11692407.0,"price":11.366,"share":0.9},{"rank":11,"country":"Нидерланды","weight_t":911.924,"value_usd":3994449.0,"price":4.38,"share":0.8},{"rank":12,"country":"Венгрия","weight_t":895.35,"value_usd":2472333.0,"price":2.761,"share":0.8},{"rank":13,"country":"Швеция","weight_t":552.0,"value_usd":954707.0,"price":1.73,"share":0.5},{"rank":14,"country":"Литва","weight_t":541.482,"value_usd":2218074.0,"price":4.096,"share":0.5},{"rank":15,"country":"Япония","weight_t":536.08,"value_usd":826076.0,"price":1.541,"share":0.5},{"rank":16,"country":"Бельгия","weight_t":522.355,"value_usd":1260152.0,"price":2.412,"share":0.5},{"rank":17,"country":"Испания","weight_t":446.921,"value_usd":1930542.0,"price":4.32,"share":0.4},{"rank":18,"country":"Великобритания","weight_t":216.968,"value_usd":777612.0,"price":3.584,"share":0.2},{"rank":19,"country":"Эстония","weight_t":176.136,"value_usd":958480.0,"price":5.442,"share":0.2},{"rank":20,"country":"Чехия","weight_t":139.323,"value_usd":1327096.0,"price":9.525,"share":0.1},{"rank":21,"country":"Австрия","weight_t":52.465,"value_usd":845196.0,"price":16.11,"share":0.0},{"rank":22,"country":"Индонезия","weight_t":26.0,"value_usd":55679.0,"price":2.141,"share":0.0},{"rank":23,"country":"Латвия","weight_t":12.295,"value_usd":90573.0,"price":7.367,"share":0.0},{"rank":24,"country":"Таиланд","weight_t":0.882,"value_usd":7263.0,"price":8.232,"share":0.0},{"rank":25,"country":"Финляндия","weight_t":0.035,"value_usd":2894.0,"price":82.692,"share":0.0}],"ruReporter":[{"year":2017,"weight_t":71065.319,"value_usd":227817614.0},{"year":2018,"weight_t":72791.447,"value_usd":252084034.0},{"year":2019,"weight_t":75784.272,"value_usd":248875236.0},{"year":2020,"weight_t":77220.947,"value_usd":254288150.0},{"year":2021,"weight_t":81647.517,"value_usd":304134580.0}],"suppliers":[{"name":"Henkel","brand":"Technomelt","origin":"Германия (локализация в РФ)","line":"Technomelt DM 2883 и линейка для матрасов","chem":"EVA / полиолефины","verified":"частично"},{"name":"Jowat","brand":"Jowat","origin":"Германия","line":"клей-расплав для матрасов и мягкой мебели (140–170 °C, плотность 0,91–0,95 г/см³)","chem":"EVA / PO","verified":"да"},{"name":"ООО «Эрготек»","brand":"ЭРГОМЕЛТ / ЭРГОТАК / ЭРГОСПРЕЙ","origin":"Россия (СПб)","line":"ЭРГОМЕЛТ-10Ф, 10С1, 10М, 10С2 (пружинные блоки); ЭРГОТАК-440.2/440.3/440.4 (склейка слоёв); ЭРГОСПРЕЙ-38/40/41 (сольвентные)","chem":"EVA + сольвентные","verified":"да"},{"name":"alfaklei","brand":"alfaklei","origin":"Россия","line":"703, 704.1, 704.4, 705 (расплавы для слоёв); 801 spring (ЭВА для пружинных блоков); 909/906 АПАО (полиолефины)","chem":"EVA / PO / каучуки","verified":"да"},{"name":"Нова-М","brand":"Нова-М","origin":"Россия","line":"клей-расплав для матрасов с полной полимеризацией (полиолефин)","chem":"PO","verified":"да"},{"name":"Cluex","brand":"Cluex","origin":"Россия / импорт","line":"клеи для матрасного производства","chem":"н/д","verified":"нет"},{"name":"lux-x","brand":"Люкс-Х","origin":"Россия","line":"клеи для матрасов, поролона, изоляционных материалов","chem":"н/д","verified":"да"}],"players":[{"company":"ООО «Аскона-Век»","brand":"Askona","region":"Владимирская обл. (Ковров)","revenue":15100000000.0,"revenue_year":"2025","source":"Checko / Контур.Фокус (данные Росстата/ФНС)","note":"ИНН 3305037917; в 2023 выручка 20,4 млрд ₽ (АРГ), в 2024 — 25,1 млрд ₽ (TAdviser); расхождение из-за периметра юрлиц"},{"company":"Группа Askona (холдинг)","brand":"Askona","region":"Москва","revenue":45400000000.0,"revenue_year":"2025","source":"TAdviser","note":"рост на 80% г/г; крупнейший производитель товаров для сна в РФ"},{"company":"ООО «Орма Групп»","brand":"Ormatek","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"входит в топ-10 BusinesStat по выручке 2025"},{"company":"ООО «2МК»","brand":"Mr.Mattress / Materlux","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"№1 в рейтинге BusinesStat по выручке 2025"},{"company":"ООО «ПК Димакс»","brand":"Dimax","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":""},{"company":"ООО «Корона»","brand":"Corona","region":"Респ. Башкортостан","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"также крупный производитель кроватей"},{"company":"ООО «Сарма Компани»","brand":"Sarma","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":"в топ-10 АРГ по производству матрасов"},{"company":"ООО «Армос-Блок»","brand":"Armos","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Чезаторе»","brand":"Cezatore","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «ПК «Релакс»»","brand":"Relax","region":"н/д","revenue":448096000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"3-е место по выручке в 2018"},{"company":"ООО «Сити»","brand":"City","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Технокомф СТ»","brand":"Technocomf","region":"н/д","revenue":1464963000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"2-е место по выручке в 2018; в топ-10 BusinesStat 2025"},{"company":"ООО «Литвуд»","brand":"Litwood","region":"н/д","revenue":11300000000.0,"revenue_year":"2023","source":"TAdviser","note":"преимущественно мягкая мебель, 2-е место по выручке в мебели"},{"company":"ООО «Живые диваны»","brand":"Живые диваны","region":"н/д","revenue":1600000000.0,"revenue_year":"2023","source":"TAdviser","note":"в топ-10 BusinesStat 2025 по матрасам"},{"company":"ПКП «Вега»","brand":"Vega","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Риваль»","brand":"Rival","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Лиситея»","brand":"Lisiteya","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"DreamLine (ГК)","brand":"DreamLine","region":"Московская обл.","revenue":null,"revenue_year":"","source":"Tabriz Group / отраслевые публикации","note":"2018: ~100 тыс. матрасов, ~5% производства ЦФО"}],"prices":[{"year":2019,"price":3093.7,"type":"средняя цена производителей","source":"Alto Consulting Group"},{"year":2022,"price":3309.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"},{"year":2024,"price":3873.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"}]}</script>
+<script>
+'use strict';
+/* ===== данные ===== */
+const D = JSON.parse(document.getElementById('payload').textContent);
+const META = D.meta;
+
+/* ===== утилиты ===== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const NF0 = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
+const NF1 = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+const NF2 = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+const fInt = v => NF0.format(Math.round(v || 0));
+const f1 = v => NF1.format(v || 0);
+const f2 = v => NF2.format(v || 0);
+const fPct = (v, d = 1) => (d === 1 ? f1(v) : f2(v)) + ' %';
+const fT = v => f1(v) + ' тыс. т';
+const fKg = v => f2(v) + ' кг/шт';
+const fMlnPcs = v => f2(v) + ' млн шт';
+const fUsdMln = v => f1((v || 0) / 1e6) + ' млн $';
+const fPrice = v => f2(v) + ' $/кг';
+const fRub = v => {
+  if (!v) return 'н/д';
+  if (v >= 1e9) return f2(v / 1e9) + ' млрд ₽';
+  if (v >= 1e6) return f2(v / 1e6) + ' млн ₽';
+  return fInt(v) + ' ₽';
+};
+const sum = (a, f) => a.reduce((x, r) => x + f(r), 0);
+
+/* ===== цвета ===== */
+const C = { navy: '#1a5f8a', teal: '#15836f', gold: '#c08a2e', red: '#b94a4a', gray: '#93a3b5', blue: '#2b93c4' };
+const PAL = [C.navy, C.teal, C.gold, C.blue, C.red, C.gray];
+
+/* ===== тема / печать ===== */
+(function initTheme() {
+  const storage = {
+    get() { try { return localStorage.getItem('kley-theme'); } catch (_) { return null; } },
+    set(value) { try { localStorage.setItem('kley-theme', value); } catch (_) { /* файл может быть открыт в приватном режиме */ } }
+  };
+  const saved = storage.get();
+  if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+  const btn = $('themeBtn');
+  const sync = () => { btn.textContent = document.documentElement.dataset.theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'; };
+  sync();
+  btn.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    storage.set(next);
+    sync();
+  });
+  $('printBtn').addEventListener('click', () => window.print());
+})();
+
+/* ===== навигация ===== */
+(function initNav() {
+  const links = [...document.querySelectorAll('#nav a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.remove('active'));
+      const a = map.get(e.target.id);
+      if (a) a.classList.add('active');
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section').forEach(s => obs.observe(s));
+})();
+
+/* ===== шкала с «круглыми» делениями ===== */
+function niceScale(value, targetTicks = 6) {
+  const maxValue = Math.max(0, value || 0);
+  if (!maxValue) return { max: 1, ticks: [0, 0.2, 0.4, 0.6, 0.8, 1] };
+  const rawStep = maxValue / targetTicks;
+  const power = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const normalized = rawStep / power;
+  const steps = [1, 2, 2.5, 5, 10];
+  const step = (steps.find(s => normalized <= s) || 10) * power;
+  const max = Math.ceil((maxValue - step * 1e-9) / step) * step;
+  const count = Math.round(max / step);
+  const ticks = Array.from({ length: count + 1 }, (_, i) => i * step);
+  return { max, ticks };
+}
+
+/* ===== линейный график ===== */
+function lineChart(el, series, opt = {}) {
+  const years = opt.years || META.years;
+  const W = 820, H = opt.height || 300, L = 66, R = 18, T = 20, B = 34;
+  const vals = series.flatMap(s => s.points.map(p => p[1]));
+  const scale = niceScale(Math.max(...vals, 1));
+  const max = scale.max;
+  const step = (W - L - R) / (years.length - 1);
+  const x = y => L + years.indexOf(y) * step;
+  const yy = v => T + (H - T - B) * (1 - v / max);
+  let g = '';
+  scale.ticks.forEach(v => {
+    const y = yy(v);
+    g += `<line x1="${L}" x2="${W - R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y + 4}" text-anchor="end">${opt.fmt ? opt.fmt(v) : f1(v)}</text>`;
+  });
+  if (opt.forecastFrom && years.includes(opt.forecastFrom)) {
+    const xf = x(opt.forecastFrom) - step / 2;
+    g += `<rect x="${xf}" y="${T}" width="${W - R - xf}" height="${H - T - B}" fill="rgba(43,147,196,.07)"/>`;
+    g += `<line x1="${xf}" x2="${xf}" y1="${T}" y2="${H - B}" stroke="var(--accent-2)" stroke-dasharray="4 4" stroke-width="1"/>`;
+    g += `<text x="${xf + 6}" y="${T + 12}" fill="var(--accent)" font-weight="600">сценарии</text>`;
+  }
+  years.forEach(y => {
+    g += `<text x="${x(y)}" y="${H - 12}" text-anchor="middle">${y}</text>`;
+  });
+  series.forEach(s => {
+    const forecastIndex = opt.forecastFrom ? s.points.findIndex(p => p[0] >= opt.forecastFrom) : -1;
+    const solid = opt.forecastFrom ? s.points.filter(p => p[0] < opt.forecastFrom) : s.points;
+    // Последняя фактическая точка включается в пунктир, чтобы не было разрыва на границе периодов.
+    const dash = forecastIndex >= 0 ? s.points.slice(Math.max(0, forecastIndex - 1)) : [];
+    const path = pts => pts.map((p, i) => (i ? 'L' : 'M') + x(p[0]) + ' ' + yy(p[1])).join(' ');
+    const w = s.width || (s.name === opt.highlight ? 3.2 : 2);
+    if (opt.area && solid.length > 1) {
+      g += `<path d="${path(solid)} L${x(solid[solid.length - 1][0])} ${H - B} L${x(solid[0][0])} ${H - B} Z" fill="rgba(26,95,138,.10)" stroke="none"/>`;
+    }
+    if (solid.length > 1) g += `<path d="${path(solid)}" fill="none" stroke="${s.color}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"/>`;
+    if (dash.length > 1) g += `<path d="${path(dash)}" fill="none" stroke="${s.color}" stroke-width="${w}" stroke-dasharray="6 4" stroke-linejoin="round"/>`;
+    s.points.forEach(p => {
+      g += `<circle cx="${x(p[0])}" cy="${yy(p[1])}" r="${s.name === opt.highlight ? 3.6 : 2.6}" fill="${s.color}"><title>${esc(s.name)} · ${p[0]}: ${opt.fmt ? opt.fmt(p[1]) : f1(p[1])}${opt.unit || ''}</title></circle>`;
+    });
+  });
+  const leg = series.map(s => `<span class="lg"><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('');
+  el.innerHTML = `<div class="chart"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img">${g}</svg><div class="legend">${leg}</div></div>`;
+}
+
+/* ===== столбики ===== */
+function barChart(el, items, opt = {}) {
+  const W = 820, H = opt.height || 280, L = 60, R = 14, T = 24, B = 38;
+  const maxValue = Math.max(...items.map(i => i.v), 1);
+  const scale = niceScale(maxValue);
+  const max = scale.max;
+  const bw = (W - L - R) / items.length;
+  let g = '';
+  scale.ticks.forEach(v => {
+    const y = T + (H - T - B) * (1 - v / max);
+    g += `<line x1="${L}" x2="${W - R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y + 4}" text-anchor="end">${opt.fmt ? opt.fmt(v) : f1(v)}</text>`;
+  });
+  items.forEach((it, i) => {
+    const x = L + i * bw + bw * .16, w = bw * .68, h = (H - T - B) * it.v / max;
+    g += `<g><title>${esc(it.l)}: ${opt.fmt ? opt.fmt(it.v) : f1(it.v)}</title>`;
+    g += `<rect x="${x}" y="${H - B - h}" width="${w}" height="${h}" rx="3" fill="${it.color || C.navy}"/>`;
+    if (opt.labels) g += `<text x="${x + w / 2}" y="${H - B - h - 6}" text-anchor="middle" font-weight="600">${opt.fmt ? opt.fmt(it.v) : f1(it.v)}</text>`;
+    g += `<text x="${x + w / 2}" y="${H - 14}" text-anchor="middle">${it.l}</text></g>`;
+  });
+  el.innerHTML = `<div class="chart"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img">${g}</svg>${opt.note ? `<div class="note">${opt.note}</div>` : ''}</div>`;
+}
+
+/* ===== пончик ===== */
+function donut(el, items, opt = {}) {
+  const tot = sum(items, i => i.v) || 1;
+  const R = 68, C0 = 2 * Math.PI * R;
+  let acc = 0, arcs = '';
+  items.forEach((it, i) => {
+    const len = it.v / tot * C0;
+    arcs += `<circle r="${R}" cx="90" cy="90" fill="none" stroke="${PAL[i % PAL.length]}" stroke-width="26" stroke-dasharray="${len} ${C0 - len}" stroke-dashoffset="${-acc}" transform="rotate(-90 90 90)"><title>${esc(it.l)}: ${fPct(it.v / tot * 100)}</title></circle>`;
+    acc += len;
+  });
+  const leg = items.map((it, i) => `<div class="lg-row"><i style="background:${PAL[i % PAL.length]}"></i><span>${esc(it.l)}</span><b>${fPct(it.v / tot * 100)}</b></div>`).join('');
+  el.innerHTML = `<div class="donut"><div class="donut-svg"><svg viewBox="0 0 180 180" role="img">${arcs}</svg><div class="donut-c"><b>${opt.center || f1(tot)}</b><span>${opt.centerLabel || ''}</span></div></div><div class="legend-col">${leg}</div></div>`;
+}
+
+/* ===== горизонтальные полосы ===== */
+function hbars(el, items, fmt, max = 10) {
+  items = items.slice(0, max);
+  if (!items.length) { el.innerHTML = '<div class="empty">Нет данных</div>'; return; }
+  const mx = Math.max(...items.map(i => i.v)) || 1;
+  el.innerHTML = items.map(i => `<div class="hb"><div class="lb" title="${esc(i.l)}">${esc(i.l)}</div><div class="tr"><div class="fl" style="width:${Math.max(1, i.v / mx * 100)}%"></div></div><div class="vl">${esc(fmt(i))}</div></div>`).join('');
+}
+
+/* ===== экспорт в Excel (xlsx без внешних библиотек) ===== */
+const CRC_T = (() => { const t = []; for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+const crc32 = u8 => { let c = 0xFFFFFFFF; for (let i = 0; i < u8.length; i++) c = CRC_T[(c ^ u8[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+function colName(i) { let s = ''; i++; while (i > 0) { const m = (i - 1) % 26; s = String.fromCharCode(65 + m) + s; i = Math.floor((i - 1) / 26); } return s; }
+const xmlEsc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '');
+function sheetXml(rows, widths) {
+  let x = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">';
+  const colCount = Math.max(1, ...rows.map(r => r.length));
+  x += `<dimension ref="A1:${colName(colCount - 1)}${Math.max(1, rows.length)}"/>`;
+  x += '<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>';
+  if (widths) x += '<cols>' + widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join('') + '</cols>';
+  x += '<sheetData>';
+  rows.forEach((row, ri) => {
+    x += `<row r="${ri + 1}">`;
+    row.forEach((v, ci) => {
+      if (v === null || v === undefined || v === '') return;
+      const ref = colName(ci) + (ri + 1), st = ri === 0 ? ' s="1"' : '';
+      x += typeof v === 'number' && isFinite(v) ? `<c r="${ref}"${st}><v>${v}</v></c>` : `<c r="${ref}"${st} t="inlineStr"><is><t xml:space="preserve">${xmlEsc(v)}</t></is></c>`;
+    });
+    x += '</row>';
+  });
+  return x + '</sheetData></worksheet>';
+}
+function buildXlsx(sheets) {
+  const enc = new TextEncoder(), files = [];
+  const add = (name, text) => files.push({ name, data: enc.encode(text) });
+  add('[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>' + sheets.map((s, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('') + '</Types>');
+  add('_rels/.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>');
+  add('xl/workbook.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>' + sheets.map((s, i) => `<sheet name="${xmlEsc(s.name).slice(0, 31)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join('') + '</sheets></workbook>');
+  add('xl/_rels/workbook.xml.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' + sheets.map((s, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join('') + `<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`);
+  add('xl/styles.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>');
+  sheets.forEach((s, i) => add(`xl/worksheets/sheet${i + 1}.xml`, sheetXml(s.rows, s.widths)));
+  const parts = [], cd = []; let off = 0;
+  for (const f of files) {
+    const nm = enc.encode(f.name), crc = crc32(f.data), h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(8, 0, true);
+    h.setUint16(10, 0, true); h.setUint16(12, 0x21, true); h.setUint32(14, crc, true); h.setUint32(18, f.data.length, true);
+    h.setUint32(22, f.data.length, true); h.setUint16(26, nm.length, true); h.setUint16(28, 0, true);
+    parts.push(new Uint8Array(h.buffer), nm, f.data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true);
+    c.setUint16(12, 0, true); c.setUint16(14, 0x21, true); c.setUint32(16, crc, true); c.setUint32(20, f.data.length, true);
+    c.setUint32(24, f.data.length, true); c.setUint16(28, nm.length, true); c.setUint32(42, off, true);
+    cd.push(new Uint8Array(c.buffer), nm);
+    off += 30 + nm.length + f.data.length;
+  }
+  const cdSize = cd.reduce((a, b) => a + b.length, 0), e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true);
+  e.setUint32(12, cdSize, true); e.setUint32(16, off, true);
+  return new Blob([...parts, ...cd, new Uint8Array(e.buffer)], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+}
+function downloadXlsx(name, sheets) {
+  const blob = buildXlsx(sheets), a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+
+/* ===== интерактивные таблицы: сортировка, фильтры, поиск, пагинация, экспорт ===== */
+const NUM_TYPES = ['int', 'money', 'pct', 'price', 'num1', 'num2', 'rub', 'year'];
+
+function parseNumFilter(s) {
+  s = (s || '').trim().replace(/\s/g, '').replace(',', '.');
+  if (!s) return null;
+  let m;
+  if ((m = s.match(/^(>=|<=|>|<|=)(-?[\d.]+)$/))) {
+    const v = parseFloat(m[2]);
+    return { '>=': x => x >= v, '<=': x => x <= v, '>': x => x > v, '<': x => x < v, '=': x => x === v }[m[1]];
+  }
+  if ((m = s.match(/^(-?[\d.]+)(?:-|\.\.)(-?[\d.]+)$/))) { const a = parseFloat(m[1]), b = parseFloat(m[2]); return x => x >= a && x <= b; }
+  if (/^-?[\d.]+$/.test(s)) { const v = parseFloat(s); return x => Math.abs(x - v) < 1e-9 * Math.max(1, Math.abs(v)) || Math.round(x) === Math.round(v); }
+  return null;
+}
+
+class Tbl {
+  /* cols: {k,t,type:'str'|'list'|'int'|'money'|'pct'|'price'|'num1'|'num2'|'rub', sel?, total?: 'sum'} */
+  constructor(id, el, cols, opt) {
+    this.id = id; this.el = el; this.cols = cols; this.opt = opt || {};
+    this.sort = this.opt.sort || { k: cols.find(c => NUM_TYPES.includes(c.type)).k, dir: -1 };
+    this.f = {}; this.search = ''; this.page = 1; this.size = this.opt.size || 25; this.all = [];
+    el.innerHTML = `<div class="tbar"><input type="text" placeholder="Поиск по таблице…" data-r="search">
+      <label class="hint">Строк на странице <select data-r="size"><option>10</option><option>25</option><option>50</option><option>100</option><option value="0">все</option></select></label>
+      <button class="btn ghost" type="button" data-r="reset">Сбросить фильтры</button>
+      <button class="btn" type="button" data-r="xls">Экспорт в Excel</button><span class="cnt" data-r="cnt"></span></div>
+      <div class="tw"><table class="t"><thead></thead><tbody></tbody><tfoot></tfoot></table></div><div class="pager" data-r="pager"></div>`;
+    const q = s => el.querySelector(`[data-r=${s}]`);
+    this.$ = { search: q('search'), size: q('size'), reset: q('reset'), xls: q('xls'), cnt: q('cnt'), pager: q('pager'),
+      thead: el.querySelector('thead'), tbody: el.querySelector('tbody'), tfoot: el.querySelector('tfoot') };
+    this.$.size.value = String(this.size);
+    this.$.search.addEventListener('input', e => { this.search = e.target.value.toLowerCase(); this.page = 1; this.body(); });
+    this.$.size.addEventListener('change', e => { this.size = +e.target.value; this.page = 1; this.body(); });
+    this.$.reset.addEventListener('click', () => { this.f = {}; this.search = ''; this.$.search.value = ''; this.head(); this.page = 1; this.body(); });
+    this.$.xls.addEventListener('click', () => this.export());
+    this.head();
+  }
+  setData(rows) { this.all = rows; this.page = 1; this.head(); this.body(); }
+  head() {
+    const th = this.cols.map(c => {
+      const n = NUM_TYPES.includes(c.type);
+      const cls = (n ? 'n ' : '') + (this.sort.k === c.k ? 'sorted' : '');
+      const ar = this.sort.k === c.k ? (this.sort.dir > 0 ? '▲' : '▼') : '↕';
+      return `<th class="${cls}" data-k="${c.k}">${esc(c.t)}<span class="ar">${ar}</span></th>`;
+    }).join('');
+    const fr = this.cols.map(c => {
+      const v = this.f[c.k] || '';
+      if (c.sel) {
+        const vals = [...new Set(this.all.map(r => r[c.k]))].filter(x => x !== '' && x != null).sort((a, b) => String(a).localeCompare(String(b), 'ru'));
+        return `<th><select data-f="${c.k}"><option value="">все</option>${vals.map(x => `<option${x === v ? ' selected' : ''}>${esc(x)}</option>`).join('')}</select></th>`;
+      }
+      const ph = NUM_TYPES.includes(c.type) ? '>100 или 10-50' : 'содержит…';
+      return `<th><input type="text" data-f="${c.k}" placeholder="${ph}" value="${esc(v)}"></th>`;
+    }).join('');
+    this.$.thead.innerHTML = `<tr>${th}</tr><tr class="fr">${fr}</tr>`;
+    this.$.thead.querySelectorAll('th[data-k]').forEach(h => h.addEventListener('click', () => {
+      const k = h.dataset.k, c = this.cols.find(x => x.k === k);
+      if (this.sort.k === k) this.sort.dir *= -1; else this.sort = { k, dir: ['str', 'list'].includes(c.type) ? 1 : -1 };
+      this.head(); this.body();
+    }));
+    this.$.thead.querySelectorAll('[data-f]').forEach(inp => {
+      const h = e => { this.f[inp.dataset.f] = e.target.value; this.page = 1; this.body(); };
+      inp.addEventListener(inp.tagName === 'SELECT' ? 'change' : 'input', h);
+    });
+  }
+  filtered() {
+    const fs = this.cols.map(c => {
+      const v = (this.f[c.k] || '').trim();
+      if (!v) return null;
+      if (c.sel) return r => String(r[c.k]) === v;
+      if (NUM_TYPES.includes(c.type)) { const p = parseNumFilter(v); return p ? r => p(r[c.k]) : null; }
+      const lv = v.toLowerCase(); return r => String(r[c.k] == null ? '' : r[c.k]).toLowerCase().includes(lv);
+    });
+    let out = this.all.filter(r => {
+      for (let i = 0; i < fs.length; i++) if (fs[i] && !fs[i](r)) return false;
+      if (this.search && !this.cols.some(c => String(r[c.k] == null ? '' : r[c.k]).toLowerCase().includes(this.search))) return false;
+      return true;
+    });
+    const { k, dir } = this.sort, c = this.cols.find(x => x.k === k);
+    const str = c && ['str', 'list'].includes(c.type);
+    const miss = v => v == null || v === '';
+    out.sort((a, b) => {
+      if (str) return String(a[k] || '').localeCompare(String(b[k] || ''), 'ru') * dir;
+      // пустые значения всегда в конец, независимо от направления сортировки
+      const am = miss(a[k]), bm = miss(b[k]);
+      if (am || bm) return am === bm ? 0 : (am ? 1 : -1);
+      return ((a[k] || 0) - (b[k] || 0)) * dir;
+    });
+    return out;
+  }
+  fmt(r, c) {
+    const v = r[c.k];
+    switch (c.type) {
+      case 'year': return (v == null || v === '') ? '' : String(v);
+      case 'int': case 'money': case 'price': return (v == null || v === '') ? '' : fInt(v);
+      case 'num1': return (v == null || v === '') ? '' : f1(v);
+      case 'num2': return (v == null || v === '') ? '' : f2(v);
+      case 'rub': return fRub(v);
+      case 'pct': return (v == null || v === '') ? '' : fPct(v);
+      default: return esc(v);
+    }
+  }
+  body() {
+    const rows = this.filtered(), tot = rows.length;
+    const size = this.size || tot || 1, pages = Math.max(1, Math.ceil(tot / size));
+    if (this.page > pages) this.page = pages;
+    const slice = rows.slice((this.page - 1) * size, this.page * size);
+    this.$.tbody.innerHTML = slice.length ? slice.map(r => '<tr>' + this.cols.map(c => {
+      if (c.type === 'pct') { const w = Math.min(100, Math.max(0, r[c.k] || 0)); return `<td class="pc" style="background:linear-gradient(90deg,var(--bar) ${w}%,transparent ${w}%)">${this.fmt(r, c)}</td>`; }
+      const n = ['int', 'money', 'price', 'num1', 'num2', 'rub', 'year'].includes(c.type);
+      return `<td class="${n ? 'n' : (c.type === 'list' ? 'l' : '')}">${this.fmt(r, c)}</td>`;
+    }).join('') + '</tr>').join('') : `<tr><td colspan="${this.cols.length}" class="empty">Нет данных по выбранным условиям</td></tr>`;
+    const hasTot = this.cols.some(c => c.total);
+    this.$.tfoot.innerHTML = hasTot && rows.length ? '<tr>' + this.cols.map((c, i) => {
+      if (c.total === 'sum') return `<td class="n">${c.type === 'rub' ? fRub(sum(rows, r => r[c.k] || 0)) : fInt(sum(rows, r => r[c.k] || 0))}</td>`;
+      return `<td>${i === 0 ? 'Итого (по выборке): ' + fInt(tot) : ''}</td>`;
+    }).join('') + '</tr>' : '';
+    this.$.cnt.textContent = `Показано ${fInt(tot)} из ${fInt(this.all.length)}`;
+    this.$.pager.innerHTML = this.size && pages > 1 ? `<button class="btn ghost" data-p="-1" ${this.page <= 1 ? 'disabled' : ''}>←</button><span>Страница ${this.page} из ${pages}</span><button class="btn ghost" data-p="1" ${this.page >= pages ? 'disabled' : ''}>→</button>` : '';
+    this.$.pager.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { this.page += +b.dataset.p; this.body(); }));
+  }
+  export() {
+    const rows = this.filtered();
+    const head = this.cols.map(c => c.t);
+    const data = rows.map(r => this.cols.map(c => {
+      const v = r[c.k];
+      if (v == null || v === '') return '';
+      if (c.type === 'rub') return typeof v === 'number' ? Math.round(v) : v;
+      if (['int', 'money', 'price', 'year'].includes(c.type)) return Math.round(v);
+      if (['num1', 'num2', 'pct'].includes(c.type)) return Math.round(v * 100) / 100;
+      return v;
+    }));
+    const widths = this.cols.map(c => c.type === 'list' ? 60 : (c.type === 'str' ? 34 : 16));
+    const cf = this.cols.filter(c => (this.f[c.k] || '').trim()).map(c => ['Фильтр: ' + c.t, this.f[c.k]]);
+    if (this.search) cf.push(['Поиск', this.search]);
+    downloadXlsx(`${this.opt.file || this.id}_${new Date().toISOString().slice(0, 10)}.xlsx`, [
+      { name: this.opt.sheet || 'Данные', rows: [head, ...data], widths },
+      { name: 'Параметры выборки', rows: [['Параметр', 'Значение'], ['Источник', 'Аналитический дашборд KLEY MARKET'], ...cf], widths: [30, 60] }
+    ]);
+  }
+}
+
+/* ===== вспомогательные блоки ===== */
+const SCEN_LABEL = { low: 'Низкий', base: 'Базовый', high: 'Высокий' };
+const SCEN_COLOR = { low: C.red, base: C.teal, high: C.gold };
+const S = { scenario: 'base', year: 2024 };
+
+function kpi(label, value, note, cls = '', deltaHtml = '') {
+  return `<div class="kpi ${cls}"><div class="v">${value}</div><div class="l">${label}</div>${deltaHtml}${note ? `<div class="n">${note}</div>` : ''}</div>`;
+}
+function delta(v) {
+  if (v == null || v === '') return '';
+  const cls = v > 0 ? 'up' : v < 0 ? 'down' : 'flat';
+  const arrow = v > 0 ? '▲' : v < 0 ? '▼' : '•';
+  return `<span class="delta ${cls}">${arrow} ${f1(Math.abs(v))} %</span>`;
+}
+const card = (title, text) => `<div class="card"><h4>${esc(title)}</h4><p>${esc(text)}</p></div>`;
+
+/* ===== обзор ===== */
+function renderOverview() {
+  const p = y => D.production.find(r => r.year === y && r.period === 'history');
+  const e = (y, c) => D.demand.find(r => r.year === y && r.case === c);
+  const p24 = p(2024), p25 = p(2025);
+  const e24 = e(2024, 'base'), e25 = e(2025, 'base');
+  const i24 = D.importsYear.find(r => r.year === 2024);
+  $('kpisOverview').innerHTML = [
+    kpi('Выпуск матрасов · 2024', fMlnPcs(p24.value), 'матрасы без основ', '', delta(p24.yoy)),
+    kpi('Выпуск матрасов · 2025', fMlnPcs(p25.value), 'оценка BusinesStat', 'red', delta(p25.yoy)),
+    kpi('ЭВА · 2024, базовый сценарий', f2(e24.eva / 1000) + ' тыс. т', `диапазон ${f2(e(2024, 'low').eva / 1000)}–${f2(e(2024, 'high').eva / 1000)} тыс. т`, 'teal'),
+    kpi('ЭВА · 2025, базовый сценарий', f2(e25.eva / 1000) + ' тыс. т', `диапазон ${f2(e(2025, 'low').eva / 1000)}–${f2(e(2025, 'high').eva / 1000)} тыс. т`, 'teal'),
+    kpi('Импорт HS 3506 · 2024', f1(i24.weight_t / 1000) + ' тыс. т', `${fUsdMln(i24.value_usd)} · ${fPrice(i24.price)}`, 'gold')
+  ].join('');
+
+  const hist = D.production.filter(r => r.period === 'history').map(r => [r.year, r.value]);
+  const series = [{ name: 'Факт и оценка', color: C.navy, points: hist, width: 3 }];
+  ['low', 'base', 'high'].forEach(c => {
+    const pts = [[2025, 8.0], ...D.production.filter(r => r.period === 'forecast' && r.case === c).map(r => [r.year, r.value])];
+    series.push({ name: SCEN_LABEL[c], color: SCEN_COLOR[c], points: pts });
+  });
+  lineChart($('chProduction'), series, { fmt: v => f1(v), unit: ' млн шт', forecastFrom: 2026, height: 290 });
+
+  const top = D.importsTop;
+  const top5 = top.slice(0, 5);
+  const rest = top.slice(5).reduce((a, b) => a + b.weight_t, 0);
+  const total = top.reduce((a, b) => a + b.weight_t, 0);
+  donut($('chImportDonut'), [
+    ...top5.map(r => ({ l: r.country, v: r.weight_t })),
+    { l: 'Прочие страны', v: rest }
+  ], { center: f1(total / 1000), centerLabel: 'тыс. т' });
+
+  $('facts').innerHTML = [
+    `<b>Выпуск матрасов в 2024 году — 14,08 млн шт</b>, на 5,6 % ниже 2023 года. В 2025 году отрасль прошла через резкий спад: оценка 8,0 млн шт (−44 % по публикации BusinesStat).`,
+    `<b>При базовом сценарии потребность в ЭВА — 4,22 тыс. т в 2024 году</b> и 2,40 тыс. т в 2025-м. Диапазон: 0,73–11,35 и 0,41–6,45 тыс. т.`,
+    `<b>Импорт по HS 3506 в 2024 году — 111,2 тыс. т на 363,9 млн $</b>; 82,3 % поставок приходится на Китай, Германию и Турцию.`,
+    `<b>Главная неопределённость — структура клеёв</b>, а не выпуск матрасов: доли расплавов и ЭВА в открытых источниках не публикуются.`,
+    `<b>Спад 2025 года сконцентрирован в пружинном сегменте</b>: беспружинных — 2,05 млн шт, пружинных — около 5,95 млн шт.`
+  ].map(t => `<li>${t}</li>`).join('');
+
+  $('structure').innerHTML = structureHTML();
+}
+
+function structureHTML() {
+  const rows = [
+    { y: 2024, free: 2.30, total: 14.079 },
+    { y: 2025, free: 2.05, total: 8.0 }
+  ];
+  const legend = `<div class="chart"><div class="legend"><span class="lg"><i style="background:var(--accent-2)"></i>беспружинные</span><span class="lg"><i style="background:var(--teal)"></i>пружинные</span></div></div>`;
+  const body = rows.map(r => {
+    const spring = r.total - r.free;
+    const pf = r.free / r.total * 100, ps = 100 - pf;
+    return `<div class="split-row"><div><b>${r.y}</b></div><div class="split"><i class="s1" style="width:${pf}%"></i><i class="s2" style="width:${ps}%"></i></div><div class="split-val"><b>${f2(r.free)}</b> / ${f2(spring)} млн шт<br>${f1(pf)} % / ${f1(ps)} %</div></div>`;
+  }).join('');
+  return legend + body;
+}
+
+/* ===== производство ===== */
+function renderProduction() {
+  const p17 = D.production.find(r => r.year === 2017 && r.period === 'history');
+  const p24 = D.production.find(r => r.year === 2024 && r.period === 'history');
+  const p25 = D.production.find(r => r.year === 2025 && r.period === 'history');
+  const cagr = (Math.pow(p24.value / p17.value, 1 / 7) - 1) * 100;
+  $('kpisProduction').innerHTML = [
+    kpi('2017', fMlnPcs(p17.value), 'начало ряда', ''),
+    kpi('2024', fMlnPcs(p24.value), 'последний полный фактический год', '', delta(p24.yoy)),
+    kpi('2025', fMlnPcs(p25.value), 'оценка, не факт', 'red', delta(p25.yoy)),
+    kpi('Среднегодовой темп 2017–2024', '+' + f1(cagr) + ' %', 'расчёт по выбранному ряду', 'teal')
+  ].join('');
+
+  const hist = D.production.filter(r => r.period === 'history').map(r => [r.year, r.value]);
+  lineChart($('chProdBig'), [{ name: 'Выпуск матрасов', color: C.navy, points: hist, width: 3 }], {
+    years: META.history, fmt: v => f1(v), unit: ' млн шт', area: true, height: 300
+  });
+
+  const rows = D.production.map(r => ({
+    year: r.year, periodLabel: r.periodLabel, caseLabel: r.caseLabel,
+    value: r.value, yoy: r.yoy, status: r.status, basis: r.basis, source: r.source
+  }));
+  const t = new Tbl('production', $('tblProduction'), [
+    { k: 'year', t: 'Год', type: 'year' },
+    { k: 'periodLabel', t: 'Период', type: 'str', sel: true },
+    { k: 'caseLabel', t: 'Сценарий', type: 'str', sel: true },
+    { k: 'value', t: 'Выпуск, млн шт', type: 'num2' },
+    { k: 'yoy', t: 'Δ г/г, %', type: 'pct' },
+    { k: 'status', t: 'Статус', type: 'str', sel: true },
+    { k: 'basis', t: 'Основание', type: 'str' },
+    { k: 'source', t: 'Источник', type: 'str' }
+  ], { sort: { k: 'year', dir: 1 }, size: 25, file: 'vypusk_matrasov', sheet: 'Выпуск матрасов' });
+  t.setData(rows);
+
+  $('structure2').innerHTML = structureHTML();
+
+  $('tblPrices').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">₽/шт</th><th>Тип цены</th></tr></thead><tbody>${D.prices.map(p => `<tr><td>${p.year}</td><td class="n">${f1(p.price)}</td><td>${esc(p.type)}</td></tr>`).join('')}</tbody></table>`;
+}
+
+/* ===== потребление ЭВА ===== */
+function renderEva() {
+  const row = D.demand.find(r => r.year === S.year && r.case === S.scenario);
+  $('kpisEva').innerHTML = [
+    kpi('Выпуск матрасов', fMlnPcs(row.prod), S.year <= 2025 ? 'факт / оценка' : 'сценарий', ''),
+    kpi('ЭВА · базовый сценарий', f2(row.eva / 1000) + ' тыс. т', 'сценарная оценка', 'teal'),
+    kpi('Диапазон сценария', f2(D.demand.find(r => r.year === S.year && r.case === 'low').eva / 1000) + '–'
+      + f2(D.demand.find(r => r.year === S.year && r.case === 'high').eva / 1000) + ' тыс. т',
+    'зависим от структуры клеёв', 'gold')
+  ].join('');
+  $('evaNote').innerHTML = `Сценарий «${SCEN_LABEL[S.scenario]}», ${S.year} год. ${S.year >= 2026 ? 'Это условная траектория, не вероятностный прогноз.' : 'Исторический выпуск при неизменных сценарных параметрах.'} Значения не являются фактическими закупками ЭВА.`;
+
+  const series = ['low', 'base', 'high'].map(c => ({
+    name: SCEN_LABEL[c], color: SCEN_COLOR[c],
+    points: D.demand.filter(r => r.case === c).map(r => [r.year, r.eva / 1000])
+  }));
+  lineChart($('chEva'), series, {
+    fmt: v => f1(v), unit: ' тыс. т', forecastFrom: 2026,
+    highlight: SCEN_LABEL[S.scenario], height: 320
+  });
+
+  $('tblAssumptions').innerHTML = `<table class="m"><thead><tr><th>Параметр</th><th class="n">Low</th><th class="n">Base</th><th class="n">High</th><th>Статус</th></tr></thead><tbody>${D.assumptions.map(a => {
+    const pill = a.status.indexOf('допущение') >= 0 ? 'scen' : 'est';
+    const fmt = v => a.unit === '%' ? f1(v) + ' %' : a.unit === '% в год' ? f1(v) + ' % в год' : f2(v) + ' ' + a.unit;
+    return `<tr><td>${esc(a.param)}</td><td class="n">${fmt(a.low)}</td><td class="n">${fmt(a.base)}</td><td class="n">${fmt(a.high)}</td><td><span class="pill ${pill}">${esc(a.status)}</span></td></tr>`;
+  }).join('')}</tbody></table>`;
+
+  $('geography').innerHTML = `<table class="m"><thead><tr><th>Регион</th><th class="n">Доля выпуска</th><th class="n">Млн шт</th><th class="n">ЭВА, тыс. т*</th></tr></thead><tbody>${D.geography.map(g => `<tr><td>${esc(g.region)}</td><td class="n">${f1(g.share)} %</td><td class="n">${f2(g.prod)}</td><td class="n">${f2(g.eva / 1000)}</td></tr>`).join('')}</tbody><tfoot><tr><td><b>Итого</b></td><td class="n"><b>100,0 %</b></td><td class="n"><b>14,08</b></td><td class="n"><b>4,22</b></td></tr></tfoot></table><p class="note">* Условный базовый сценарий, не измеренное потребление региона.</p>`;
+
+  renderMatrix();
+}
+
+function renderMatrix() {
+  const shares = [30, 50, 70], evas = [40, 60, 80];
+  const get = (h, e) => D.sensitivity.find(r => r.hotmelt === h && r.eva_share === e);
+  const vals = D.sensitivity.map(r => r.eva_t);
+  const max = Math.max(...vals), min = Math.min(...vals);
+  let html = '<table class="mx"><thead><tr><th></th><th colspan="3">Доля ЭВА внутри расплавов</th></tr><tr><th></th>' + evas.map(e => `<th>${e} %</th>`).join('') + '</tr></thead><tbody>';
+  shares.forEach(h => {
+    html += `<tr><th class="rowh">Расплавы ${h} %</th>`;
+    evas.forEach(e => {
+      const r = get(h, e), t = (r.eva_t - min) / (max - min);
+      const alpha = (0.06 + 0.26 * t).toFixed(2);
+      const dark = t > 0.62;
+      const noteColor = dark ? 'rgba(255,255,255,.78)' : 'var(--muted)';
+      html += `<td class="${h === 50 && e === 60 ? 'base' : ''}" style="background:rgba(26,111,158,${alpha});${dark ? 'color:#fff' : ''}">${f2(r.eva_t / 1000)}<span class="mx-note" style="color:${noteColor}">тыс. т</span></td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  $('matrix').innerHTML = html;
+}
+
+/* ===== импорт ===== */
+function renderImport() {
+  const i24 = D.importsYear.find(r => r.year === 2024);
+  const i25 = D.importsYear.find(r => r.year === 2025);
+  const top3 = D.importsTop.slice(0, 3).reduce((a, b) => a + b.share, 0);
+  $('kpisImport').innerHTML = [
+    kpi('Импорт · 2024', f1(i24.weight_t / 1000) + ' тыс. т', `${i24.countries} стран с весом`, ''),
+    kpi('Стоимость · 2024', fUsdMln(i24.value_usd), 'по сопоставимым строкам', 'gold'),
+    kpi('Средняя цена · 2024', fPrice(i24.price), 'вся позиция HS 3506', ''),
+    kpi('Топ-3 страны', f1(top3) + ' %', 'Китай, Германия, Турция', 'teal'),
+    kpi('Импорт · 2025', f1(i25.weight_t / 1000) + ' тыс. т', `${i25.countries} стран; данные неполные`, 'red')
+  ].join('');
+
+  barChart($('chImport'), D.importsYear.map(r => ({ l: String(r.year), v: r.weight_t / 1000, color: C.navy })), {
+    fmt: v => f1(v), height: 290, labels: true
+  });
+  lineChart($('chPrice'), [{ name: 'Средняя цена', color: C.gold, points: D.importsYear.map(r => [r.year, r.price]), width: 3 }], {
+    years: META.history, fmt: v => f2(v), unit: ' $/кг', height: 290
+  });
+
+  const t = new Tbl('importTop', $('tblTop'), [
+    { k: 'rank', t: '№', type: 'int' },
+    { k: 'country', t: 'Страна', type: 'str' },
+    { k: 'weight_t', t: 'Вес, т', type: 'int', total: 'sum' },
+    { k: 'value_usd', t: 'Стоимость, $', type: 'money', total: 'sum' },
+    { k: 'price', t: 'Цена, $/кг', type: 'num2' },
+    { k: 'share', t: 'Доля, %', type: 'pct' }
+  ], { sort: { k: 'weight_t', dir: -1 }, size: 25, file: 'import_3506_2024', sheet: 'Страны 2024' });
+  t.setData(D.importsTop);
+
+  $('tblRu').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">Вес, т</th><th class="n">Стоимость, $</th></tr></thead><tbody>${D.ruReporter.map(r => `<tr><td>${r.year}</td><td class="n">${fInt(r.weight_t)}</td><td class="n">${fInt(r.value_usd)}</td></tr>`).join('')}</tbody></table>`;
+
+  $('importNotes').innerHTML = [
+    '<b>HS 3506 шире клеёв-расплавов:</b> позиция включает клеи на основе каучуков, полимеров и прочих веществ.',
+    '<b>После 2021 года РФ не подаёт детальную отчётность</b>; используются зеркальные данные стран-экспортёров.',
+    '<b>Значения 2017–2021 по РФ — восстановленная оценка ООН</b>, а не декларация.',
+    '<b>Строки без веса исключены из весовых итогов</b>; стоимость сохранена отдельно.',
+    '<b>Средняя цена — по сопоставимым строкам</b>, где указаны и вес, и стоимость.'
+  ].map(t => `<li>${t}</li>`).join('');
+}
+
+/* ===== поставщики и производители ===== */
+function renderPlayers() {
+  $('supplierCards').innerHTML = [
+    card('Эрготек', 'Закрывает оба контура: клей для пружинных блоков и для сборки слоёв. В демо-срезе — точка отсчёта для сравнения.'),
+    card('Международные поставщики', 'Henkel (Technomelt) и Jowat представляют международный ассортиментный и технологический контекст.'),
+    card('Локальная конкуренция', 'alfaklei, Нова-М, Cluex и lux-x предлагают продукты для матрасов; статус проверки указан в таблице.')
+  ].join('');
+
+  const ts = new Tbl('suppliers', $('tblSuppliers'), [
+    { k: 'name', t: 'Компания', type: 'str' },
+    { k: 'brand', t: 'Бренд', type: 'str' },
+    { k: 'origin', t: 'Происхождение', type: 'str', sel: true },
+    { k: 'line', t: 'Линейка для матрасов', type: 'str' },
+    { k: 'chem', t: 'Химия', type: 'str' },
+    { k: 'verified', t: 'Проверено', type: 'str', sel: true }
+  ], { sort: { k: 'name', dir: 1 }, size: 10, file: 'postavshchiki_kleev', sheet: 'Поставщики клеёв' });
+  ts.setData(D.suppliers);
+
+  const tp = new Tbl('players', $('tblPlayers'), [
+    { k: 'company', t: 'Компания', type: 'str' },
+    { k: 'brand', t: 'Бренд', type: 'str' },
+    { k: 'region', t: 'Регион', type: 'str' },
+    { k: 'revenue', t: 'Выручка', type: 'rub' },
+    { k: 'revenue_year', t: 'Год', type: 'str' },
+    { k: 'source', t: 'Источник', type: 'str' },
+    { k: 'note', t: 'Примечание', type: 'str' }
+  ], { sort: { k: 'revenue', dir: -1 }, size: 25, file: 'proizvoditeli_matrasov', sheet: 'Производители матрасов' });
+  tp.setData(D.players);
+}
+
+/* ===== паспорт ===== */
+function renderPassport() {
+  $('statusLegend').innerHTML = [
+    `<div class="card"><span class="pill fact">Факт</span><h4 style="margin-top:8px">Публикация источника</h4><p>Декларация или опубликованное значение. Пример: выпуск 2024, импорт 2024.</p></div>`,
+    `<div class="card"><span class="pill calc">Расчёт</span><h4 style="margin-top:8px">Производная величина</h4><p>Получена из фактов по прозрачной логике. Пример: выпуск 2023, доля ЦФО.</p></div>`,
+    `<div class="card"><span class="pill est">Оценка</span><h4 style="margin-top:8px">Единичное значение</h4><p>Экспертная или восстановленная оценка с ограниченной базой. Пример: выпуск 2025.</p></div>`,
+    `<div class="card"><span class="pill scen">Сценарий</span><h4 style="margin-top:8px">Условная траектория</h4><p>Расчёт при заданных допущениях. Пример: потребление ЭВА, 2026–2028.</p></div>`
+  ].join('');
+
+  const sources = [
+    ['Выпуск матрасов', 'Росстат / АМДПР; Alto Consulting Group; BusinesStat', '2017–2025', 'факт / расчёт / оценка'],
+    ['Таможенная статистика', 'UN Comtrade, HS 3506 (зеркальные данные)', '2017–2025', 'факт (зеркало)'],
+    ['Цены производителей', 'Alto Consulting Group', '2019–2024', 'факт'],
+    ['Производители клеёв', 'Открытые сайты и отраслевые публикации', '2026', 'факт (перечень)'],
+    ['Производители матрасов', 'Отраслевые публикации и рейтинги, открытая отчётность', '2018–2025', 'оценка / н/д'],
+    ['Нормы расхода', 'Открытые технические публикации, расчётные оценки', '2026', 'ориентир']
+  ];
+  $('tblSources').innerHTML = `<table class="m"><thead><tr><th>Блок</th><th>Источник</th><th>Период</th><th>Тип данных</th></tr></thead><tbody>${sources.map(s => `<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td>${esc(s[2])}</td><td>${esc(s[3])}</td></tr>`).join('')}</tbody></table>`;
+
+  $('limits').innerHTML = [
+    '<b>Доли клеёв-расплавов и ЭВА</b> в матрасном производстве не публикуются — это главный источник неопределённости.',
+    '<b>Средняя норма расхода</b> — отраслевой ориентир; она не дифференцирована по типам матрасов и контурам.',
+    '<b>Выпуск 2025 года — оценка</b>; периметры «матрасы» и «матрасы + основы» различаются.',
+    '<b>Темпы пересчитаны внутри выбранного ряда</b> и могут отличаться от публикаций на десятые доли пункта.',
+    '<b>РФ не подаёт детальную таможенную отчётность после 2021 года</b>; зеркальные данные неполны.',
+    '<b>HS 3506 шире клеёв-расплавов</b> и не позволяет выделить ЭВА напрямую.',
+    '<b>Потребление по компаниям не оценивается</b>: нет сопоставимых данных по выпуску и закупкам.',
+    '<b>Стоимость сегмента ЭВА не рассчитывается</b> по средней цене HS 3506: другой периметр и уровень цены.'
+  ].map(t => `<li>${t}</li>`).join('');
+
+  $('questions').innerHTML = [
+    'Подтвердить среднюю норму расхода клея по типам матрасов: пружинные / беспружинные, число слоёв.',
+    'Подтвердить долю производителей и выпуска, использующих клей-расплав, и долю ЭВА против PO/APAO.',
+    'Согласовать периметр 2025 года: 8,0 млн матрасов без основ или 10,3 млн с основами.',
+    'Определить приоритет: все 13 отраслей или 6–7 ключевых для первого этапа.',
+    'Зафиксировать прогнозный период: 2026–2028 или 2024–2026, как в первоначальном ТЗ.',
+    'Согласовать формат сдачи: PDF + DOC, Excel — только итоговые таблицы.'
+  ].map(t => `<li>${esc(t)}</li>`).join('');
+
+  const glossary = [
+    ['Клей-расплав (hot-melt)', 'Термопластичный клей, наносится в расплавленном виде и схватывается при охлаждении.'],
+    ['ЭВА', 'Этиленвинилацетат — базовый полимер для массовых клеёв-расплавов.'],
+    ['АПАО', 'Аморфный полиальфаолефин — полимерная основа клеёв-расплавов, альтернативная ЭВА.'],
+    ['HS 3506 / ТН ВЭД 3506', 'Товарная позиция «клеи на основе каучуков и полимеров»; шире клеёв-расплавов.'],
+    ['Матрасные основы', 'Основания и пружинные блоки как отдельная товарная группа; в основной ряд не входят.'],
+    ['Сценарная оценка', 'Расчёт при явно заданных допущениях; не является статистикой продаж.']
+  ];
+  $('glossary').innerHTML = `<table class="m"><thead><tr><th>Термин</th><th>Определение</th></tr></thead><tbody>${glossary.map(g => `<tr><td><b>${esc(g[0])}</b></td><td>${esc(g[1])}</td></tr>`).join('')}</tbody></table>`;
+}
+
+/* ===== выводы ===== */
+function renderConclusions() {
+  $('conclusionsList').innerHTML = [
+    '<b>Выпуск матрасов рос с 3,31 млн шт в 2017 до 14,08 млн в 2024</b> (+23,0 % в среднем за год), затем резко упал до 8,0 млн в 2025 (−44 % по публикации BusinesStat).',
+    '<b>При базовом сценарии потребность в ЭВА — 4,22 тыс. т в 2024 и 2,40 тыс. т в 2025</b>; диапазон — 0,73–11,35 и 0,41–6,45 тыс. т.',
+    '<b>Главный драйвер неопределённости — структура клеёв:</b> при норме 1 кг/шт результат меняется с 1,69 до 7,88 тыс. т только за счёт двух долей.',
+    '<b>Импорт HS 3506 — 111,2 тыс. т в 2024</b>; 82,3 % приходится на Китай, Германию и Турцию. Это контекст, а не объём матрасного ЭВА.',
+    '<b>Спад 2025 года сконцентрирован в пружинном сегменте</b>; это меняет структуру потребления клея и требует отдельных норм по контурам.',
+    '<b>Для превращения сценария в рабочую оценку нужны три подтверждения:</b> норма расхода, доля расплавов, доля ЭВА.'
+  ].map(t => `<li>${t}</li>`).join('');
+
+  $('recommendations').innerHTML = [
+    'Сфокусироваться на пружинном контуре: он формирует около 84 % выпуска 2024 года и имеет отдельный клеевой контур.',
+    'Проверить гипотезу о доле ЭВА против PO/APAO на ассортименте заказчика — это сильнее всего влияет на оценку.',
+    'Использовать диапазон, а не одно число, в коммерческих материалах: базовый сценарий — для планирования, крайние — для стресс-теста.',
+    'Развивать направление клеёв для сборки слоёв: оно менее зависит от пружинного блока и ближе к беспружинному сегменту.',
+    'Для полного исследования приоритизировать отрасли с публикуемой статистикой выпуска — там оценка будет точнее.'
+  ].map(t => `<li>${esc(t)}</li>`).join('');
+
+  $('fullResearch').innerHTML = [
+    card('13 отраслей × 5 химий', 'Единая рамка спроса: матрасы, подгузники, упаковка, мебель, автокомпоненты и другие сегменты.'),
+    card('Карта игроков и цен', 'Производители и потребители, ассортимент, география, сопоставимые ценовые коридоры по химиям.'),
+    card('Приоритизация для продаж', 'Отрасли и компании с наибольшим потенциалом; контактная база — отдельный блок по согласованию.')
+  ].join('');
+}
+
+/* ===== запуск ===== */
+$('built').textContent = META.built;
+
+(function initEvaControls() {
+  const sel = $('evaYear');
+  sel.innerHTML = META.years.map(y => `<option value="${y}"${y === S.year ? ' selected' : ''}>${y}</option>`).join('');
+  sel.addEventListener('change', e => { S.year = +e.target.value; renderEva(); });
+  document.querySelectorAll('#scenarioSeg button').forEach(b => {
+    b.addEventListener('click', () => {
+      S.scenario = b.dataset.s;
+      document.querySelectorAll('#scenarioSeg button').forEach(x => x.classList.toggle('on', x === b));
+      renderEva();
+    });
+  });
+})();
+
+renderOverview();
+renderProduction();
+renderEva();
+renderImport();
+renderPlayers();
+renderPassport();
+renderConclusions();
+
+</script>
+
+<style>
+  /* все замаскированные цифры — визуально нечитаемы и не выделяются */
+  .nblur { filter: blur(5px); -webkit-filter: blur(5px); user-select: none; -webkit-user-select: none; }
+  svg text.nblur, svg title.nblur { filter: blur(3px); -webkit-filter: blur(3px); }
+</style>
+<script>
+(function () {
+  'use strict';
+  var NUM = /[0-9]+(?:[\s\u00A0][0-9]{3})*(?:[.,][0-9]+)*/g;
+  function masked(s) { return s.replace(/[0-9]/g, '\u2022'); }
+  function skipped(node) {
+    var el = node.nodeType === 3 ? node.parentElement : node;
+    while (el) {
+      var t = el.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'NOSCRIPT') return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+  function process(node) {
+    if (node.nodeType !== 3 || !/[0-9]/.test(node.data)) return;
+    if (skipped(node)) return;
+    var parent = node.parentElement;
+    if (!parent) return;
+    // SVG-подписи: маскируем текст на месте и размываем весь <text>
+    if (parent instanceof SVGElement) {
+      if (!/[0-9]/.test(node.data)) return;
+      node.data = masked(node.data);
+      var host = parent.closest('text') || parent;
+      host.classList.add('nblur');
+      return;
+    }
+    var data = node.data;
+    var frag = document.createDocumentFragment();
+    var last = 0, m, found = false;
+    NUM.lastIndex = 0;
+    while ((m = NUM.exec(data)) !== null) {
+      found = true;
+      if (m.index > last) frag.appendChild(document.createTextNode(data.slice(last, m.index)));
+      var span = document.createElement('span');
+      span.className = 'nblur';
+      span.textContent = masked(m[0]);
+      frag.appendChild(span);
+      last = m.index + m[0].length;
+    }
+    if (!found) return;
+    if (last < data.length) frag.appendChild(document.createTextNode(data.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  }
+  function walk(root) {
+    if (root.nodeType === 3) { process(root); return; }
+    if (root.nodeType !== 1) return;
+    var tag = root.tagName;
+    if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var n, list = [];
+    while ((n = walker.nextNode())) list.push(n);
+    list.forEach(process);
+  }
+  function start() { if (document.body) walk(document.body); }
+  start();
+  document.addEventListener('DOMContentLoaded', start);
+  setTimeout(start, 300);
+  setTimeout(start, 1500);
+  var mo = new MutationObserver(function (records) {
+    records.forEach(function (r) {
+      if (r.type === 'characterData') process(r.target);
+      else Array.prototype.forEach.call(r.addedNodes, walk);
+    });
+  });
+  if (document.body) mo.observe(document.body, { subtree: true, childList: true, characterData: true });
+})();
+</script>
+
+</body>
+</html>
