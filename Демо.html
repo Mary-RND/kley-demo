@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2310395c'/%3E%3Cpath d='M4 11V5l4 4 4-4v6' stroke='%235cc9a8' stroke-width='1.8' fill='none'/%3E%3C/svg%3E">
-<title>Рынок клеёв-расплавов для матрасов — аналитический дашборд</title>
+<title>Рынок клеёв-расплавов в России, 2024 — аналитический дашборд (демо)</title>
 <style>
 :root{
   --bg:#eef2f7;--card:#fff;--ink:#16202b;--muted:#5f6f82;--line:#dce4ee;
@@ -253,23 +253,23 @@ footer b{color:var(--ink)}
         <button class="btn light" id="themeBtn" type="button">Тёмная тема</button>
       </div>
     </div>
-    <h1>Рынок клеёв-расплавов для производства матрасов</h1>
-    <p class="hero-sub">Срез «матрасы × клей-расплав ЭВА»: выпуск, расход клея, сценарии потребления, импорт по HS 3506, поставщики и производители. Фактические данные 2017–2025, сценарии 2026–2028.</p>
+    <h1>Анализ рынка клеёв-расплавов в России · 2024</h1>
+    <p class="hero-sub">Демонстрационный срез 2024 года по структуре нового ТЗ: обзор рынка, внешнеторговые поставки (импорт и экспорт), игроки, 13 отраслей-потребителей, модель потребления на примере «матрасы × ЭВА». Рамка пяти баз: ЭВА · АПАО · полиэфиры · полиамиды · полиуретаны.</p>
     <div class="hero-meta">
       <span>Обновлено: <b id="built"></b></span>
-      <span>Периметр: <b>РФ · матрасы без основ</b></span>
-      <span>Статус сегмента ЭВА: <b>сценарная оценка</b></span>
+      <span>Базовый год: <b>2024</b></span>
+      <span>Периметр: <b>РФ · клеёв-расплавов по 5 базам</b></span>
     </div>
   </div>
 </header>
 
 <nav class="tabs" id="nav">
   <div class="tabs-in">
-    <a href="#overview" class="active">Обзор</a>
-    <a href="#production">Производство матрасов</a>
-    <a href="#eva">Потребление ЭВА</a>
-    <a href="#import">Импорт HS 3506</a>
-    <a href="#players">Поставщики и производители</a>
+    <a href="#overview" class="active">Обзор 2024</a>
+    <a href="#trade">Внешнеторговые поставки</a>
+    <a href="#players">Игроки рынка</a>
+    <a href="#industries">Отрасли-потребители</a>
+    <a href="#model">Модель потребления</a>
     <a href="#passport">Паспорт данных</a>
     <a href="#conclusions">Выводы</a>
   </div>
@@ -279,23 +279,30 @@ footer b{color:var(--ink)}
   <!-- ================= ОБЗОР ================= -->
   <section class="section" id="overview">
     <div class="section-head">
-      <div class="eyebrow">01 · Обзор</div>
+      <div class="eyebrow">01 · Обзор рынка 2024</div>
       <h2>Главное в одном экране</h2>
-      <p class="lead">Демонстрационный срез показывает, как связаны выпуск матрасов, расход клея и потребность в ЭВА. Все значения по сегменту ЭВА — расчётные: доли клеёв-расплавов и ЭВА в открытой статистике не публикуются.</p>
+      <p class="lead">Базовый год демо — 2024. Объём рынка приведён балансовым методом (производство + импорт − экспорт) и является расчётной оценкой с диапазоном сценариев. Контрольные цифры внешнеторговых поставок — открытая таможенная статистика, остальные значения скрыты в публичной демо-версии.</p>
     </div>
     <div class="callout warn">
-      <span class="tag">Важно</span>
-      <b>Сценарная оценка, а не фактический объём рынка.</b> Диапазон отражает неопределённость двух параметров — доли клеёв-расплавов и доли ЭВА внутри расплавов. Он не является доверительным интервалом и не заменяет статистику продаж.
+      <span class="tag">Рамка исследования</span>
+      <b>Объект — клеи-расплавы на пяти полимерных базах:</b> ЭВА, АПАО, полиэфиры, полиамиды, полиуретаны. ТН ВЭД 3506 шире этого периметра и используется как внешнеторговый контекст, а не как объём рынка расплавов.
     </div>
     <div class="kpis" id="kpisOverview"></div>
     <div class="grid2">
       <div class="panel">
-        <div class="ph"><h3>Выпуск матрасов: факт и сценарии</h3><span class="hint">млн шт</span></div>
-        <div id="chProduction"></div>
+        <div class="ph"><h3>Структура импорта HS 3506, 2024</h3><span class="hint">топ-5 стран</span></div>
+        <div id="chImportDonut"></div>
       </div>
       <div class="panel">
-        <h3>Импорт HS 3506, 2024</h3>
-        <div id="chImportDonut"></div>
+        <h3>Как оцениваются внешнеторговые поставки</h3>
+        <p class="note" style="margin-top:0">Зеркальный метод: собственные данные РФ по детальной таможенной отчётности в ООН не публикуются после 2021 года, поэтому каждый поток собирается по данным стран-партнёров и перекрёстно сверяется с оценкой ООН (расхождение 2018–2021 — около ±10 %).</p>
+        <ul class="facts pub-allow">
+          <li><b>Импорт в РФ, HS 3506, 2024 — 111,2 тыс. т на 363,9 млн $.</b> Это вся товарная позиция «клеи на основе полимеров», то есть верхняя граница периметра.</li>
+          <li><b>Китай — 54,0 тыс. т (48,6 % веса)</b> на 137,4 млн $, средняя цена 2,54 $/кг против 3,27 $/кг по рынку: дешёвый сегмент сосредоточен именно в китайских поставках.</li>
+          <li><b>Топ-3 страны (Китай, Германия, Турция) — 82,3 % веса импорта:</b> концентрация источников высока, смена одного поставщика меняет структуру потока.</li>
+          <li><b>Экспорт из РФ, 2021 — 12,9 тыс. т на 34,9 млн $</b> (роде ООН): публикуемая статистика обрывается на 2021 году, поэтому экспорт 2022–2025 в демо восстановлен зеркально.</li>
+        </ul>
+        <p class="note">Остальные значения дашборда в публичной демо-версии скрыты — полная версия открывается по коду доступа.</p>
       </div>
     </div>
     <div class="grid2 even">
@@ -304,49 +311,120 @@ footer b{color:var(--ink)}
         <ul class="facts" id="facts"></ul>
       </div>
       <div class="panel">
-        <h3>Структура выпуска матрасов</h3>
-        <p class="note" style="margin-top:0">Расчётно, по опубликованным значениям беспружинных матрасов.</p>
-        <div id="structure"></div>
+        <h3>Предложение по полному исследованию</h3>
+        <div class="cards3" id="overviewOffer"></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= ПРОИЗВОДСТВО ================= -->
-  <section class="section" id="production">
+  <!-- ================= ВНЕШНЯЯ ТОРГОВЛЯ ================= -->
+  <section class="section" id="trade">
     <div class="section-head">
-      <div class="eyebrow">02 · Производство матрасов</div>
-      <h2>База спроса: сколько матрасов производится в РФ</h2>
-      <p class="lead">Основной ряд — матрасы без матрасных основ. Для каждого года выбрано одно значение; альтернативные публикации использованы для сверки, а не для усреднения.</p>
+      <div class="eyebrow">02 · Внешнеторговые поставки</div>
+      <h2>Оба потока: импорт в РФ и экспорт из РФ</h2>
+      <p class="lead">Показаны оба потока: импорт (что заходит на рынок) и экспорт (что уходит с него). Импорт и экспорт разбиты по странам и по шестизначным кодам HS 3506 — это грубый способ отделить клеи для розничной продажи (мелкая фасовка) от промтовых поставок, где живёт большинство расплавов.</p>
     </div>
-    <div class="kpis" id="kpisProduction"></div>
-    <div class="panel">
-      <div class="ph"><h3>Динамика выпуска, млн шт</h3><span class="hint">2017–2025</span></div>
-      <div id="chProdBig"></div>
+    <div class="callout warn pub-allow">
+      <span class="tag">Контрольные цифры</span>
+      <b>Импорт в РФ, 2024 — 111,2 тыс. т / 363,9 млн $; Китай — 54,0 тыс. т (48,6 %) по цене 2,54 $/кг.</b> Экспорт из РФ, 2021 — 12,9 тыс. т / 34,9 млн $ (роде ООН, дальше — зеркало).
+    </div>
+    <div class="kpis" id="kpisTrade"></div>
+    <div class="grid2 even">
+      <div class="panel">
+        <div class="ph"><h3>Импорт в РФ, тыс. т</h3><span class="hint">2017–2025 (зеркало)</span></div>
+        <div id="chImport"></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h3>Экспорт из РФ, тыс. т</h3><span class="hint">2017–2025 (зеркало)</span></div>
+        <div id="chExport"></div>
+      </div>
     </div>
     <div class="panel">
-      <div class="ph"><h3>Ряд выпуска и сценарии 2026–2028</h3><span class="hint">фильтры, поиск и экспорт</span></div>
-      <div id="tblProduction"></div>
+      <div class="ph"><h3>Импорт и экспорт: сальдо по годам</h3><span class="hint">тыс. т и млн $</span></div>
+      <div id="tblBalance"></div>
+      <p class="note">Потоки учитываются раздельно: ввоз = экспорт стран-поставщиков в РФ, вывоз = импорт стран-партнёров из РФ. Расхождение оценки ООН с зеркалом за 2018–2021 годы — около ±10 %.</p>
     </div>
     <div class="grid2 even">
       <div class="panel">
-        <h3>Пружинные и беспружинные матрасы</h3>
-        <div id="structure2"></div>
-        <p class="note">Спад 2025 года сконцентрирован в пружинном сегменте. Пружинные блоки имеют отдельный клеевой контур — это ограничение постоянной средней нормы на матрас.</p>
+        <h3>Страны-поставщики импорта, 2024</h3>
+        <div id="tblTop"></div>
       </div>
       <div class="panel">
-        <h3>Средняя цена производителей</h3>
-        <div id="tblPrices"></div>
-        <p class="note">Цены приведены как отраслевой контекст. Они не используются для пересчёта выручки компаний в штуки или тонны.</p>
+        <h3>Страны-покупатели экспорта РФ, 2024</h3>
+        <div id="tblExportTop"></div>
+        <p class="note">Страны без веса (декларация без килограммов) исключены из весового итога; стоимость сохраняется отдельно.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Импорт по шестизначным кодам HS 3506</h3>
+      <p class="lead" style="margin-bottom:12px">Код 350610 — клеи в розничной упаковке до 1 кг; остальные — прочие клеи и линкеры. Большинство объёмов по промтовым поставкам тяготеют к 350691/350699 — это структурный ориентир для выделения расплавов, а не точный счёт.</p>
+      <div id="tblHs6"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Как читать таможенные данные</h3>
+        <ul class="facts" id="importNotes"></ul>
+      </div>
+      <div class="panel">
+        <h3>Импорт РФ по HS 3506: оценка ООН</h3>
+        <div id="tblRu"></div>
+        <p class="note">Значения 2017–2021 — восстановленная оценка ООН, а не декларация. После 2021 года детальная отчётность РФ в ООН недоступна.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= ПОТРЕБЛЕНИЕ ЭВА ================= -->
-  <section class="section" id="eva">
+  <!-- ================= ИГРОКИ ================= -->
+  <section class="section" id="players">
     <div class="section-head">
-      <div class="eyebrow">03 · Потребление ЭВА</div>
-      <h2>Сценарии спроса на клей-расплав ЭВА</h2>
-      <p class="lead">Расчёт связывает выпуск матрасов с расходом клея. Переключайте сценарий и год, чтобы увидеть, как меняется оценка. Это инструмент для обсуждения допущений, а не статистика закупок.</p>
+      <div class="eyebrow">03 · Игроки рынка</div>
+      <h2>Кто производит и кто конкурирует</h2>
+      <p class="lead">Крупнейшие российские производители клеёв по открытой отчётности (Checko/ФНС, последний доступный отчётный год — 2025) и перечень специализированных поставщиков расплавов. Выручка приведена как контекст масштаба и не пересчитывается в тонны и доли рынка.</p>
+    </div>
+    <div class="cards3" id="playerCards"></div>
+    <div class="panel" style="margin-top:16px">
+      <div class="ph"><h3>ТОП-10 российских производителей клеёв</h3><span class="hint">открытая отчётность</span></div>
+      <div id="tblGluePlayers"></div>
+      <p class="note">Принадлежность конкретной компании к серийному производству клеёв-расплавов требует проверки по ассортименту; для части компаний помечено.</p>
+    </div>
+    <div class="panel">
+      <div class="ph"><h3>Специализированные поставщики клеёв-расплавов</h3><span class="hint">пример: матрасный сегмент</span></div>
+      <div id="tblSuppliers"></div>
+      <p class="note">Перечень качественный. Наличие продукта в линейке не означает долю рынка.</p>
+    </div>
+  </section>
+
+  <!-- ================= ОТРАСЛИ ================= -->
+  <section class="section" id="industries">
+    <div class="section-head">
+      <div class="eyebrow">04 · Отрасли-потребители 2024</div>
+      <h2>13 отраслей по ТЗ: что открыто, а что нет</h2>
+      <p class="lead">Клей-расплав потребляют 13 отраслей (плюс справочно — корпусная мебель). Для каждой открытыми данными закрывается «какой объём» или фиксируется «нет открытых данных» — это тоже результат: в полном исследовании станет планом поиска.</p>
+    </div>
+    <div class="kpis" id="kpisIndustries"></div>
+    <div class="panel">
+      <div class="ph"><h3>Выпуск отраслей-потребителей, 2024</h3><span class="hint">фильтры, поиск и экспорт</span></div>
+      <div id="tblIndustries"></div>
+      <p class="note">Показатели отраслей приводятся в их нативных единицах (шт, м³, м², тонны, млрд ₽). Пересчёт в тонны клея выполняется только в рамках модели по конкретной отрасли — обобщённого норматива «на все отрасли» нет.</p>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <h3>Где данных нет</h3>
+        <ul class="facts" id="industryGaps"></ul>
+      </div>
+      <div class="panel">
+        <h3>Рамка пяти баз по отраслям</h3>
+        <div id="chemMatrix"></div>
+        <p class="note">Качественная карта «база → отрасль» по открытой ассортиментной информации. Количественные доли баз — вопрос модели и будет согласован в полном исследовании.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= МОДЕЛЬ ПОТРЕБЛЕНИЯ ================= -->
+  <section class="section" id="model">
+    <div class="section-head">
+      <div class="eyebrow">05 · Модель потребления</div>
+      <h2>Пример расчёта: матрасы × клей-расплав ЭВА</h2>
+      <p class="lead">Модель связывает выпуск отрасли с расходом клея и структурой клеёв. В демо-срезе 2024 года это — прозрачный расчёт по одной отрасли; в полном исследовании он строится по всем 13 отраслям.</p>
     </div>
     <div class="panel scenario-panel">
       <div class="scenario-bar">
@@ -373,74 +451,18 @@ footer b{color:var(--ink)}
       <div class="panel">
         <h3>Сценарные допущения</h3>
         <div id="tblAssumptions"></div>
-        <p class="note">Норма расхода — отраслевой ориентир. Две продуктовые доли — сценарные допущения: открытой статистики по ним нет.</p>
+        <p class="note">Норма расхода — отраслевой ориентир. Две продуктовые доли — сценарные допущения. Потребление по любому сценарию — <b>Сценарная оценка, а не фактический объём рынка</b>: фактические закупки не измеряются. Ответ заказчика на вопрос о собственной структуре расплавов снимет основную неопределённость.</p>
       </div>
       <div class="panel">
-        <h3>География выпуска, 2024</h3>
-        <div id="geography"></div>
-        <p class="note">Распределение по федеральным округам — по доле выпуска. Потребление ЭВА по регионам не измерялось.</p>
+        <h3>Чувствительность 2024: доля расплавов × доля ЭВА</h3>
+        <p class="lead" style="margin-bottom:12px">При фиксированной норме 1 кг на матрас. Показывает, насколько результат зависит от структуры клеёв, а не от выпуска.</p>
+        <div id="matrix"></div>
       </div>
     </div>
     <div class="panel">
-      <h3>Чувствительность 2024: доля расплавов × доля ЭВА</h3>
-      <p class="lead" style="margin-bottom:12px">При фиксированной норме 1 кг на матрас. Показывает, насколько результат зависит от структуры клеёв, а не от выпуска.</p>
-      <div id="matrix"></div>
-      <p class="note">Базовый набор — 50% расплавов и 60% ЭВА внутри расплавов: 4,22 тыс. т. Крайние значения матрицы — 1,69 и 7,88 тыс. т.</p>
-    </div>
-  </section>
-
-  <!-- ================= ИМПОРТ ================= -->
-  <section class="section" id="import">
-    <div class="section-head">
-      <div class="eyebrow">04 · Импорт HS 3506</div>
-      <h2>Внешнеторговый контекст по клеям</h2>
-      <p class="lead">HS 3506 — широкая товарная позиция «клеи на основе каучуков и полимеров». Она шире клеёв-расплавов и используется как контекст, а не как драйвер матрасной модели.</p>
-    </div>
-    <div class="kpis" id="kpisImport"></div>
-    <div class="grid2 even">
-      <div class="panel">
-        <div class="ph"><h3>Импорт, тыс. т</h3><span class="hint">2017–2025</span></div>
-        <div id="chImport"></div>
-      </div>
-      <div class="panel">
-        <div class="ph"><h3>Средняя цена, $/кг</h3><span class="hint">по сопоставимым строкам</span></div>
-        <div id="chPrice"></div>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="ph"><h3>Страны-поставщики, 2024</h3><span class="hint">25 стран с весом</span></div>
-      <div id="tblTop"></div>
-    </div>
-    <div class="grid2 even">
-      <div class="panel">
-        <h3>Импорт РФ по HS 3506: оценка ООН</h3>
-        <div id="tblRu"></div>
-        <p class="note">РФ не подаёт детальную отчётность после 2021 года. Значения 2017–2021 — восстановленная оценка, а не декларация.</p>
-      </div>
-      <div class="panel">
-        <h3>Как читать таможенные данные</h3>
-        <ul class="facts" id="importNotes"></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ПОСТАВЩИКИ ================= -->
-  <section class="section" id="players">
-    <div class="section-head">
-      <div class="eyebrow">05 · Поставщики и производители</div>
-      <h2>Кто формирует предложение и спрос</h2>
-      <p class="lead">Перечень производителей клеёв и матрасов. Оценка потребления в тоннах по отдельным компаниям не выполняется: нет сопоставимых данных по выпуску и закупкам.</p>
-    </div>
-    <div class="cards3" id="supplierCards"></div>
-    <div class="panel" style="margin-top:16px">
-      <h3>Производители и поставщики клеёв для матрасов</h3>
-      <div id="tblSuppliers"></div>
-      <p class="note">Перечень качественный. Наличие продукта в линейке не означает долю рынка.</p>
-    </div>
-    <div class="panel">
-      <h3>Производители матрасов</h3>
-      <div id="tblPlayers"></div>
-      <p class="note">Выручка приведена как контекст масштаба компании. Она не пересчитывается в штуки или тонны клея: разные годы, периметры юрлиц и товарный микс.</p>
+      <h3>География выпуска матрасов, 2024</h3>
+      <div id="geography"></div>
+      <p class="note">Распределение по федеральным округам — по доле выпуска. Потребление ЭВА по регионам не измерялось.</p>
     </div>
   </section>
 
@@ -449,7 +471,7 @@ footer b{color:var(--ink)}
     <div class="section-head">
       <div class="eyebrow">06 · Паспорт данных</div>
       <h2>Источники, статусы и ограничения</h2>
-      <p class="lead">Паспорт фиксирует, что в дашборде является фактом, что расчётом, а что сценарием. Это часть продукта: заказчик видит границы применимости каждой цифры.</p>
+      <p class="lead">Паспорт фиксирует, что в дашборде является фактом, что оценкой, а что сценарием. Заказчик видит границы применимости каждой цифры, и ни одна из них не выдаётся за статистику продаж.</p>
     </div>
     <div class="cards4" id="statusLegend"></div>
     <div class="panel" style="margin-top:16px">
@@ -470,7 +492,7 @@ footer b{color:var(--ink)}
   <section class="section" id="conclusions">
     <div class="section-head">
       <div class="eyebrow">07 · Выводы</div>
-      <h2>Что следует из данных</h2>
+      <h2>Что следует из данных 2024 года</h2>
       <p class="lead">Выводы разделены на то, что подтверждается данными, и то, что требует подтверждения заказчика.</p>
     </div>
     <div class="panel">
@@ -481,7 +503,7 @@ footer b{color:var(--ink)}
       <h3>Рекомендации для производителя клеёв</h3>
       <ol class="facts" id="recommendations"></ol>
     </div>
-    <div class="panel accent">
+    <div class="panel">
       <h3>Что даст полное исследование</h3>
       <div class="cards3" id="fullResearch"></div>
     </div>
@@ -489,10 +511,10 @@ footer b{color:var(--ink)}
 </main>
 
 <footer>
-  <b>Демонстрационная версия.</b> Данные 2017–2025, сценарии 2026–2028. Подготовлено по открытым источникам: производственная статистика, отраслевые публикации, таможенная статистика ООН. Результаты по сегменту ЭВА являются сценарной оценкой и не должны интерпретироваться как прямая статистическая отчётность.
+  <b>Демонстрационная версия. Базовый год — 2024.</b> Подготовлено по открытым источникам: производственная статистика РФ, отраслевые публикации, таможенная статистика ООН (UN Comtrade). Значения потребления клея — сценарная оценка и не статистика продаж. Контактные контрольные цифры внешнеторговых поставок в тексте разделов 01–02 — открытая таможенная статистика по позиции HS 3506.
 </footer>
 
-<script id="payload" type="application/json">{"meta":{"built":"01.11.2026","primary":2024,"years":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028],"history":[2017,2018,2019,2020,2021,2022,2023,2024,2025],"forecast":[2026,2027,2028]},"production":[{"year":2017,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":3.3149,"yoy":null,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2018,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":4.2,"yoy":26.7,"status":"факт","basis":"Alto Consulting Group","source":"Alto Consulting Group"},{"year":2019,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":5.76,"yoy":37.1,"status":"расчёт","basis":"Расчётная оценка по данным BusinesStat","source":"BusinesStat"},{"year":2020,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.78,"yoy":52.4,"status":"расчёт","basis":"Alto Consulting Group; сверка с BusinesStat","source":"Alto Consulting Group"},{"year":2021,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.745,"yoy":33.8,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2022,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.9,"yoy":1.3,"status":"факт","basis":"BusinesStat","source":"BusinesStat"},{"year":2023,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.914,"yoy":25.3,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2024,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.079,"yoy":-5.6,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2025,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.0,"yoy":-43.2,"status":"оценка","basis":"BusinesStat; сверка с АМДПР","source":"BusinesStat / АМДПР"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.6,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.4,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.22,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.82,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":6.859,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":9.261,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"}],"demand":[{"year":2017,"period":"history","case":"low","prod":3.3149,"all":1425.4,"hotmelt":427.6,"eva":171.0},{"year":2017,"period":"history","case":"base","prod":3.3149,"all":3314.9,"hotmelt":1657.5,"eva":994.5},{"year":2017,"period":"history","case":"high","prod":3.3149,"all":4773.5,"hotmelt":3341.4,"eva":2673.1},{"year":2018,"period":"history","case":"low","prod":4.2,"all":1806.0,"hotmelt":541.8,"eva":216.7},{"year":2018,"period":"history","case":"base","prod":4.2,"all":4200.0,"hotmelt":2100.0,"eva":1260.0},{"year":2018,"period":"history","case":"high","prod":4.2,"all":6048.0,"hotmelt":4233.6,"eva":3386.9},{"year":2019,"period":"history","case":"low","prod":5.76,"all":2476.8,"hotmelt":743.0,"eva":297.2},{"year":2019,"period":"history","case":"base","prod":5.76,"all":5760.0,"hotmelt":2880.0,"eva":1728.0},{"year":2019,"period":"history","case":"high","prod":5.76,"all":8294.4,"hotmelt":5806.1,"eva":4644.9},{"year":2020,"period":"history","case":"low","prod":8.78,"all":3775.4,"hotmelt":1132.6,"eva":453.0},{"year":2020,"period":"history","case":"base","prod":8.78,"all":8780.0,"hotmelt":4390.0,"eva":2634.0},{"year":2020,"period":"history","case":"high","prod":8.78,"all":12643.2,"hotmelt":8850.2,"eva":7080.2},{"year":2021,"period":"history","case":"low","prod":11.745,"all":5050.4,"hotmelt":1515.1,"eva":606.0},{"year":2021,"period":"history","case":"base","prod":11.745,"all":11745.0,"hotmelt":5872.5,"eva":3523.5},{"year":2021,"period":"history","case":"high","prod":11.745,"all":16912.8,"hotmelt":11839.0,"eva":9471.2},{"year":2022,"period":"history","case":"low","prod":11.9,"all":5117.0,"hotmelt":1535.1,"eva":614.0},{"year":2022,"period":"history","case":"base","prod":11.9,"all":11900.0,"hotmelt":5950.0,"eva":3570.0},{"year":2022,"period":"history","case":"high","prod":11.9,"all":17136.0,"hotmelt":11995.2,"eva":9596.2},{"year":2023,"period":"history","case":"low","prod":14.914,"all":6413.0,"hotmelt":1923.9,"eva":769.6},{"year":2023,"period":"history","case":"base","prod":14.914,"all":14914.0,"hotmelt":7457.0,"eva":4474.2},{"year":2023,"period":"history","case":"high","prod":14.914,"all":21476.2,"hotmelt":15033.3,"eva":12026.6},{"year":2024,"period":"history","case":"low","prod":14.079,"all":6054.0,"hotmelt":1816.2,"eva":726.5},{"year":2024,"period":"history","case":"base","prod":14.079,"all":14079.0,"hotmelt":7039.5,"eva":4223.7},{"year":2024,"period":"history","case":"high","prod":14.079,"all":20273.8,"hotmelt":14191.6,"eva":11353.3},{"year":2025,"period":"history","case":"low","prod":8.0,"all":3440.0,"hotmelt":1032.0,"eva":412.8},{"year":2025,"period":"history","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2025,"period":"history","case":"high","prod":8.0,"all":11520.0,"hotmelt":8064.0,"eva":6451.2},{"year":2026,"period":"forecast","case":"low","prod":7.6,"all":3268.0,"hotmelt":980.4,"eva":392.2},{"year":2026,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2026,"period":"forecast","case":"high","prod":8.4,"all":12096.0,"hotmelt":8467.2,"eva":6773.8},{"year":2027,"period":"forecast","case":"low","prod":7.22,"all":3104.6,"hotmelt":931.4,"eva":372.6},{"year":2027,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2027,"period":"forecast","case":"high","prod":8.82,"all":12700.8,"hotmelt":8890.6,"eva":7112.4},{"year":2028,"period":"forecast","case":"low","prod":6.859,"all":2949.4,"hotmelt":884.8,"eva":353.9},{"year":2028,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2028,"period":"forecast","case":"high","prod":9.261,"all":13335.8,"hotmelt":9335.1,"eva":7468.1}],"assumptions":[{"param":"Средний расход всех клеёв на матрас","low":0.43,"base":1.0,"high":1.44,"unit":"кг/шт","status":"вилка по открытым ориентирам","note":"Не является нормой именно ЭВА; требует подтверждения заказчика"},{"param":"Доля клеёв-расплавов в потреблении всех клеёв","low":30.0,"base":50.0,"high":70.0,"unit":"%","status":"сценарное допущение","note":"Открытая статистика отсутствует; это НЕ оценка рыночной доли"},{"param":"Доля ЭВА внутри клеёв-расплавов","low":40.0,"base":60.0,"high":80.0,"unit":"%","status":"сценарное допущение","note":"Конкурирующие PO/APAO и другие химии; открытая статистика отсутствует"},{"param":"Темп изменения выпуска в 2026–2028","low":-5.0,"base":0.0,"high":5.0,"unit":"% в год","status":"сценарное допущение","note":"Траектории от 8,0 млн шт в 2025; вероятности не присваиваются"}],"sensitivity":[{"hotmelt":30.0,"eva_share":40.0,"eva_t":1689.5},{"hotmelt":30.0,"eva_share":60.0,"eva_t":2534.2},{"hotmelt":30.0,"eva_share":80.0,"eva_t":3379.0},{"hotmelt":50.0,"eva_share":40.0,"eva_t":2815.8},{"hotmelt":50.0,"eva_share":60.0,"eva_t":4223.7},{"hotmelt":50.0,"eva_share":80.0,"eva_t":5631.6},{"hotmelt":70.0,"eva_share":40.0,"eva_t":3942.1},{"hotmelt":70.0,"eva_share":60.0,"eva_t":5913.2},{"hotmelt":70.0,"eva_share":80.0,"eva_t":7884.2}],"geography":[{"region":"Центральный федеральный округ","share":74.4,"prod":10.475,"all":10474.8,"eva":3142.4},{"region":"Остальные регионы","share":25.6,"prod":3.604,"all":3604.2,"eva":1081.3}],"importsYear":[{"year":2017,"weight_t":47273.346,"value_usd":226848234.0,"price":2.71,"countries":27,"no_weight":1},{"year":2018,"weight_t":64938.355,"value_usd":250777092.0,"price":3.215,"countries":27,"no_weight":1},{"year":2019,"weight_t":74352.419,"value_usd":237644321.0,"price":3.109,"countries":27,"no_weight":1},{"year":2020,"weight_t":80180.666,"value_usd":246412525.0,"price":3.073,"countries":28,"no_weight":0},{"year":2021,"weight_t":88228.266,"value_usd":300533431.0,"price":3.406,"countries":28,"no_weight":0},{"year":2022,"weight_t":100095.938,"value_usd":360179156.0,"price":3.598,"countries":27,"no_weight":0},{"year":2023,"weight_t":103138.669,"value_usd":372966251.0,"price":3.616,"countries":27,"no_weight":0},{"year":2024,"weight_t":111247.337,"value_usd":363911938.0,"price":3.271,"countries":25,"no_weight":0},{"year":2025,"weight_t":106552.152,"value_usd":337969727.0,"price":3.172,"countries":24,"no_weight":0}],"importsTop":[{"rank":1,"country":"Китай","weight_t":54037.97,"value_usd":137437891.0,"price":2.543,"share":48.6},{"rank":2,"country":"Германия","weight_t":20701.821,"value_usd":87509572.0,"price":4.227,"share":18.6},{"rank":3,"country":"Турция","weight_t":16787.896,"value_usd":51918942.0,"price":3.093,"share":15.1},{"rank":4,"country":"Италия","weight_t":4766.677,"value_usd":16958162.0,"price":3.558,"share":4.3},{"rank":5,"country":"Польша","weight_t":2517.261,"value_usd":10946937.0,"price":4.349,"share":2.3},{"rank":6,"country":"Казахстан","weight_t":2421.29,"value_usd":18019882.0,"price":7.442,"share":2.2},{"rank":7,"country":"Словения","weight_t":1342.384,"value_usd":4212816.0,"price":3.138,"share":1.2},{"rank":8,"country":"Малайзия","weight_t":1319.792,"value_usd":3305410.0,"price":2.504,"share":1.2},{"rank":9,"country":"Индия","weight_t":1293.283,"value_usd":4188791.0,"price":3.239,"share":1.2},{"rank":10,"country":"Корея","weight_t":1028.748,"value_usd":11692407.0,"price":11.366,"share":0.9},{"rank":11,"country":"Нидерланды","weight_t":911.924,"value_usd":3994449.0,"price":4.38,"share":0.8},{"rank":12,"country":"Венгрия","weight_t":895.35,"value_usd":2472333.0,"price":2.761,"share":0.8},{"rank":13,"country":"Швеция","weight_t":552.0,"value_usd":954707.0,"price":1.73,"share":0.5},{"rank":14,"country":"Литва","weight_t":541.482,"value_usd":2218074.0,"price":4.096,"share":0.5},{"rank":15,"country":"Япония","weight_t":536.08,"value_usd":826076.0,"price":1.541,"share":0.5},{"rank":16,"country":"Бельгия","weight_t":522.355,"value_usd":1260152.0,"price":2.412,"share":0.5},{"rank":17,"country":"Испания","weight_t":446.921,"value_usd":1930542.0,"price":4.32,"share":0.4},{"rank":18,"country":"Великобритания","weight_t":216.968,"value_usd":777612.0,"price":3.584,"share":0.2},{"rank":19,"country":"Эстония","weight_t":176.136,"value_usd":958480.0,"price":5.442,"share":0.2},{"rank":20,"country":"Чехия","weight_t":139.323,"value_usd":1327096.0,"price":9.525,"share":0.1},{"rank":21,"country":"Австрия","weight_t":52.465,"value_usd":845196.0,"price":16.11,"share":0.0},{"rank":22,"country":"Индонезия","weight_t":26.0,"value_usd":55679.0,"price":2.141,"share":0.0},{"rank":23,"country":"Латвия","weight_t":12.295,"value_usd":90573.0,"price":7.367,"share":0.0},{"rank":24,"country":"Таиланд","weight_t":0.882,"value_usd":7263.0,"price":8.232,"share":0.0},{"rank":25,"country":"Финляндия","weight_t":0.035,"value_usd":2894.0,"price":82.692,"share":0.0}],"ruReporter":[{"year":2017,"weight_t":71065.319,"value_usd":227817614.0},{"year":2018,"weight_t":72791.447,"value_usd":252084034.0},{"year":2019,"weight_t":75784.272,"value_usd":248875236.0},{"year":2020,"weight_t":77220.947,"value_usd":254288150.0},{"year":2021,"weight_t":81647.517,"value_usd":304134580.0}],"suppliers":[{"name":"Henkel","brand":"Technomelt","origin":"Германия (локализация в РФ)","line":"Technomelt DM 2883 и линейка для матрасов","chem":"EVA / полиолефины","verified":"частично"},{"name":"Jowat","brand":"Jowat","origin":"Германия","line":"клей-расплав для матрасов и мягкой мебели (140–170 °C, плотность 0,91–0,95 г/см³)","chem":"EVA / PO","verified":"да"},{"name":"ООО «Эрготек»","brand":"ЭРГОМЕЛТ / ЭРГОТАК / ЭРГОСПРЕЙ","origin":"Россия (СПб)","line":"ЭРГОМЕЛТ-10Ф, 10С1, 10М, 10С2 (пружинные блоки); ЭРГОТАК-440.2/440.3/440.4 (склейка слоёв); ЭРГОСПРЕЙ-38/40/41 (сольвентные)","chem":"EVA + сольвентные","verified":"да"},{"name":"alfaklei","brand":"alfaklei","origin":"Россия","line":"703, 704.1, 704.4, 705 (расплавы для слоёв); 801 spring (ЭВА для пружинных блоков); 909/906 АПАО (полиолефины)","chem":"EVA / PO / каучуки","verified":"да"},{"name":"Нова-М","brand":"Нова-М","origin":"Россия","line":"клей-расплав для матрасов с полной полимеризацией (полиолефин)","chem":"PO","verified":"да"},{"name":"Cluex","brand":"Cluex","origin":"Россия / импорт","line":"клеи для матрасного производства","chem":"н/д","verified":"нет"},{"name":"lux-x","brand":"Люкс-Х","origin":"Россия","line":"клеи для матрасов, поролона, изоляционных материалов","chem":"н/д","verified":"да"}],"players":[{"company":"ООО «Аскона-Век»","brand":"Askona","region":"Владимирская обл. (Ковров)","revenue":15100000000.0,"revenue_year":"2025","source":"Checko / Контур.Фокус (данные Росстата/ФНС)","note":"ИНН 3305037917; в 2023 выручка 20,4 млрд ₽ (АРГ), в 2024 — 25,1 млрд ₽ (TAdviser); расхождение из-за периметра юрлиц"},{"company":"Группа Askona (холдинг)","brand":"Askona","region":"Москва","revenue":45400000000.0,"revenue_year":"2025","source":"TAdviser","note":"рост на 80% г/г; крупнейший производитель товаров для сна в РФ"},{"company":"ООО «Орма Групп»","brand":"Ormatek","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"входит в топ-10 BusinesStat по выручке 2025"},{"company":"ООО «2МК»","brand":"Mr.Mattress / Materlux","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"№1 в рейтинге BusinesStat по выручке 2025"},{"company":"ООО «ПК Димакс»","brand":"Dimax","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":""},{"company":"ООО «Корона»","brand":"Corona","region":"Респ. Башкортостан","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"также крупный производитель кроватей"},{"company":"ООО «Сарма Компани»","brand":"Sarma","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":"в топ-10 АРГ по производству матрасов"},{"company":"ООО «Армос-Блок»","brand":"Armos","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Чезаторе»","brand":"Cezatore","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «ПК «Релакс»»","brand":"Relax","region":"н/д","revenue":448096000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"3-е место по выручке в 2018"},{"company":"ООО «Сити»","brand":"City","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Технокомф СТ»","brand":"Technocomf","region":"н/д","revenue":1464963000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"2-е место по выручке в 2018; в топ-10 BusinesStat 2025"},{"company":"ООО «Литвуд»","brand":"Litwood","region":"н/д","revenue":11300000000.0,"revenue_year":"2023","source":"TAdviser","note":"преимущественно мягкая мебель, 2-е место по выручке в мебели"},{"company":"ООО «Живые диваны»","brand":"Живые диваны","region":"н/д","revenue":1600000000.0,"revenue_year":"2023","source":"TAdviser","note":"в топ-10 BusinesStat 2025 по матрасам"},{"company":"ПКП «Вега»","brand":"Vega","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Риваль»","brand":"Rival","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Лиситея»","brand":"Lisiteya","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"DreamLine (ГК)","brand":"DreamLine","region":"Московская обл.","revenue":null,"revenue_year":"","source":"Tabriz Group / отраслевые публикации","note":"2018: ~100 тыс. матрасов, ~5% производства ЦФО"}],"prices":[{"year":2019,"price":3093.7,"type":"средняя цена производителей","source":"Alto Consulting Group"},{"year":2022,"price":3309.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"},{"year":2024,"price":3873.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"}]}</script>
+<script id="payload" type="application/json">{"meta":{"built":"03.11.2026","primary":2024,"years":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028],"history":[2017,2018,2019,2020,2021,2022,2023,2024,2025],"forecast":[2026,2027,2028]},"production":[{"year":2017,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":3.3149,"yoy":null,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2018,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":4.2,"yoy":26.7,"status":"факт","basis":"Alto Consulting Group","source":"Alto Consulting Group"},{"year":2019,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":5.76,"yoy":37.1,"status":"расчёт","basis":"Расчётная оценка по данным BusinesStat","source":"BusinesStat"},{"year":2020,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.78,"yoy":52.4,"status":"расчёт","basis":"Alto Consulting Group; сверка с BusinesStat","source":"Alto Consulting Group"},{"year":2021,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.745,"yoy":33.8,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2022,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":11.9,"yoy":1.3,"status":"факт","basis":"BusinesStat","source":"BusinesStat"},{"year":2023,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.914,"yoy":25.3,"status":"расчёт","basis":"Расчётная оценка по данным Alto Consulting Group","source":"Alto Consulting Group"},{"year":2024,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":14.079,"yoy":-5.6,"status":"факт","basis":"Alto Consulting Group / Росстат","source":"Alto Consulting Group / Росстат"},{"year":2025,"period":"history","periodLabel":"История","case":"reference","caseLabel":"—","value":8.0,"yoy":-43.2,"status":"оценка","basis":"BusinesStat; сверка с АМДПР","source":"BusinesStat / АМДПР"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.6,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2026,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.4,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":7.22,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2027,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":8.82,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"low","caseLabel":"Низкий","value":6.859,"yoy":-5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"base","caseLabel":"Базовый","value":8.0,"yoy":0.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"},{"year":2028,"period":"forecast","periodLabel":"Сценарий","case":"high","caseLabel":"Высокий","value":9.261,"yoy":5.0,"status":"сценарий","basis":"Условная траектория от оценки 2025 года","source":"Сценарный расчёт"}],"demand":[{"year":2017,"period":"history","case":"low","prod":3.3149,"all":1425.4,"hotmelt":427.6,"eva":171.0},{"year":2017,"period":"history","case":"base","prod":3.3149,"all":3314.9,"hotmelt":1657.5,"eva":994.5},{"year":2017,"period":"history","case":"high","prod":3.3149,"all":4773.5,"hotmelt":3341.4,"eva":2673.1},{"year":2018,"period":"history","case":"low","prod":4.2,"all":1806.0,"hotmelt":541.8,"eva":216.7},{"year":2018,"period":"history","case":"base","prod":4.2,"all":4200.0,"hotmelt":2100.0,"eva":1260.0},{"year":2018,"period":"history","case":"high","prod":4.2,"all":6048.0,"hotmelt":4233.6,"eva":3386.9},{"year":2019,"period":"history","case":"low","prod":5.76,"all":2476.8,"hotmelt":743.0,"eva":297.2},{"year":2019,"period":"history","case":"base","prod":5.76,"all":5760.0,"hotmelt":2880.0,"eva":1728.0},{"year":2019,"period":"history","case":"high","prod":5.76,"all":8294.4,"hotmelt":5806.1,"eva":4644.9},{"year":2020,"period":"history","case":"low","prod":8.78,"all":3775.4,"hotmelt":1132.6,"eva":453.0},{"year":2020,"period":"history","case":"base","prod":8.78,"all":8780.0,"hotmelt":4390.0,"eva":2634.0},{"year":2020,"period":"history","case":"high","prod":8.78,"all":12643.2,"hotmelt":8850.2,"eva":7080.2},{"year":2021,"period":"history","case":"low","prod":11.745,"all":5050.4,"hotmelt":1515.1,"eva":606.0},{"year":2021,"period":"history","case":"base","prod":11.745,"all":11745.0,"hotmelt":5872.5,"eva":3523.5},{"year":2021,"period":"history","case":"high","prod":11.745,"all":16912.8,"hotmelt":11839.0,"eva":9471.2},{"year":2022,"period":"history","case":"low","prod":11.9,"all":5117.0,"hotmelt":1535.1,"eva":614.0},{"year":2022,"period":"history","case":"base","prod":11.9,"all":11900.0,"hotmelt":5950.0,"eva":3570.0},{"year":2022,"period":"history","case":"high","prod":11.9,"all":17136.0,"hotmelt":11995.2,"eva":9596.2},{"year":2023,"period":"history","case":"low","prod":14.914,"all":6413.0,"hotmelt":1923.9,"eva":769.6},{"year":2023,"period":"history","case":"base","prod":14.914,"all":14914.0,"hotmelt":7457.0,"eva":4474.2},{"year":2023,"period":"history","case":"high","prod":14.914,"all":21476.2,"hotmelt":15033.3,"eva":12026.6},{"year":2024,"period":"history","case":"low","prod":14.079,"all":6054.0,"hotmelt":1816.2,"eva":726.5},{"year":2024,"period":"history","case":"base","prod":14.079,"all":14079.0,"hotmelt":7039.5,"eva":4223.7},{"year":2024,"period":"history","case":"high","prod":14.079,"all":20273.8,"hotmelt":14191.6,"eva":11353.3},{"year":2025,"period":"history","case":"low","prod":8.0,"all":3440.0,"hotmelt":1032.0,"eva":412.8},{"year":2025,"period":"history","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2025,"period":"history","case":"high","prod":8.0,"all":11520.0,"hotmelt":8064.0,"eva":6451.2},{"year":2026,"period":"forecast","case":"low","prod":7.6,"all":3268.0,"hotmelt":980.4,"eva":392.2},{"year":2026,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2026,"period":"forecast","case":"high","prod":8.4,"all":12096.0,"hotmelt":8467.2,"eva":6773.8},{"year":2027,"period":"forecast","case":"low","prod":7.22,"all":3104.6,"hotmelt":931.4,"eva":372.6},{"year":2027,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2027,"period":"forecast","case":"high","prod":8.82,"all":12700.8,"hotmelt":8890.6,"eva":7112.4},{"year":2028,"period":"forecast","case":"low","prod":6.859,"all":2949.4,"hotmelt":884.8,"eva":353.9},{"year":2028,"period":"forecast","case":"base","prod":8.0,"all":8000.0,"hotmelt":4000.0,"eva":2400.0},{"year":2028,"period":"forecast","case":"high","prod":9.261,"all":13335.8,"hotmelt":9335.1,"eva":7468.1}],"assumptions":[{"param":"Средний расход всех клеёв на матрас","low":0.43,"base":1.0,"high":1.44,"unit":"кг/шт","status":"вилка по открытым ориентирам","note":"Не является нормой именно ЭВА; требует подтверждения заказчика"},{"param":"Доля клеёв-расплавов в потреблении всех клеёв","low":30.0,"base":50.0,"high":70.0,"unit":"%","status":"сценарное допущение","note":"Открытая статистика отсутствует; это НЕ оценка рыночной доли"},{"param":"Доля ЭВА внутри клеёв-расплавов","low":40.0,"base":60.0,"high":80.0,"unit":"%","status":"сценарное допущение","note":"Конкурирующие PO/APAO и другие химии; открытая статистика отсутствует"},{"param":"Темп изменения выпуска в 2026–2028","low":-5.0,"base":0.0,"high":5.0,"unit":"% в год","status":"сценарное допущение","note":"Траектории от 8,0 млн шт в 2025; вероятности не присваиваются"}],"sensitivity":[{"hotmelt":30.0,"eva_share":40.0,"eva_t":1689.5},{"hotmelt":30.0,"eva_share":60.0,"eva_t":2534.2},{"hotmelt":30.0,"eva_share":80.0,"eva_t":3379.0},{"hotmelt":50.0,"eva_share":40.0,"eva_t":2815.8},{"hotmelt":50.0,"eva_share":60.0,"eva_t":4223.7},{"hotmelt":50.0,"eva_share":80.0,"eva_t":5631.6},{"hotmelt":70.0,"eva_share":40.0,"eva_t":3942.1},{"hotmelt":70.0,"eva_share":60.0,"eva_t":5913.2},{"hotmelt":70.0,"eva_share":80.0,"eva_t":7884.2}],"geography":[{"region":"Центральный федеральный округ","share":74.4,"prod":10.475,"all":10474.8,"eva":3142.4},{"region":"Остальные регионы","share":25.6,"prod":3.604,"all":3604.2,"eva":1081.3}],"importsYear":[{"year":2017,"weight_t":47273.346,"value_usd":226848234.0,"price":2.71,"countries":27,"no_weight":1},{"year":2018,"weight_t":64938.355,"value_usd":250777092.0,"price":3.215,"countries":27,"no_weight":1},{"year":2019,"weight_t":74352.419,"value_usd":237644321.0,"price":3.109,"countries":27,"no_weight":1},{"year":2020,"weight_t":80180.666,"value_usd":246412525.0,"price":3.073,"countries":28,"no_weight":0},{"year":2021,"weight_t":88228.266,"value_usd":300533431.0,"price":3.406,"countries":28,"no_weight":0},{"year":2022,"weight_t":100095.938,"value_usd":360179156.0,"price":3.598,"countries":27,"no_weight":0},{"year":2023,"weight_t":103138.669,"value_usd":372966251.0,"price":3.616,"countries":27,"no_weight":0},{"year":2024,"weight_t":111247.337,"value_usd":363911938.0,"price":3.271,"countries":25,"no_weight":0},{"year":2025,"weight_t":106552.152,"value_usd":337969727.0,"price":3.172,"countries":24,"no_weight":0}],"importsTop":[{"rank":1,"country":"Китай","weight_t":54037.97,"value_usd":137437891.0,"price":2.543,"share":48.6},{"rank":2,"country":"Германия","weight_t":20701.821,"value_usd":87509572.0,"price":4.227,"share":18.6},{"rank":3,"country":"Турция","weight_t":16787.896,"value_usd":51918942.0,"price":3.093,"share":15.1},{"rank":4,"country":"Италия","weight_t":4766.677,"value_usd":16958162.0,"price":3.558,"share":4.3},{"rank":5,"country":"Польша","weight_t":2517.261,"value_usd":10946937.0,"price":4.349,"share":2.3},{"rank":6,"country":"Казахстан","weight_t":2421.29,"value_usd":18019882.0,"price":7.442,"share":2.2},{"rank":7,"country":"Словения","weight_t":1342.384,"value_usd":4212816.0,"price":3.138,"share":1.2},{"rank":8,"country":"Малайзия","weight_t":1319.792,"value_usd":3305410.0,"price":2.504,"share":1.2},{"rank":9,"country":"Индия","weight_t":1293.283,"value_usd":4188791.0,"price":3.239,"share":1.2},{"rank":10,"country":"Корея","weight_t":1028.748,"value_usd":11692407.0,"price":11.366,"share":0.9},{"rank":11,"country":"Нидерланды","weight_t":911.924,"value_usd":3994449.0,"price":4.38,"share":0.8},{"rank":12,"country":"Венгрия","weight_t":895.35,"value_usd":2472333.0,"price":2.761,"share":0.8},{"rank":13,"country":"Швеция","weight_t":552.0,"value_usd":954707.0,"price":1.73,"share":0.5},{"rank":14,"country":"Литва","weight_t":541.482,"value_usd":2218074.0,"price":4.096,"share":0.5},{"rank":15,"country":"Япония","weight_t":536.08,"value_usd":826076.0,"price":1.541,"share":0.5},{"rank":16,"country":"Бельгия","weight_t":522.355,"value_usd":1260152.0,"price":2.412,"share":0.5},{"rank":17,"country":"Испания","weight_t":446.921,"value_usd":1930542.0,"price":4.32,"share":0.4},{"rank":18,"country":"Великобритания","weight_t":216.968,"value_usd":777612.0,"price":3.584,"share":0.2},{"rank":19,"country":"Эстония","weight_t":176.136,"value_usd":958480.0,"price":5.442,"share":0.2},{"rank":20,"country":"Чехия","weight_t":139.323,"value_usd":1327096.0,"price":9.525,"share":0.1},{"rank":21,"country":"Австрия","weight_t":52.465,"value_usd":845196.0,"price":16.11,"share":0.0},{"rank":22,"country":"Индонезия","weight_t":26.0,"value_usd":55679.0,"price":2.141,"share":0.0},{"rank":23,"country":"Латвия","weight_t":12.295,"value_usd":90573.0,"price":7.367,"share":0.0},{"rank":24,"country":"Таиланд","weight_t":0.882,"value_usd":7263.0,"price":8.232,"share":0.0},{"rank":25,"country":"Финляндия","weight_t":0.035,"value_usd":2894.0,"price":82.692,"share":0.0}],"ruReporter":[{"year":2017,"weight_t":71065.319,"value_usd":227817614.0},{"year":2018,"weight_t":72791.447,"value_usd":252084034.0},{"year":2019,"weight_t":75784.272,"value_usd":248875236.0},{"year":2020,"weight_t":77220.947,"value_usd":254288150.0},{"year":2021,"weight_t":81647.517,"value_usd":304134580.0}],"exportsYear":[{"year":2017,"weight_t":6923.741,"value_usd":19953393.0,"price":2.882,"partners":26,"no_weight":0},{"year":2018,"weight_t":8045.189,"value_usd":22237641.0,"price":2.764,"partners":23,"no_weight":0},{"year":2019,"weight_t":8797.719,"value_usd":25234570.0,"price":2.868,"partners":26,"no_weight":0},{"year":2020,"weight_t":9228.058,"value_usd":24092676.0,"price":2.611,"partners":28,"no_weight":0},{"year":2021,"weight_t":9120.346,"value_usd":26552037.0,"price":2.911,"partners":27,"no_weight":0},{"year":2022,"weight_t":5693.997,"value_usd":19460330.0,"price":3.416,"partners":22,"no_weight":1},{"year":2023,"weight_t":5967.047,"value_usd":18052970.0,"price":3.022,"partners":21,"no_weight":1},{"year":2024,"weight_t":6378.527,"value_usd":15295922.0,"price":2.398,"partners":19,"no_weight":0},{"year":2025,"weight_t":4313.211,"value_usd":12841306.0,"price":2.977,"partners":14,"no_weight":0}],"exportsTop":[{"rank":1,"country":"Казахстан","weight_t":5022.084,"value_usd":11326267.0,"price":2.255,"share":78.7},{"rank":2,"country":"Узбекистан","weight_t":1013.046,"value_usd":2667975.0,"price":2.634,"share":15.9},{"rank":3,"country":"Армения","weight_t":316.985,"value_usd":1107612.0,"price":3.494,"share":5.0},{"rank":4,"country":"Турция","weight_t":14.049,"value_usd":51358.0,"price":3.656,"share":0.2},{"rank":5,"country":"Китай","weight_t":9.77,"value_usd":50033.0,"price":5.121,"share":0.2},{"rank":6,"country":"Нидерланды","weight_t":1.144,"value_usd":12647.0,"price":11.055,"share":0.0},{"rank":7,"country":"Польша","weight_t":0.784,"value_usd":37974.0,"price":48.43,"share":0.0},{"rank":8,"country":"Эстония","weight_t":0.223,"value_usd":5008.0,"price":22.41,"share":0.0},{"rank":9,"country":"Германия","weight_t":0.163,"value_usd":3758.0,"price":22.995,"share":0.0},{"rank":10,"country":"Индия","weight_t":0.147,"value_usd":19488.0,"price":132.574,"share":0.0},{"rank":11,"country":"Финляндия","weight_t":0.04,"value_usd":179.0,"price":4.44,"share":0.0},{"rank":12,"country":"Венгрия","weight_t":0.037,"value_usd":5268.0,"price":142.377,"share":0.0},{"rank":13,"country":"Япония","weight_t":0.023,"value_usd":5312.0,"price":230.94,"share":0.0},{"rank":14,"country":"Чехия","weight_t":0.021,"value_usd":99.0,"price":4.666,"share":0.0},{"rank":15,"country":"Италия","weight_t":0.005,"value_usd":2326.0,"price":465.207,"share":0.0},{"rank":16,"country":"Испания","weight_t":0.003,"value_usd":247.0,"price":77.307,"share":0.0},{"rank":17,"country":"Индонезия","weight_t":0.001,"value_usd":23.0,"price":23.0,"share":0.0},{"rank":18,"country":"Латвия","weight_t":0.001,"value_usd":179.0,"price":179.187,"share":0.0},{"rank":19,"country":"Корея","weight_t":0.0,"value_usd":170.0,"price":425.0,"share":0.0}],"hs6":[{"code":"350610","name":"В упаковке для розничной продажи (≤1 кг)","year":2023,"weight_t":20413.686,"value_usd":105285783.0,"no_weight":1},{"code":"350610","name":"В упаковке для розничной продажи (≤1 кг)","year":2024,"weight_t":22286.727,"value_usd":98597306.0,"no_weight":0},{"code":"350610","name":"В упаковке для розничной продажи (≤1 кг)","year":2025,"weight_t":23623.115,"value_usd":98333658.0,"no_weight":0},{"code":"350691","name":"Прочие, содержащие полимеры","year":2023,"weight_t":74075.041,"value_usd":240427041.0,"no_weight":0},{"code":"350691","name":"Прочие, содержащие полимеры","year":2024,"weight_t":80557.324,"value_usd":238393609.0,"no_weight":0},{"code":"350691","name":"Прочие, содержащие полимеры","year":2025,"weight_t":71309.71,"value_usd":210106526.0,"no_weight":0},{"code":"350699","name":"Прочие","year":2023,"weight_t":8648.951,"value_usd":27243984.0,"no_weight":0},{"code":"350699","name":"Прочие","year":2024,"weight_t":8403.286,"value_usd":26921023.0,"no_weight":0},{"code":"350699","name":"Прочие","year":2025,"weight_t":11619.327,"value_usd":29529543.0,"no_weight":0}],"balance":[{"year":2017,"import_t":47273.346,"export_t":6923.741,"balance_t":40349.605,"import_usd":226848234.0,"export_usd":19953393.0,"note":""},{"year":2018,"import_t":64938.355,"export_t":8045.189,"balance_t":56893.166,"import_usd":250777092.0,"export_usd":22237641.0,"note":""},{"year":2019,"import_t":74352.419,"export_t":8797.719,"balance_t":65554.7,"import_usd":237644321.0,"export_usd":25234570.0,"note":""},{"year":2020,"import_t":80180.666,"export_t":9228.058,"balance_t":70952.608,"import_usd":246412525.0,"export_usd":24092676.0,"note":""},{"year":2021,"import_t":88228.266,"export_t":9120.346,"balance_t":79107.92,"import_usd":300533431.0,"export_usd":26552037.0,"note":""},{"year":2022,"import_t":100095.938,"export_t":5693.997,"balance_t":94401.941,"import_usd":360179156.0,"export_usd":19460330.0,"note":""},{"year":2023,"import_t":103138.669,"export_t":5967.047,"balance_t":97171.622,"import_usd":372966251.0,"export_usd":18052970.0,"note":""},{"year":2024,"import_t":111247.337,"export_t":6378.527,"balance_t":104868.81,"import_usd":363911938.0,"export_usd":15295922.0,"note":""},{"year":2025,"import_t":106552.152,"export_t":4313.211,"balance_t":102238.941,"import_usd":337969727.0,"export_usd":12841306.0,"note":""}],"industries":[{"n":"1","industry":"Производство матрасов","indicator":"Производство матрасов (без основ)","value":14079.1,"value_str":"","value_2023":"14900","unit":"тыс. шт","status":"факт (Alto по Росстату)","source":"Alto Consulting Group","url":"https://alto-group.ru/otchot/rossija/798-rynok-matrasov-tekushchaya-situatsiya-i-prognoz-2017-2021-gg.html","note":"Альтернатива: 16"},{"n":"2","industry":"Производство подгузников и пелёнок","indicator":"Производство детских подгузников","value":2779.0,"value_str":"","value_2023":"2810","unit":"млн шт","status":"оценка (из явных данных Alto)","source":"BusinesStat / Alto Consulting Group","url":"https://alto-group.ru/new/20704-proizvodstvo-detskih-podguznikov-v-rossii-2025-snizhenie-na-131-do-241-mlrd-shtuk.html","note":"Прямая публикация 2024 в штуках не найдена; 2024 ≈ 2"},{"n":"2б","industry":"Производство подгузников и пелёнок","indicator":"Производство подгузников и пелёнок (стоимость)","value":45250.3,"value_str":"","value_2023":"46220","unit":"млн ₽","status":"факт (Alto по данным)","source":"Alto Consulting Group","url":"https://alto-group.ru/new/12006-proizvodstvo-detskih-podguznikov-i-pelenok-v-rossii-2024-obemy-regiony-i-rynochnye-tendencii.html","note":"−2"},{"n":"3","industry":"Производство напитков и продуктов питания","indicator":"Производство безалкогольных напитков (прокси спроса на упаковку)","value":24.7,"value_str":"","value_2023":"","unit":"млрд л","status":"оценка (по данным Росстата)","source":"BusinesStat","url":"https://marketing.rbc.ru/articles/15876/","note":"+9 % г/г; показатель выпуска напитков"},{"n":"4","industry":"Производство самоклеящихся материалов","indicator":"Локализованное производство САМ","value":105.0,"value_str":"","value_2023":"","unit":"млн м²","status":"оценка","source":"AT Consulting (обзор)","url":"https://dzen.ru/a/aPDhm_d2slLP2Vwx","note":"В 2021 — 5 млн м²; прогноз 2025 — 170 млн м²"},{"n":"4б","industry":"Производство самоклеящихся материалов","indicator":"Ёмкость рынка САМ (потребление)","value":750.0,"value_str":"","value_2023":"","unit":"млн м²","status":"оценка","source":"«Галилео Нанотех» / Publish","url":"https://www.publish.ru/articles/202502_20015145","note":"Импорт ≈93% потребления; до 2022 — 620–650 млн м²"},{"n":"5","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"Производство деревянных дверей (с коробками и порогами)","unit":"22.5","status":"","source":"млн м²","url":"оценка (Alto по Росстату)","note":"Alto Consulting Group"},{"n":"5б","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"Производство дверей всех видов","unit":"24","status":"22","source":"млн шт","url":"оценка","note":"BusinesStat"},{"n":"5в","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"Плиты ДСП (прокси для панелей/ламината)","unit":"13880","status":"","source":"тыс. м³","url":"оценка (WhatWood)","note":"WhatWood"},{"n":"5г","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"Плиты ДВП (прокси)","unit":"711.7","status":"","source":"млн усл. м²","url":"оценка (Alto по Росстату)","note":"Alto Consulting Group"},{"n":"5д","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"Плинтус (обособленный выпуск)","unit":"","status":"","source":"","url":"нет данных","note":""},{"n":"5е","industry":"Производство стеновых панелей","indicator":" дверей","value":null,"value_str":"плинтусов","value_2023":"ПВХ/декоративные панели","unit":"","status":"","source":"","url":"","note":""},{"n":"6","industry":"Производство фанеры","indicator":"Производство фанеры","value":3496.0,"value_str":"","value_2023":"3400","unit":"тыс. м³","status":"факт-диапазон","source":"Alto / Росстат; Ведомости; UNIX","url":"https://alto-group.ru/new/11583-proizvodstvo-fanery-v-rossii-2024-obemy-ceny-i-perspektivy-rynka.html","note":"+7"},{"n":"7","industry":"Производство кабельной продукции","indicator":"Суммарный выпуск КП","value":null,"value_str":"","value_2023":"","unit":"","status":"нет данных","source":"","url":"","note":"Росстат не публикует с 2022; считают по членам ассоциаций"},{"n":"7б","industry":"Производство кабельной продукции","indicator":"LAN-кабель","value":232.0,"value_str":"","value_2023":"","unit":"тыс. км","status":"оценка (отрасл. источник)","source":"Национальный кабельный совет","url":"https://www.tadviser.ru/index.php/Статья:Кабельная_отрасль_России","note":""},{"n":"7в","industry":"Производство кабельной продукции","indicator":"Волоконно-оптический кабель","value":156.0,"value_str":"","value_2023":"","unit":"тыс. км","status":"оценка (отрасл. источник)","source":"Национальный кабельный совет","url":"https://www.tadviser.ru/index.php/Статья:Кабельная_отрасль_России","note":""},{"n":"7г","industry":"Производство кабельной продукции","indicator":"Телефонный кабель связи","value":14.27,"value_str":"","value_2023":"","unit":"тыс. км","status":"оценка (Alto)","source":"Alto Consulting Group","url":"https://alto-group.ru/new/14611-proizvodstvo-kabelej-svjazi-telefonnyh-v-rossii-2024-dinamika-regiony-i-tendencii.html","note":"−46"},{"n":"8","industry":"Handmade и сувениры","indicator":"Обособленное производство","value":null,"value_str":"","value_2023":"","unit":"","status":"нет данных","source":"","url":"","note":"Сектор отсутствует в статистике"},{"n":"8б","industry":"Handmade и сувениры","indicator":"Контекст: потребление НХП","value":22.7,"value_str":"","value_2023":"","unit":"млрд ₽","status":"оценка","source":"ГидМаркет","url":"https://marketing.rbc.ru/articles/15825/","note":"Внутри источника есть расхождения периметров"},{"n":"8в","industry":"Handmade и сувениры","indicator":"Контекст: рынок мерча","value":90.0,"value_str":"","value_2023":"","unit":"млрд ₽","status":"оценка","source":"«Коммерсантъ»","url":"https://digitaltextile.net/oboroty-rynka-rynka-mercha-v-rossii-k-kontsu-2024-goda-priblizilis-k-90-mlrd-rubley/","note":"+15–20 %"},{"n":"9","industry":"Керамическая плитка","indicator":"Производство керамической плитки","value":174.0,"value_str":"","value_2023":"172.2","unit":"млн м²","status":"факт (Росстат)","source":"Росстат / BusinesStat","url":"https://marketing.rbc.ru/articles/16618/","note":"Альтернатива BusinesStat 172"},{"n":"10","industry":"Производство фильтров","indicator":"Фильтры ДВС (масляные/топливные/воздушные)","value":21362.1,"value_str":"","value_2023":"","unit":"тыс. шт","status":"оценка (Alto по Росстату)","source":"Alto Consulting Group","url":"https://alto-group.ru/new/13713-proizvodstvo-filtrov-masljanyh-benzinovyh-i-vsasyvajuschih-vozdushnyh-dlja-dvigatelej-vnutrennego-sgoranija-v-rossii-2024-obzor-regiony-i-tendencii.html","note":"+1"},{"n":"10б","industry":"Производство фильтров","indicator":"Рынок автофильтров (потребление)","value":95.0,"value_str":"","value_2023":"","unit":"млн шт","status":"оценка","source":"Tebiz","url":"https://tebiz.ru/","note":"Периметр «рынок»"},{"n":"11","industry":"Производство полиграфии","indicator":"Выпуск полиграфической продукции","value":432.9,"value_str":"","value_2023":"","unit":"млрд ₽","status":"факт (Росстат)","source":"Росстат","url":"https://www.tadviser.ru/index.php/Статья:Полиграфическое_производство_в_России","note":"+13"},{"n":"11б","industry":"Производство полиграфии","indicator":"Ёмкость рынка печати","value":714.4,"value_str":"","value_2023":"","unit":"млрд ₽","status":"оценка","source":"ARG / ГидМаркет","url":"https://gidmark.ru/news/rossijskij-ryinok-poligrafii-pokazal-rekordnyij-rost-v-2024-godu","note":"+17 % ном."},{"n":"12","industry":"Производство автокомпонентов","indicator":"Производство автозапчастей и комплектующих","value":727.19,"value_str":"","value_2023":"","unit":"млрд ₽","status":"оценка (Alto по Росстату)","source":"Alto Consulting Group","url":"https://alto-group.ru/new/23600-obzor-rynka-avtozapchastej-v-rossii-2025-proizvodstvo-sokratilos-na-154-no-vypusk-avtomobilnyh-sidenij-i-detskih-uderzhivajuschih-ustrojstv-vyros.html","note":"+28"},{"n":"13","industry":"Производство гибкой упаковки","indicator":"Рынок гибкой упаковки","value":1400.0,"value_str":"","value_2023":"","unit":"тыс. т","status":"оценка","source":"Step-by-Step / Unipack","url":"https://article.unipack.ru/101270/","note":"+5 %; включает непищевую плёнку без печати"},{"n":"13б","industry":"Производство гибкой упаковки","indicator":"Гибкая упаковка с печатью","value":600.0,"value_str":"","value_2023":"","unit":"тыс. т","status":"оценка","source":"«ПринтДейли»","url":"https://printdaily.ru/upakovka-i-etiketka/konsolidaciya","note":"Официальной статистики нет"},{"n":"14","industry":"Производство корпусной мебели (справочно)","indicator":"Вся мебельная промышленность (стоимость)","value":522.0,"value_str":"","value_2023":"","unit":"млрд ₽","status":"факт (предварит.)","source":"АМДПР","url":"https://forestcomplex.ru/manufacturing/v-rossii-uvelichili-vipusk-mebeli/","note":"Обособленной статистики по корпусной мебели нет; Alto: 520"},{"n":"14б","industry":"Производство корпусной мебели (справочно)","indicator":"Вся мебель (натуральное)","value":75.7,"value_str":"","value_2023":"","unit":"млн усл. шт","status":"факт (предварит.)","source":"АМДПР","url":"https://delprof.ru/press-center/open-analytics/proizvodstvo-mebeli-v-rossii/","note":"+12"}],"gluePlayers":[{"name":"ООО «ЭРГОТЕК»","brand":"ЭРГОМЕЛТ / ЭРГОТАК / ЭРГОСПРЕЙ / ЭРГОСОЛВ / ЭРГОКЛИН","city":"Пермь (склады СПб и Москва)","okved":"20.52 Производство клеёв","chem":"ЭВА / АПАО / полиамиды","revenue":2000.0,"revenue_year":"2025","url":"https://checko.ru/company/ehrgotek-1025901372530","status":"факт (отчётность)","note":"Плюс TД «ЭРГОТЕК» (100"},{"name":"ООО «Кубань-Полимер»","brand":"—","city":"Тимашевск","okved":"Краснодарский край","chem":"","revenue":2400.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/kuban-polimer-1022304845716","status":"факт (отчётность)","note":"Ассортимент расплавов требует проверки"},{"name":"АО «МАПЕИ»","brand":"Mapei","city":"Ступино","okved":"—","chem":"ПУ / полиэфиры (строительные)","revenue":2400.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/mapei-1045007900068","status":"факт (отчётность)","note":"Значительная часть — строительные клеевые системы"},{"name":"АО «КЕСТО»","brand":"Kesto","city":"Ленинградская обл.","okved":"—","chem":"водно-дисп. / горячие","revenue":1900.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/kesto-1027807976415","status":"факт (отчётность)","note":"Клеи для этикетки и упаковки"},{"name":"ООО «Эколайн»","brand":"—","city":"Мелеуз (Башкортостан)","okved":"клеи","chem":"","revenue":1400.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/ehkolayn-1170280022395","status":"факт (отчётность)","note":"Ассортимент расплавов требует проверки"},{"name":"ООО «ШТАРК КЕМИКАЛЗ»","brand":"—","city":"Москва","okved":"20.52 Производство клеёв (с 2021)","chem":"","revenue":1100.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/shtark-kemikalz-1217700468534","status":"факт (отчётность)","note":"Ассортимент расплавов требует проверки"},{"name":"ООО «Давос-Трейдинг»","brand":"—","city":"Аксай (Ростовская обл.)","okved":"клеи","chem":"","revenue":1100.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/davos-treyding-1026100663456","status":"факт (отчётность)","note":"Ассортимент расплавов требует проверки"},{"name":"ООО «ТРИС»","brand":"—","city":"Бугульма (Татарстан)","okved":"клеи","chem":"","revenue":1100.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/tris-1131689000321","status":"факт (отчётность)","note":"Ассортимент расплавов требует проверки"},{"name":"ООО «Перфотак РУС»","brand":"—","city":"Москва","okved":"самоклеящиеся/клеевые материалы","chem":"","revenue":993.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/perfotak-rus-1087847007478","status":"факт (отчётность)","note":"—"},{"name":"ООО ТД «ЭРГОТЕК»","brand":"—","city":"Пермь","okved":"оптовая торговля химпродуктами","chem":"—","revenue":101.0,"revenue_year":"посл. отч. год","url":"https://checko.ru/company/td-ehrgotek-1145958024673","status":"факт (отчётность)","note":"Дистрибуция группы «Эрготек»"},{"name":"alfaklei","brand":"alfaklei","city":"Работает в РФ","okved":"клеи-расплавы","chem":"EVA / АПАО / полиэфиры","revenue":null,"revenue_year":"—","url":"https://www.alfaklei.ru/product/","status":"факт (перечень)","note":">100 наименований; подходит для матрасов"},{"name":"Нова-М","brand":"Нова-М","city":"Работает в РФ","okved":"клеи-расплавы","chem":"АПАО","revenue":null,"revenue_year":"—","url":"https://nova-m.ru/product/klej-rasplav-dlya-proizvodstva-matrasov/","status":"факт (перечень)","note":"—"},{"name":"Cluex","brand":"Cluex","city":"Работает в РФ","okved":"клеи-расплавы","chem":"ЭВА / АПАО","revenue":null,"revenue_year":"—","url":"https://cluex.ru/","status":"факт (перечень)","note":"—"},{"name":"lux-x","brand":"Люкс-Х","city":"Работает в РФ","okved":"клеи-расплавы","chem":"ЭВА / АПАО","revenue":null,"revenue_year":"—","url":"https://lux-x.com/","status":"факт (перечень)","note":"—"},{"name":"Jowat","brand":"Jowat","city":"Германия (импорт)","okved":"клеи-расплавы","chem":"EVA / АПАО","revenue":null,"revenue_year":"—","url":"https://dwi.by/","status":"факт (перечень)","note":"Статус работы в РФ требует проверки"},{"name":"Henkel","brand":"Technomelt","city":"Германия (импорт/локализация?)","okved":"клеи-расплавы","chem":"EVA / полиамиды","revenue":null,"revenue_year":"—","url":"https://www.henkel-adhesives.com/","status":"факт (перечень)","note":"Статус Henkel в РФ после 2023 требует проверки"}],"suppliers":[{"name":"Henkel","brand":"Technomelt","origin":"Германия (локализация в РФ)","line":"Technomelt DM 2883 и линейка для матрасов","chem":"EVA / полиолефины","verified":"частично"},{"name":"Jowat","brand":"Jowat","origin":"Германия","line":"клей-расплав для матрасов и мягкой мебели (140–170 °C, плотность 0,91–0,95 г/см³)","chem":"EVA / PO","verified":"да"},{"name":"ООО «Эрготек»","brand":"ЭРГОМЕЛТ / ЭРГОТАК / ЭРГОСПРЕЙ","origin":"Россия (СПб)","line":"ЭРГОМЕЛТ-10Ф, 10С1, 10М, 10С2 (пружинные блоки); ЭРГОТАК-440.2/440.3/440.4 (склейка слоёв); ЭРГОСПРЕЙ-38/40/41 (сольвентные)","chem":"EVA + сольвентные","verified":"да"},{"name":"alfaklei","brand":"alfaklei","origin":"Россия","line":"703, 704.1, 704.4, 705 (расплавы для слоёв); 801 spring (ЭВА для пружинных блоков); 909/906 АПАО (полиолефины)","chem":"EVA / PO / каучуки","verified":"да"},{"name":"Нова-М","brand":"Нова-М","origin":"Россия","line":"клей-расплав для матрасов с полной полимеризацией (полиолефин)","chem":"PO","verified":"да"},{"name":"Cluex","brand":"Cluex","origin":"Россия / импорт","line":"клеи для матрасного производства","chem":"н/д","verified":"нет"},{"name":"lux-x","brand":"Люкс-Х","origin":"Россия","line":"клеи для матрасов, поролона, изоляционных материалов","chem":"н/д","verified":"да"}],"players":[{"company":"ООО «Аскона-Век»","brand":"Askona","region":"Владимирская обл. (Ковров)","revenue":15100000000.0,"revenue_year":"2025","source":"Checko / Контур.Фокус (данные Росстата/ФНС)","note":"ИНН 3305037917; в 2023 выручка 20,4 млрд ₽ (АРГ), в 2024 — 25,1 млрд ₽ (TAdviser); расхождение из-за периметра юрлиц"},{"company":"Группа Askona (холдинг)","brand":"Askona","region":"Москва","revenue":45400000000.0,"revenue_year":"2025","source":"TAdviser","note":"рост на 80% г/г; крупнейший производитель товаров для сна в РФ"},{"company":"ООО «Орма Групп»","brand":"Ormatek","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"входит в топ-10 BusinesStat по выручке 2025"},{"company":"ООО «2МК»","brand":"Mr.Mattress / Materlux","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"№1 в рейтинге BusinesStat по выручке 2025"},{"company":"ООО «ПК Димакс»","brand":"Dimax","region":"Московская обл.","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":""},{"company":"ООО «Корона»","brand":"Corona","region":"Респ. Башкортостан","revenue":null,"revenue_year":"","source":"BusinesStat / TAdviser (перечень)","note":"также крупный производитель кроватей"},{"company":"ООО «Сарма Компани»","brand":"Sarma","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":"в топ-10 АРГ по производству матрасов"},{"company":"ООО «Армос-Блок»","brand":"Armos","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Чезаторе»","brand":"Cezatore","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «ПК «Релакс»»","brand":"Relax","region":"н/д","revenue":448096000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"3-е место по выручке в 2018"},{"company":"ООО «Сити»","brand":"City","region":"н/д","revenue":null,"revenue_year":"","source":"Отраслевые публикации и рейтинги","note":""},{"company":"ООО «Технокомф СТ»","brand":"Technocomf","region":"н/д","revenue":1464963000.0,"revenue_year":"2018","source":"Alto Consulting Group","note":"2-е место по выручке в 2018; в топ-10 BusinesStat 2025"},{"company":"ООО «Литвуд»","brand":"Litwood","region":"н/д","revenue":11300000000.0,"revenue_year":"2023","source":"TAdviser","note":"преимущественно мягкая мебель, 2-е место по выручке в мебели"},{"company":"ООО «Живые диваны»","brand":"Живые диваны","region":"н/д","revenue":1600000000.0,"revenue_year":"2023","source":"TAdviser","note":"в топ-10 BusinesStat 2025 по матрасам"},{"company":"ПКП «Вега»","brand":"Vega","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Риваль»","brand":"Rival","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"ООО «Лиситея»","brand":"Lisiteya","region":"н/д","revenue":null,"revenue_year":"","source":"BusinesStat (перечень)","note":""},{"company":"DreamLine (ГК)","brand":"DreamLine","region":"Московская обл.","revenue":null,"revenue_year":"","source":"Tabriz Group / отраслевые публикации","note":"2018: ~100 тыс. матрасов, ~5% производства ЦФО"}],"prices":[{"year":2019,"price":3093.7,"type":"средняя цена производителей","source":"Alto Consulting Group"},{"year":2022,"price":3309.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"},{"year":2024,"price":3873.7,"type":"средняя цена производителей","source":"Alto Consulting Group (издание 2026 г.)"}]}</script>
 <script>
 'use strict';
 /* ===== данные ===== */
@@ -881,28 +903,21 @@ function delta(v) {
 }
 const card = (title, text) => `<div class="card"><h4>${esc(title)}</h4><p>${esc(text)}</p></div>`;
 
-/* ===== обзор ===== */
+/* ================= обзор ================= */
 function renderOverview() {
-  const p = y => D.production.find(r => r.year === y && r.period === 'history');
-  const e = (y, c) => D.demand.find(r => r.year === y && r.case === c);
-  const p24 = p(2024), p25 = p(2025);
-  const e24 = e(2024, 'base'), e25 = e(2025, 'base');
   const i24 = D.importsYear.find(r => r.year === 2024);
-  $('kpisOverview').innerHTML = [
-    kpi('Выпуск матрасов · 2024', fMlnPcs(p24.value), 'матрасы без основ', '', delta(p24.yoy)),
-    kpi('Выпуск матрасов · 2025', fMlnPcs(p25.value), 'оценка BusinesStat', 'red', delta(p25.yoy)),
-    kpi('ЭВА · 2024, базовый сценарий', f2(e24.eva / 1000) + ' тыс. т', `диапазон ${f2(e(2024, 'low').eva / 1000)}–${f2(e(2024, 'high').eva / 1000)} тыс. т`, 'teal'),
-    kpi('ЭВА · 2025, базовый сценарий', f2(e25.eva / 1000) + ' тыс. т', `диапазон ${f2(e(2025, 'low').eva / 1000)}–${f2(e(2025, 'high').eva / 1000)} тыс. т`, 'teal'),
-    kpi('Импорт HS 3506 · 2024', f1(i24.weight_t / 1000) + ' тыс. т', `${fUsdMln(i24.value_usd)} · ${fPrice(i24.price)}`, 'gold')
-  ].join('');
+  const e = (y, c) => D.demand.find(r => r.year === y && r.case === c);
+  const e24 = e(2024, 'base'), e25 = e(2025, 'base');
+  const ex = D.exportsYear.find(r => r.year === 2024);
+  const top3 = D.importsTop.slice(0, 3).reduce((a, b) => a + b.share, 0);
 
-  const hist = D.production.filter(r => r.period === 'history').map(r => [r.year, r.value]);
-  const series = [{ name: 'Факт и оценка', color: C.navy, points: hist, width: 3 }];
-  ['low', 'base', 'high'].forEach(c => {
-    const pts = [[2025, 8.0], ...D.production.filter(r => r.period === 'forecast' && r.case === c).map(r => [r.year, r.value])];
-    series.push({ name: SCEN_LABEL[c], color: SCEN_COLOR[c], points: pts });
-  });
-  lineChart($('chProduction'), series, { fmt: v => f1(v), unit: ' млн шт', forecastFrom: 2026, height: 290 });
+  $('kpisOverview').innerHTML = [
+    kpi('Импорт HS 3506 · 2024', f1(i24.weight_t / 1000) + ' тыс. т', fUsdMln(i24.value_usd), 'pub-allow'),
+    kpi('Доля Китая · 2024', f1(D.importsTop[0].share) + ' %', f1(D.importsTop[0].weight_t / 1000) + ' тыс. т', 'pub-allow'),
+    kpi('Экспорт из РФ · 2024', D.exportsYear.length ? f1(ex.weight_t / 1000) + ' тыс. т' : '—', 'зеркальный метод', 'red'),
+    kpi('Импорт · 2025 (оценка)', f1(D.importsYear.find(r => r.year === 2025).weight_t / 1000) + ' тыс. т', 'данные неполные', 'teal'),
+    kpi('Топ-3 стран импорта', f1(top3) + ' %', 'Китай, Германия, Турция', 'gold')
+  ].join('');
 
   const top = D.importsTop;
   const top5 = top.slice(0, 5);
@@ -914,71 +929,194 @@ function renderOverview() {
   ], { center: f1(total / 1000), centerLabel: 'тыс. т' });
 
   $('facts').innerHTML = [
-    `<b>Выпуск матрасов в 2024 году — 14,08 млн шт</b>, на 5,6 % ниже 2023 года. В 2025 году отрасль прошла через резкий спад: оценка 8,0 млн шт (−44 % по публикации BusinesStat).`,
-    `<b>При базовом сценарии потребность в ЭВА — 4,22 тыс. т в 2024 году</b> и 2,40 тыс. т в 2025-м. Диапазон: 0,73–11,35 и 0,41–6,45 тыс. т.`,
-    `<b>Импорт по HS 3506 в 2024 году — 111,2 тыс. т на 363,9 млн $</b>; 82,3 % поставок приходится на Китай, Германию и Турцию.`,
-    `<b>Главная неопределённость — структура клеёв</b>, а не выпуск матрасов: доли расплавов и ЭВА в открытых источниках не публикуются.`,
-    `<b>Спад 2025 года сконцентрирован в пружинном сегменте</b>: беспружинных — 2,05 млн шт, пружинных — около 5,95 млн шт.`
+    '<b>Базовый год демо — 2024.</b> В полном исследовании — 2024–2025, оценка 2026 и прогноз 2027–2029.',
+    '<b>Показаны оба потока:</b> импорт (что заходит на рынок) и экспорт (что уходит с него). Импорт и экспорт собраны зеркальным методом по данным стран-партнёров и сверены с оценкой ООН.',
+    '<b>Китай — крупнейший источник по весу и самый дешёвый по цене:</b> его доля влияет и на ценообразование, и на структуру риска поставок.',
+    '<b>13 отраслей-потребителей, как в ТЗ.</b> Часть закрыта публикуемыми данными, часть помечена «нет открытых данных» — это тоже результат: он превращается в план поиска полного исследования.',
+    '<b>Модель потребления на примере «матрасы × ЭВА»</b> показывает метод: связка выпуска отрасли, нормы расхода и структуры клеёв. В полном исследовании модель повторяется по всем отраслям.',
+    '<b>Расчёт потребления клея зависит от структуры баз.</b> Ответ заказчика о собственной структуре расплавов снимает основную сценарную неопределённость.'
   ].map(t => `<li>${t}</li>`).join('');
 
-  $('structure').innerHTML = structureHTML();
+  $('overviewOffer').innerHTML = [
+    card('Баланс рынка 2024–2026', 'Производство + импорт − экспорт в натуральном и стоимостном выражении, с оценкой 2026 и прогнозом 2027–2029.'),
+    card('13 отраслей × 5 баз', 'Потребление по отраслям в натуральных единицах и данные по базам: ЭВА, АПАО, полиэфиры, полиамиды, полиуретаны.'),
+    card('ТОП-10 и ТОП-20', 'Профили компаний: местоположение, контакты из открытых источников, ассортимент, обороты.')
+  ].join('');
 }
 
-function structureHTML() {
-  const rows = [
-    { y: 2024, free: 2.30, total: 14.079 },
-    { y: 2025, free: 2.05, total: 8.0 }
-  ];
-  const legend = `<div class="chart"><div class="legend"><span class="lg"><i style="background:var(--accent-2)"></i>беспружинные</span><span class="lg"><i style="background:var(--teal)"></i>пружинные</span></div></div>`;
-  const body = rows.map(r => {
-    const spring = r.total - r.free;
-    const pf = r.free / r.total * 100, ps = 100 - pf;
-    return `<div class="split-row"><div><b>${r.y}</b></div><div class="split"><i class="s1" style="width:${pf}%"></i><i class="s2" style="width:${ps}%"></i></div><div class="split-val"><b>${f2(r.free)}</b> / ${f2(spring)} млн шт<br>${f1(pf)} % / ${f1(ps)} %</div></div>`;
-  }).join('');
-  return legend + body;
-}
-
-/* ===== производство ===== */
-function renderProduction() {
-  const p17 = D.production.find(r => r.year === 2017 && r.period === 'history');
-  const p24 = D.production.find(r => r.year === 2024 && r.period === 'history');
-  const p25 = D.production.find(r => r.year === 2025 && r.period === 'history');
-  const cagr = (Math.pow(p24.value / p17.value, 1 / 7) - 1) * 100;
-  $('kpisProduction').innerHTML = [
-    kpi('2017', fMlnPcs(p17.value), 'начало ряда', ''),
-    kpi('2024', fMlnPcs(p24.value), 'последний полный фактический год', '', delta(p24.yoy)),
-    kpi('2025', fMlnPcs(p25.value), 'оценка, не факт', 'red', delta(p25.yoy)),
-    kpi('Среднегодовой темп 2017–2024', '+' + f1(cagr) + ' %', 'расчёт по выбранному ряду', 'teal')
+/* ================= внешняя торговля ================= */
+function renderTrade() {
+  const i24 = D.importsYear.find(r => r.year === 2024);
+  const i25 = D.importsYear.find(r => r.year === 2025);
+  const ex24 = D.exportsYear.find(r => r.year === 2024);
+  const ex25 = D.exportsYear.find(r => r.year === 2025);
+  const top3 = D.importsTop.slice(0, 3).reduce((a, b) => a + b.share, 0);
+  $('kpisTrade').innerHTML = [
+    kpi('Импорт · 2024', f1(i24.weight_t / 1000) + ' тыс. т', `${i24.countries} стран с весом`, 'pub-allow'),
+    kpi('Экспорт · 2024', D.exportsYear.length ? f1(ex24.weight_t / 1000) + ' тыс. т' : '—', D.exportsYear.length ? `${ex24.partners} стран` : 'зеркальный метод', ''),
+    kpi('Стоимость импорта', fUsdMln(i24.value_usd), 'по сопоставимым строкам', 'gold'),
+    kpi('Топ-3 страны', f1(top3) + ' %', 'Китай, Германия, Турция', 'pub-allow'),
+    kpi('Экспорт · 2025 (оценка)', D.exportsYear.length ? f1(ex25.weight_t / 1000) + ' тыс. т' : '—', 'данные неполные', 'red')
   ].join('');
 
-  const hist = D.production.filter(r => r.period === 'history').map(r => [r.year, r.value]);
-  lineChart($('chProdBig'), [{ name: 'Выпуск матрасов', color: C.navy, points: hist, width: 3 }], {
-    years: META.history, fmt: v => f1(v), unit: ' млн шт', area: true, height: 300
+  barChart($('chImport'), D.importsYear.map(r => ({ l: String(r.year), v: r.weight_t / 1000, color: C.navy })), {
+    fmt: v => f1(v), height: 290, labels: false
   });
+  if (D.exportsYear.length) {
+    barChart($('chExport'), D.exportsYear.map(r => ({ l: String(r.year), v: r.weight_t / 1000, color: C.teal })), {
+      fmt: v => f1(v), height: 290, labels: false
+    });
+  } else {
+    $('chExport').innerHTML = '<div class="empty">Данные экспорта ещё собираются</div>';
+  }
 
-  const rows = D.production.map(r => ({
-    year: r.year, periodLabel: r.periodLabel, caseLabel: r.caseLabel,
-    value: r.value, yoy: r.yoy, status: r.status, basis: r.basis, source: r.source
-  }));
-  const t = new Tbl('production', $('tblProduction'), [
-    { k: 'year', t: 'Год', type: 'year' },
-    { k: 'periodLabel', t: 'Период', type: 'str', sel: true },
-    { k: 'caseLabel', t: 'Сценарий', type: 'str', sel: true },
-    { k: 'value', t: 'Выпуск, млн шт', type: 'num2' },
-    { k: 'yoy', t: 'Δ г/г, %', type: 'pct' },
-    { k: 'status', t: 'Статус', type: 'str', sel: true },
-    { k: 'basis', t: 'Основание', type: 'str' },
-    { k: 'source', t: 'Источник', type: 'str' }
-  ], { sort: { k: 'year', dir: 1 }, size: 25, file: 'vypusk_matrasov', sheet: 'Выпуск матрасов' });
-  t.setData(rows);
+  if (D.balance.length) {
+    $('tblBalance').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">Импорт, тыс. т</th><th class="n">Экспорт, тыс. т</th><th class="n">Сальдо, тыс. т</th><th class="n">Импорт, млн $</th><th class="n">Экспорт, млн $</th></tr></thead><tbody>${D.balance.map(r => `<tr><td>${r.year}</td><td class="n">${fInt(r.import_t)}</td><td class="n">${fInt(r.export_t)}</td><td class="n">${fInt(r.balance_t)}</td><td class="n">${f1(r.import_usd / 1e6)}</td><td class="n">${f1(r.export_usd / 1e6)}</td></tr>`).join('')}</tbody></table>`;
+  } else {
+    $('tblBalance').innerHTML = '<div class="empty">Данные сальдо ещё собираются</div>';
+  }
 
-  $('structure2').innerHTML = structureHTML();
+  const t1 = new Tbl('importTop', $('tblTop'), [
+    { k: 'rank', t: '№', type: 'int' },
+    { k: 'country', t: 'Страна', type: 'str' },
+    { k: 'weight_t', t: 'Вес, т', type: 'int', total: 'sum' },
+    { k: 'value_usd', t: 'Стоимость, $', type: 'money', total: 'sum' },
+    { k: 'price', t: 'Цена, $/кг', type: 'num2' },
+    { k: 'share', t: 'Доля, %', type: 'pct' }
+  ], { sort: { k: 'weight_t', dir: -1 }, size: 25, file: 'import_3506_2024', sheet: 'Страны 2024' });
+  t1.setData(D.importsTop);
 
-  $('tblPrices').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">₽/шт</th><th>Тип цены</th></tr></thead><tbody>${D.prices.map(p => `<tr><td>${p.year}</td><td class="n">${f1(p.price)}</td><td>${esc(p.type)}</td></tr>`).join('')}</tbody></table>`;
+  if (D.exportsTop.length) {
+    const t2 = new Tbl('exportTop', $('tblExportTop'), [
+      { k: 'rank', t: '№', type: 'int' },
+      { k: 'country', t: 'Страна', type: 'str' },
+      { k: 'weight_t', t: 'Вес, т', type: 'int', total: 'sum' },
+      { k: 'value_usd', t: 'Стоимость, $', type: 'money', total: 'sum' },
+      { k: 'price', t: 'Цена, $/кг', type: 'num2' },
+      { k: 'share', t: 'Доля, %', type: 'pct' }
+    ], { sort: { k: 'weight_t', dir: -1 }, size: 20, file: 'export_3506_2024', sheet: 'Страны 2024' });
+    t2.setData(D.exportsTop);
+  } else {
+    $('tblExportTop').innerHTML = '<div class="empty">Страны экспорта собираются</div>';
+  }
+
+  if (D.hs6.length) {
+    const codes = [...new Set(D.hs6.map(r => r.code))];
+    const rows = codes.map(code => {
+      const by = y => D.hs6.find(r => r.code === code && r.year === y) || { weight_t: null, value_usd: null };
+      const a = by(2023), b = by(2024), c = by(2025);
+      return `<tr><td><b>${code}</b></td><td>${esc(D.hs6.find(r => r.code === code).name)}</td><td class="n">${a.weight_t != null ? fInt(a.weight_t) : '—'}</td><td class="n">${b.weight_t != null ? fInt(b.weight_t) : '—'}</td><td class="n">${c.weight_t != null ? fInt(c.weight_t) : '—'}</td><td class="n">${b.value_usd ? f1(b.value_usd / 1e6) : '—'}</td></tr>`;
+    }).join('');
+    $('tblHs6').innerHTML = `<table class="m"><thead><tr><th>Код HS</th><th>Наименование</th><th class="n">2023, тыс. т</th><th class="n">2024, тыс. т</th><th class="n">2025, тыс. т</th><th class="n">2024, млн $</th></tr></thead><tbody>${rows}</tbody></table>`;
+  } else {
+    $('tblHs6').innerHTML = '<div class="empty">Данные HS 350610 / 350691 / 350699 собираются</div>';
+  }
+
+  $('importNotes').innerHTML = [
+    '<b>HS 3506 шире клеёв-расплавов:</b> позиция включает клеи на основе каучуков, полимеров и прочих веществ. Это внешнеторговый контекст, а не объём рынка.',
+    '<b>После 2021 года РФ не подаёт детальную отчётность</b>; используются зеркальные данные стран-партнёров.',
+    '<b>Строки без веса исключены из весовых итогов</b>; стоимость сохраняется отдельно.',
+    '<b>Экспортный поток 2017–2021 по РФ — оценка ООН,</b> после 2021 — зеркало.',
+    '<b>Сальдо:</b> пока ввоз многократно превышает вывоз — рынок обеспечивается поставками.',
+    '<b>Это контекст поставок, а не расчётная нормативная база:</b> доля расплавов внутри HS 3506 не считается из этого ряда.'
+  ].map(t => `<li>${t}</li>`).join('');
+
+  $('tblRu').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">Вес, т</th><th class="n">Стоимость, $</th></tr></thead><tbody>${D.ruReporter.map(r => `<tr><td>${r.year}</td><td class="n">${fInt(r.weight_t)}</td><td class="n">${fInt(r.value_usd)}</td></tr>`).join('')}</tbody></table>`;
 }
 
-/* ===== потребление ЭВА ===== */
-function renderEva() {
+/* ================= игроки ================= */
+function renderPlayers() {
+  $('playerCards').innerHTML = [
+    card('Российские производители', 'Профильные: Эрготек (Пермь, ЭРГОМЕЛТ/ЭРГОТАК/ЭРГОСПРЕЙ), alfaklei, Нова-М, Cluex, lux-x. Масштаб — по открытой отчётности.'),
+    card('Международный контекст', 'Henkel (Technomelt) и Jowat исторически задавали уровень технологии; их текущая позиция в России требует проверки.'),
+    card('Перспективные позиции', 'Полиуретановые и пол­иэфирные расплавы для отдельных отраслей; адресаты согласуются в полном исследовании.')
+  ].join('');
+
+  const tg = new Tbl('gluePlayers', $('tblGluePlayers'), [
+    { k: 'name', t: 'Компания', type: 'str' },
+    { k: 'city', t: 'Город', type: 'str' },
+    { k: 'chem', t: 'Базы', type: 'str' },
+    { k: 'revenue', t: 'Выручка', type: 'rub' },
+    { k: 'revenue_year', t: 'Год', type: 'str' },
+    { k: 'url', t: 'Источник', type: 'str' },
+    { k: 'note', t: 'Примечание', type: 'str' }
+  ], { sort: { k: 'revenue', dir: -1 }, size: 15, file: 'proizvoditeli_kleev_2024', sheet: 'Производители клеёв' });
+  tg.setData(D.gluePlayers);
+
+  const ts = new Tbl('suppliers', $('tblSuppliers'), [
+    { k: 'name', t: 'Компания', type: 'str' },
+    { k: 'brand', t: 'Бренд', type: 'str' },
+    { k: 'origin', t: 'Происхождение', type: 'str', sel: true },
+    { k: 'line', t: 'Линейка для матрасов', type: 'str' },
+    { k: 'chem', t: 'Химия', type: 'str' },
+    { k: 'verified', t: 'Проверено', type: 'str', sel: true }
+  ], { sort: { k: 'name', dir: 1 }, size: 10, file: 'postavshchiki_kleev', sheet: 'Поставщики клеёв' });
+  ts.setData(D.suppliers);
+}
+
+/* ================= отрасли ================= */
+function fmtInd(r) {
+  if (r.value != null) return Math.abs(r.value) >= 1000 ? fInt(r.value) : f2(r.value);
+  return r.value_str || 'нет данных';
+}
+function renderIndustries() {
+  const rows = D.industries;
+  const main = rows.filter(r => r.status && r.status.indexOf('нет данных') < 0 && r.value != null);
+  const gaps = rows.filter(r => !r.value || (r.status || '').indexOf('нет данных') >= 0);
+  const nMain = new Set(main.map(r => r.n)).size;
+  $('kpisIndustries').innerHTML = [
+    kpi('Отраслей по ТЗ', '13', 'как в ТЗ-2, плюс справочно мебель', ''),
+    kpi('Закрыто данными · 2024', String(nMain), 'показателей (строк) с цифрой', 'teal'),
+    kpi('Нет открытых данных', String(gaps.length), 'позиций-показателей', 'red'),
+    kpi('Статус данных', 'факт / оценка', 'каждая строка помечена', 'gold')
+  ].join('');
+
+  const t3 = new Tbl('industries', $('tblIndustries'), [
+    { k: 'n', t: '№ стр.', type: 'str' },
+    { k: 'industry', t: 'Отрасль', type: 'str', sel: true },
+    { k: 'indicator', t: 'Показатель', type: 'str' },
+    { k: 'valueStr', t: '2024', type: 'str' },
+    { k: 'unit', t: 'Ед. изм.', type: 'str' },
+    { k: 'status', t: 'Статус', type: 'str', sel: true },
+    { k: 'source', t: 'Источник', type: 'str' }
+  ], { sort: { k: 'n', dir: 1 }, size: 25, file: 'otrasli_potrebiteli_2024', sheet: 'Отрасли 2024' });
+  t3.setData(rows.map(r => ({
+    ...r,
+    valueStr: fmtInd(r) + (r.unit && r.value != null ? ' ' + r.unit : '')
+  })));
+
+  $('industryGaps').innerHTML = [
+    'Плинтус — обособленный выпуск (шт/м/м³).',
+    'ПВХ/декоративные стеновые панели — м².',
+    'Кабельная продукция — единой суммарной цифры нет (только сегменты).',
+    'Handmade/сувениры — отрасли нет в статистике.',
+    'Фильтры (кроме ДВС) — натуральный выпуск.',
+    'Полиграфия — условные печатные листы.',
+    'Корпусная мебель изолированно от всей отрасли (₽/шт).',
+    'Упаковка — официального натурального показателя нет, только отраслевые оценки.'
+  ].map(t => `<li>${t}</li>`).join('');
+
+  $('chemMatrix').innerHTML = chemMatrixHTML();
+}
+
+function chemMatrixHTML() {
+  const rows = [
+    { base: 'ЭВА', list: ['Матрасы (сборка слоёв)', 'Напитки и продукты питания', 'Гибкая упаковка', 'Полиграфия', 'Handmade/сувениры', 'Корпусная мебель'] },
+    { base: 'АПАО', list: ['Матрасы (беспружинные)', 'Самоклеящиеся материалы', 'Автокомпоненты'] },
+    { base: 'полиэфиры', list: ['Стеновые панели/двери (кромка)', 'Кабельная продукция', 'Автокомпоненты'] },
+    { base: 'полиамиды', list: ['Подгузники и пелёнки (кромка)', 'Автокомпоненты (резиновая деталь)', 'Фильтры'] },
+    { base: 'полиуретаны', list: ['Подгузники и пелёнки', 'Матрасы (склейка слоёв)', 'Гибкая упаковка (обмотка)', 'Стеновые панели (кромка)'] }
+  ];
+  let html = '<table class="m"><thead><tr><th>База</th><th>Где потребляется (по открытой ассортиментной информации)</th></tr></thead><tbody>';
+  rows.forEach(r => {
+    html += `<tr><td><b>${esc(r.base)}</b></td><td>${r.list.map(x => esc(x)).join(' · ')}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+/* ================= модель потребления ================= */
+function renderModel() {
   const row = D.demand.find(r => r.year === S.year && r.case === S.scenario);
   $('kpisEva').innerHTML = [
     kpi('Выпуск матрасов', fMlnPcs(row.prod), S.year <= 2025 ? 'факт / оценка' : 'сценарий', ''),
@@ -1030,105 +1168,35 @@ function renderMatrix() {
   $('matrix').innerHTML = html;
 }
 
-/* ===== импорт ===== */
-function renderImport() {
-  const i24 = D.importsYear.find(r => r.year === 2024);
-  const i25 = D.importsYear.find(r => r.year === 2025);
-  const top3 = D.importsTop.slice(0, 3).reduce((a, b) => a + b.share, 0);
-  $('kpisImport').innerHTML = [
-    kpi('Импорт · 2024', f1(i24.weight_t / 1000) + ' тыс. т', `${i24.countries} стран с весом`, ''),
-    kpi('Стоимость · 2024', fUsdMln(i24.value_usd), 'по сопоставимым строкам', 'gold'),
-    kpi('Средняя цена · 2024', fPrice(i24.price), 'вся позиция HS 3506', ''),
-    kpi('Топ-3 страны', f1(top3) + ' %', 'Китай, Германия, Турция', 'teal'),
-    kpi('Импорт · 2025', f1(i25.weight_t / 1000) + ' тыс. т', `${i25.countries} стран; данные неполные`, 'red')
-  ].join('');
-
-  barChart($('chImport'), D.importsYear.map(r => ({ l: String(r.year), v: r.weight_t / 1000, color: C.navy })), {
-    fmt: v => f1(v), height: 290, labels: true
-  });
-  lineChart($('chPrice'), [{ name: 'Средняя цена', color: C.gold, points: D.importsYear.map(r => [r.year, r.price]), width: 3 }], {
-    years: META.history, fmt: v => f2(v), unit: ' $/кг', height: 290
-  });
-
-  const t = new Tbl('importTop', $('tblTop'), [
-    { k: 'rank', t: '№', type: 'int' },
-    { k: 'country', t: 'Страна', type: 'str' },
-    { k: 'weight_t', t: 'Вес, т', type: 'int', total: 'sum' },
-    { k: 'value_usd', t: 'Стоимость, $', type: 'money', total: 'sum' },
-    { k: 'price', t: 'Цена, $/кг', type: 'num2' },
-    { k: 'share', t: 'Доля, %', type: 'pct' }
-  ], { sort: { k: 'weight_t', dir: -1 }, size: 25, file: 'import_3506_2024', sheet: 'Страны 2024' });
-  t.setData(D.importsTop);
-
-  $('tblRu').innerHTML = `<table class="m"><thead><tr><th>Год</th><th class="n">Вес, т</th><th class="n">Стоимость, $</th></tr></thead><tbody>${D.ruReporter.map(r => `<tr><td>${r.year}</td><td class="n">${fInt(r.weight_t)}</td><td class="n">${fInt(r.value_usd)}</td></tr>`).join('')}</tbody></table>`;
-
-  $('importNotes').innerHTML = [
-    '<b>HS 3506 шире клеёв-расплавов:</b> позиция включает клеи на основе каучуков, полимеров и прочих веществ.',
-    '<b>После 2021 года РФ не подаёт детальную отчётность</b>; используются зеркальные данные стран-экспортёров.',
-    '<b>Значения 2017–2021 по РФ — восстановленная оценка ООН</b>, а не декларация.',
-    '<b>Строки без веса исключены из весовых итогов</b>; стоимость сохранена отдельно.',
-    '<b>Средняя цена — по сопоставимым строкам</b>, где указаны и вес, и стоимость.'
-  ].map(t => `<li>${t}</li>`).join('');
-}
-
-/* ===== поставщики и производители ===== */
-function renderPlayers() {
-  $('supplierCards').innerHTML = [
-    card('Эрготек', 'Закрывает оба контура: клей для пружинных блоков и для сборки слоёв. В демо-срезе — точка отсчёта для сравнения.'),
-    card('Международные поставщики', 'Henkel (Technomelt) и Jowat представляют международный ассортиментный и технологический контекст.'),
-    card('Локальная конкуренция', 'alfaklei, Нова-М, Cluex и lux-x предлагают продукты для матрасов; статус проверки указан в таблице.')
-  ].join('');
-
-  const ts = new Tbl('suppliers', $('tblSuppliers'), [
-    { k: 'name', t: 'Компания', type: 'str' },
-    { k: 'brand', t: 'Бренд', type: 'str' },
-    { k: 'origin', t: 'Происхождение', type: 'str', sel: true },
-    { k: 'line', t: 'Линейка для матрасов', type: 'str' },
-    { k: 'chem', t: 'Химия', type: 'str' },
-    { k: 'verified', t: 'Проверено', type: 'str', sel: true }
-  ], { sort: { k: 'name', dir: 1 }, size: 10, file: 'postavshchiki_kleev', sheet: 'Поставщики клеёв' });
-  ts.setData(D.suppliers);
-
-  const tp = new Tbl('players', $('tblPlayers'), [
-    { k: 'company', t: 'Компания', type: 'str' },
-    { k: 'brand', t: 'Бренд', type: 'str' },
-    { k: 'region', t: 'Регион', type: 'str' },
-    { k: 'revenue', t: 'Выручка', type: 'rub' },
-    { k: 'revenue_year', t: 'Год', type: 'str' },
-    { k: 'source', t: 'Источник', type: 'str' },
-    { k: 'note', t: 'Примечание', type: 'str' }
-  ], { sort: { k: 'revenue', dir: -1 }, size: 25, file: 'proizvoditeli_matrasov', sheet: 'Производители матрасов' });
-  tp.setData(D.players);
-}
-
-/* ===== паспорт ===== */
+/* ================= паспорт ================= */
 function renderPassport() {
   $('statusLegend').innerHTML = [
-    `<div class="card"><span class="pill fact">Факт</span><h4 style="margin-top:8px">Публикация источника</h4><p>Декларация или опубликованное значение. Пример: выпуск 2024, импорт 2024.</p></div>`,
-    `<div class="card"><span class="pill calc">Расчёт</span><h4 style="margin-top:8px">Производная величина</h4><p>Получена из фактов по прозрачной логике. Пример: выпуск 2023, доля ЦФО.</p></div>`,
-    `<div class="card"><span class="pill est">Оценка</span><h4 style="margin-top:8px">Единичное значение</h4><p>Экспертная или восстановленная оценка с ограниченной базой. Пример: выпуск 2025.</p></div>`,
+    `<div class="card"><span class="pill fact">Факт</span><h4 style="margin-top:8px">Публикация источника</h4><p>Декларация или опубликованное значение. Пример: импорт 2024, выпуск отраслей.</p></div>`,
+    `<div class="card"><span class="pill calc">Расчёт</span><h4 style="margin-top:8px">Производная величина</h4><p>Получена из фактов по прозрачной логике. Пример: сальдо, доля ЦФО.</p></div>`,
+    `<div class="card"><span class="pill est">Оценка</span><h4 style="margin-top:8px">Единичное значение</h4><p>Экспертная или восстановленная оценка с ограниченной базой. Пример: экспорт 2024 (зеркало).</p></div>`,
     `<div class="card"><span class="pill scen">Сценарий</span><h4 style="margin-top:8px">Условная траектория</h4><p>Расчёт при заданных допущениях. Пример: потребление ЭВА, 2026–2028.</p></div>`
   ].join('');
 
   const sources = [
+    ['Внешнеторговые потоки', 'UN Comtrade, HS 3506 (зеркальные данные стран-партнёров), шестизначные коды 350610/350691/350699', '2017–2025', 'факт (зеркало)'],
     ['Выпуск матрасов', 'Росстат / АМДПР; Alto Consulting Group; BusinesStat', '2017–2025', 'факт / расчёт / оценка'],
-    ['Таможенная статистика', 'UN Comtrade, HS 3506 (зеркальные данные)', '2017–2025', 'факт (зеркало)'],
-    ['Цены производителей', 'Alto Consulting Group', '2019–2024', 'факт'],
-    ['Производители клеёв', 'Открытые сайты и отраслевые публикации', '2026', 'факт (перечень)'],
-    ['Производители матрасов', 'Отраслевые публикации и рейтинги, открытая отчётность', '2018–2025', 'оценка / н/д'],
-    ['Нормы расхода', 'Открытые технические публикации, расчётные оценки', '2026', 'ориентир']
+    ['Отрасли-потребители', 'Росстат, BusinesStat, Alto Consulting Group, отраслевые союзы и издания', '2024 (+2023)', 'факт / оценка / нет данных'],
+    ['Игроки рынка', 'Открытая отчётность (Checko/ФНС), сайты производителей', 'последний отч. год', 'факт'],
+    ['Нормы расхода', 'Открытые технические публикации, расчётные оценки', '2026', 'ориентир'],
+    ['Цены производителей', 'Alto Consulting Group', '2019–2024', 'факт']
   ];
   $('tblSources').innerHTML = `<table class="m"><thead><tr><th>Блок</th><th>Источник</th><th>Период</th><th>Тип данных</th></tr></thead><tbody>${sources.map(s => `<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td>${esc(s[2])}</td><td>${esc(s[3])}</td></tr>`).join('')}</tbody></table>`;
 
   $('limits').innerHTML = [
-    '<b>Доли клеёв-расплавов и ЭВА</b> в матрасном производстве не публикуются — это главный источник неопределённости.',
-    '<b>Средняя норма расхода</b> — отраслевой ориентир; она не дифференцирована по типам матрасов и контурам.',
-    '<b>Выпуск 2025 года — оценка</b>; периметры «матрасы» и «матрасы + основы» различаются.',
-    '<b>Темпы пересчитаны внутри выбранного ряда</b> и могут отличаться от публикаций на десятые доли пункта.',
-    '<b>РФ не подаёт детальную таможенную отчётность после 2021 года</b>; зеркальные данные неполны.',
-    '<b>HS 3506 шире клеёв-расплавов</b> и не позволяет выделить ЭВА напрямую.',
-    '<b>Потребление по компаниям не оценивается</b>: нет сопоставимых данных по выпуску и закупкам.',
-    '<b>Стоимость сегмента ЭВА не рассчитывается</b> по средней цене HS 3506: другой периметр и уровень цены.'
+    '<b>Доли пяти баз</b> (ЭВА, АПАО, полиэфиры, полиамиды, полиуретаны) не публикуются — это сценарные допущения до подтверждения заказчиком.',
+    '<b>HS 3506 шире клеёв-расплавов</b>; шестизначные коды не разделяют базы напрямую.',
+    '<b>Экспортный поток</b> 2017–2021 — оценка ООН, после 2021 — зеркало; полнота различается по странам.',
+    '<b>Часть 13 отраслей — «нет открытых данных».</b> Полное исследование закрывает их собственными источниками.',
+    '<b>Выручки игроков</b> — последний доступный отчётный год (2025); приведение к 2024 требует сверки.',
+    '<b>Периоды унифицированы:</b> динамика 2017–2025 — контекст, расчёты — 2024–2025.',
+    '<b>Потребление по компаниям не оценивается:</b> нет сопоставимых данных по выпуску и закупкам.',
+    '<b>Стоимость сегмента не пересчитывается</b> по средней цене HS 3506: другой периметр и уровень цены.',
+    '<b>2026 год:</b> где есть цифры — оценка, где нет цифр — прогноз; формулировка отражает оба случая.'
   ].map(t => `<li>${t}</li>`).join('');
 
   const glossary = [
@@ -1136,59 +1204,70 @@ function renderPassport() {
     ['ЭВА', 'Этиленвинилацетат — базовый полимер для массовых клеёв-расплавов.'],
     ['АПАО', 'Аморфный полиальфаолефин — полимерная основа клеёв-расплавов, альтернативная ЭВА.'],
     ['HS 3506 / ТН ВЭД 3506', 'Товарная позиция «клеи на основе каучуков и полимеров»; шире клеёв-расплавов.'],
-    ['Матрасные основы', 'Основания и пружинные блоки как отдельная товарная группа; в основной ряд не входят.'],
+    ['HS 350610 / 350691 / 350699', 'Шестизначные коды внутри 3506: «в розничной упаковке до 1 кг», «прочие, содержащие полимеры», «прочие».'],
+    ['Зеркальный метод', 'Восстановление потока по данным стран-партнёров, когда прямая отчётность недоступна.'],
+    ['Баланс рынка', 'Производство + импорт − экспорт — базовый расчёт объёма потребления на территории РФ.'],
+    ['Ёмкость / насыщенность', 'Предложенная методика: потенциальный объём потребления на горизонте 2029 и текущий уровень 2024 в % от него.'],
     ['Сценарная оценка', 'Расчёт при явно заданных допущениях; не является статистикой продаж.']
   ];
   $('glossary').innerHTML = `<table class="m"><thead><tr><th>Термин</th><th>Определение</th></tr></thead><tbody>${glossary.map(g => `<tr><td><b>${esc(g[0])}</b></td><td>${esc(g[1])}</td></tr>`).join('')}</tbody></table>`;
 }
 
-/* ===== выводы ===== */
+/* ================= выводы ================= */
 function renderConclusions() {
-  $('conclusionsList').innerHTML = [
-    '<b>Выпуск матрасов рос с 3,31 млн шт в 2017 до 14,08 млн в 2024</b> (+23,0 % в среднем за год), затем резко упал до 8,0 млн в 2025 (−44 % по публикации BusinesStat).',
-    '<b>При базовом сценарии потребность в ЭВА — 4,22 тыс. т в 2024 и 2,40 тыс. т в 2025</b>; диапазон — 0,73–11,35 и 0,41–6,45 тыс. т.',
-    '<b>Главный драйвер неопределённости — структура клеёв:</b> при норме 1 кг/шт результат меняется с 1,69 до 7,88 тыс. т только за счёт двух долей.',
-    '<b>Импорт HS 3506 — 111,2 тыс. т в 2024</b>; 82,3 % приходится на Китай, Германию и Турцию. Это контекст, а не объём матрасного ЭВА.',
-    '<b>Спад 2025 года сконцентрирован в пружинном сегменте</b>; это меняет структуру потребления клея и требует отдельных норм по контурам.',
-    '<b>Для превращения сценария в рабочую оценку нужны три подтверждения:</b> норма расхода, доля расплавов, доля ЭВА.'
-  ].map(t => `<li>${t}</li>`).join('');
+  let conclusions = [
+    '<b>Рынок обеспечивается поставками:</b> ввоз по HS 3506 вырос с 47,3 тыс. т в 2017 до 111,2 тыс. т в 2024 (+135 %); вывоз по РФ существенно меньше ввоза.',
+    '<b>Структура импорта сконцентрирована:</b> топ-3 страны — 82,3 % веса 2024 года, Китай занимает ~ половину потока и держит самый низкий ценовой уровень.',
+    '<b>Экспортный поток по РФ в открытой статистике оборвался в 2021 году</b> — оценку 2022–2025 восстанавливают зеркальным методом; это измеримая работа, а не «просто цифра».',
+    '<b>13 отраслей закрыты на разную глубину:</b> публикациям по матрасам, фанере, керамике и фильтрам — отдельные выпуски; по части отраслей открытых данных нет — это план поиска полного исследования.',
+    '<b>Модель потребления чувствительна к структуре баз:</b> при одинаковой норме расхода результат меняется в разы только за счёт долей расплавов и ЭВА.',
+    '<b>Баз у рынка — пять:</b> ответ заказчика о собственных структурах и нормах расхода снимает основную неопределённость.'
+  ];
+  if (D.exportsYear.length) {
+    const ex24 = D.exportsYear.find(r => r.year === 2024);
+    conclusions = conclusions.map((t, i) => i === 0
+      ? `<b>Рынок обеспечивается поставками:</b> импорт HS 3506 2024 года — 111,2 тыс. т; экспорт из РФ — ${f1(ex24.weight_t / 1000)} тыс. т (зеркало), кратно меньше ввоза.`
+      : t);
+  }
+  $('conclusionsList').innerHTML = conclusions.map(t => `<li>${t}</li>`).join('');
 
   $('recommendations').innerHTML = [
-    'Сфокусироваться на пружинном контуре: он формирует около 84 % выпуска 2024 года и имеет отдельный клеевой контур.',
-    'Проверить гипотезу о доле ЭВА против PO/APAO на ассортименте заказчика — это сильнее всего влияет на оценку.',
-    'Использовать диапазон, а не одно число, в коммерческих материалах: базовый сценарий — для планирования, крайние — для стресс-теста.',
-    'Развивать направление клеёв для сборки слоёв: оно менее зависит от пружинного блока и ближе к беспружинному сегменту.',
-    'Для полного исследования приоритизировать отрасли с публикуемой статистикой выпуска — там оценка будет точнее.'
+    'Сфокусировать полный расчёт на отраслях с публикуемым выпуском (матрасы, фанера, керамика, фильтры) — там точность выше, чем в периметрах «₽».',
+    'Согласовать с заказчиком собственные допущения по структуре баз и нормам расхода — это заменяет сценарные по одной отрасли на расчёт по всем 13.',
+    'Оценить конкурентный ценовой коридор против китайских поставок: средняя цена китайского сегмента заметно ниже рыночной.',
+    'Проверить принадлежность крупных российских производителей к серийным клеям-расплавам — перед формированием ТОП-10.',
+    'Экспортный поток восстановить зеркальным методом по 30–40 странам-партнёрам, а не ограничивать ООН-строками.',
+    'Согласовать предложенную методику ёмкости и насыщенности до старта полного исследования.'
   ].map(t => `<li>${esc(t)}</li>`).join('');
 
   $('fullResearch').innerHTML = [
-    card('13 отраслей × 5 химий', 'Единая рамка спроса: матрасы, подгузники, упаковка, мебель, автокомпоненты и другие сегменты.'),
-    card('Карта игроков и цен', 'Производители и потребители, ассортимент, география, сопоставимые ценовые коридоры по химиям.'),
-    card('Приоритизация для продаж', 'Отрасли и компании с наибольшим потенциалом; контактная база — отдельный блок по согласованию.')
+    card('Баланс 2024–2026', 'Объём рынка в натуральном и стоимостном выражении, оценка 2026 (где есть цифры — оценка, где нет — прогноз), график 2027–2029.'),
+    card('13 отраслей × 5 баз', 'Потребление по отраслям и базам, где нет публичных данных — закрывается источниками полного исследования.'),
+    card('ТОП-10 / ТОП-20 профили', 'Компании: местоположение, контакты из открытых источников, ассортимент и области применения.')
   ].join('');
 }
 
 /* ===== запуск ===== */
 $('built').textContent = META.built;
 
-(function initEvaControls() {
+(function initModelControls() {
   const sel = $('evaYear');
   sel.innerHTML = META.years.map(y => `<option value="${y}"${y === S.year ? ' selected' : ''}>${y}</option>`).join('');
-  sel.addEventListener('change', e => { S.year = +e.target.value; renderEva(); });
+  sel.addEventListener('change', e => { S.year = +e.target.value; renderModel(); });
   document.querySelectorAll('#scenarioSeg button').forEach(b => {
     b.addEventListener('click', () => {
       S.scenario = b.dataset.s;
       document.querySelectorAll('#scenarioSeg button').forEach(x => x.classList.toggle('on', x === b));
-      renderEva();
+      renderModel();
     });
   });
 })();
 
 renderOverview();
-renderProduction();
-renderEva();
-renderImport();
+renderTrade();
 renderPlayers();
+renderIndustries();
+renderModel();
 renderPassport();
 renderConclusions();
 
@@ -1209,6 +1288,8 @@ renderConclusions();
     while (el) {
       var t = el.tagName;
       if (t === 'SCRIPT' || t === 'STYLE' || t === 'NOSCRIPT') return true;
+      // pub-allow: элементы с разрешёнными контрольными цифрами ВТП — не маскируются
+      if (el.classList && el.classList.contains && el.classList.contains('pub-allow')) return true;
       el = el.parentElement;
     }
     return false;
